@@ -5,7 +5,7 @@ package epminer_server;
 
 public class App {
   
-
+    // test da ssh linux
     public static void main(String[] args) {
         Data trainingSet = new Data();
         System.out.println(trainingSet);
