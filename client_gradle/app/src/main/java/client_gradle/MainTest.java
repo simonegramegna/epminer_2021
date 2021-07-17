@@ -10,6 +10,7 @@ import java.net.Socket;
 import java.sql.SQLException;
 
 import keyboardinput.Keyboard;
+import java.util.Scanner;
 
 
 public class MainTest {
@@ -27,21 +28,25 @@ public class MainTest {
 		
 		ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
 		ObjectInputStream in = new ObjectInputStream(socket.getInputStream());	; // stream con richieste del client
+
+        Scanner sin = new Scanner(System.in);
 		
 		
 		char risp='s';
 		do{
 			System.out.println("Scegli una opzione:");
 			int opzione;
+
 			do{
 				
 				System.out.println("1:Nuova scoperta");
 				System.out.println("2: Risultati in archivio");
-				opzione=Keyboard.readInt();
+                opzione = sin.nextInt();
+				
 
 			}while(opzione!=1 && opzione!=2);
 			
-			float minsup=0f;float minGr=0f;
+			/*float minsup=0f;float minGr=0f;
 			do{
 				System.out.println("Inserire valore minimo supporto (minsup>0 e minsup<=1):");
 				minsup=Keyboard.readFloat();
@@ -72,7 +77,7 @@ public class MainTest {
 			catch(IOException | ClassNotFoundException e){e.printStackTrace();}
 			
 			System.out.println("Vuoi ripetere?(s/n)");
-			risp=Keyboard.readChar();
+			risp=Keyboard.readChar();*/
 			
 		}while(risp!='n');
 		
