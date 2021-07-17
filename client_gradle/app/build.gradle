@@ -30,3 +30,8 @@ application {
     // Define the main class for the application.
     mainClass = 'client_gradle.MainTest'
 }
+
+run {
+    standardInput = System.in
+}
+
