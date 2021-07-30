@@ -1,4 +1,0 @@
-client_gradle/keyboardinput/Keyboard.java
- keyboardinput.Keyboard
-client_gradle/MainTest.java
- client_gradle.MainTest
