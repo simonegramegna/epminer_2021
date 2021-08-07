@@ -14,7 +14,7 @@ import java.sql.SQLException;
  */
 public class DbAccess {
 
-    private final String DRIVER_CLASS_NAME = "mysql.mysql-connector-java";
+    private final String DRIVER_CLASS_NAME = "com.mysql.jdbc.Driver";
     private final String DBMS = "jdbc:mysql";
     private final String SERVER = "localhost";
     private final int PORT = 3306;
