@@ -14,12 +14,12 @@ import java.sql.SQLException;
  */
 public class DbAccess {
 
-    private final String DRIVER_CLASS_NAME = "com.mysql.jdbc.Driver";
+    private final String DRIVER_CLASS_NAME = "com.mysql.cj.jdbc.Driver";
     private final String DBMS = "jdbc:mysql";
     private final String SERVER = "localhost";
     private final int PORT = 3306;
     private final String DATABASE = "map";
-    private final String USER_ID = "user";
+    private final String USER_ID = "root";
     private final String PASSWORD = "user";
 
     private Connection conn;

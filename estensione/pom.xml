@@ -12,7 +12,6 @@
     <build>
         <plugins>
             <plugin>
-
                 <!-- Building an executable jar -->
 
                 <groupId>org.apache.maven.plugins</groupId>
@@ -23,7 +22,7 @@
                         <manifest>
 
                             <!-- give full qualified name of your main class-->
-                            <mainClass>App</mainClass>
+                            <mainClass>mapgui.Mainwin</mainClass>
 
                         </manifest>
                     </archive>
@@ -31,4 +30,6 @@
             </plugin>
         </plugins>
     </build>
+
+
 </project>

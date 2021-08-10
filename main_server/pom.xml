@@ -29,14 +29,18 @@
                     </archive>
                 </configuration>
             </plugin>
+
+
         </plugins>
     </build>
 
     <dependencies>
         <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
+            <groupId>main_server</groupId>
+            <artifactId>main_sever</artifactId>
+            <scope>system</scope>
             <version>8.0.17</version>
+            <systemPath>D:\UTENTE SSD\Desktop\epminer_2021\main_server\src\lib\mysql-connector-java-8.0.17.jar</systemPath>
         </dependency>
     </dependencies>
 
