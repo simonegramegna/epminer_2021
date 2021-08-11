@@ -11,7 +11,6 @@ import java.awt.Dimension;
  *
  * @author User
  */
-
 public class Mainwin extends javax.swing.JFrame {
 
     /**
@@ -20,9 +19,9 @@ public class Mainwin extends javax.swing.JFrame {
     public Mainwin() {
         initComponents();
 
-        this.setPreferredSize(new Dimension(250, 250));
+        this.setPreferredSize(new Dimension(490, 350));
         this.setResizable(false);
-
+         goBtn.setVisible(false);
     }
 
     /**
@@ -35,81 +34,90 @@ public class Mainwin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        radioChoose1 = new javax.swing.ButtonGroup();
-        pannelloMain = new javax.swing.JPanel();
+        radioBtnGroup = new javax.swing.ButtonGroup();
+        mainPanel = new javax.swing.JPanel();
         mainTitle = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jButton1 = new javax.swing.JButton();
+        label1 = new javax.swing.JLabel();
+        goBtn = new javax.swing.JToggleButton();
+        newDiscover = new javax.swing.JRadioButton();
+        newArchive = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(490, 370));
 
-        mainTitle.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        mainTitle.setForeground(new java.awt.Color(3, 53, 252));
-        mainTitle.setText("Benvenuto in EPMiner!");
+        mainPanel.setPreferredSize(new java.awt.Dimension(490, 350));
+        mainPanel.setRequestFocusEnabled(false);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel1.setText("Inizia subito!");
+        mainTitle.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
+        mainTitle.setForeground(new java.awt.Color(0, 30, 255));
+        mainTitle.setText("    Benvenuto in EPMiner");
 
-        radioChoose1.add(jRadioButton1);
-        jRadioButton1.setText("Nuova scoperta");
-        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+        label1.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        label1.setText("   Inizia subito!");
+
+        goBtn.setText("VAI");
+        goBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
+                goBtnActionPerformed(evt);
             }
         });
 
-        radioChoose1.add(jRadioButton2);
-        jRadioButton2.setText("Risultati in archivio");
-        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+        radioBtnGroup.add(newDiscover);
+        newDiscover.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        newDiscover.setText("Nuova scoperta");
+        newDiscover.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton2ActionPerformed(evt);
+                newDiscoverActionPerformed(evt);
             }
         });
 
-        jButton1.setText("VAI!");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        radioBtnGroup.add(newArchive);
+        newArchive.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        newArchive.setText("Risultati in archivio");
+        newArchive.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                newArchiveActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout pannelloMainLayout = new javax.swing.GroupLayout(pannelloMain);
-        pannelloMain.setLayout(pannelloMainLayout);
-        pannelloMainLayout.setHorizontalGroup(
-            pannelloMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pannelloMainLayout.createSequentialGroup()
-                .addGroup(pannelloMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pannelloMainLayout.createSequentialGroup()
-                        .addGap(198, 198, 198)
-                        .addGroup(pannelloMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jRadioButton2)))
-                    .addGroup(pannelloMainLayout.createSequentialGroup()
-                        .addGap(201, 201, 201)
-                        .addGroup(pannelloMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jRadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))))
+        javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
+        mainPanel.setLayout(mainPanelLayout);
+        mainPanelLayout.setHorizontalGroup(
+            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(mainPanelLayout.createSequentialGroup()
+                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(newDiscover, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(mainPanelLayout.createSequentialGroup()
+                            .addGap(182, 182, 182)
+                            .addComponent(goBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(mainPanelLayout.createSequentialGroup()
+                            .addGap(171, 171, 171)
+                            .addComponent(newArchive))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pannelloMainLayout.createSequentialGroup()
-                .addGap(0, 46, Short.MAX_VALUE)
-                .addComponent(mainTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 451, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
+                .addGap(0, 44, Short.MAX_VALUE)
+                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
+                        .addComponent(mainTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 428, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
+                        .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(151, 151, 151))))
         );
-        pannelloMainLayout.setVerticalGroup(
-            pannelloMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pannelloMainLayout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addComponent(mainTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+        mainPanelLayout.setVerticalGroup(
+            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(mainPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(mainTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(newDiscover)
                 .addGap(18, 18, 18)
-                .addComponent(jRadioButton1)
-                .addGap(18, 18, 18)
-                .addComponent(jRadioButton2)
-                .addGap(32, 32, 32)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(newArchive)
+                .addGap(29, 29, 29)
+                .addComponent(goBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(61, Short.MAX_VALUE))
         );
 
@@ -117,37 +125,32 @@ public class Mainwin extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(pannelloMain, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 492, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pannelloMain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jRadioButton1ActionPerformed
-        System.out.println("scelta 1");
-    }// GEN-LAST:event_jRadioButton1ActionPerformed
+    private void goBtnActionPerformed(java.awt.event.ActionEvent evt) {
+        
+        mainPanel.setVisible(false);
+        Win2 w2 = new Win2();
+        this.setContentPane(w2);
+       
+       
+    }// GEN-LAST:event_goBtnActionPerformed
 
-    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jRadioButton2ActionPerformed
-        System.out.println("scelta 2");
-    }// GEN-LAST:event_jRadioButton2ActionPerformed
+    private void newDiscoverActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_newDiscoverActionPerformed
+        goBtn.setVisible(true);
+    }// GEN-LAST:event_newDiscoverActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton1ActionPerformed
-
-        pannelloMain.setVisible(false);
-        MapMenu2 m1 = new MapMenu2();
-
-        this.setContentPane(m1);
-
-        // m1.setVisible(true);
-
-    }// GEN-LAST:event_jButton1ActionPerformed
+    private void newArchiveActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_newArchiveActionPerformed
+        goBtn.setVisible(true);
+    }// GEN-LAST:event_newArchiveActionPerformed
 
     /**
      * @param args the command line arguments
@@ -187,16 +190,13 @@ public class Mainwin extends javax.swing.JFrame {
         });
     }
 
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
+    private javax.swing.JToggleButton goBtn;
+    private javax.swing.JLabel label1;
+    private javax.swing.JPanel mainPanel;
     private javax.swing.JLabel mainTitle;
-    private javax.swing.JPanel pannelloMain;
-    private javax.swing.ButtonGroup radioChoose1;
+    private javax.swing.JRadioButton newArchive;
+    private javax.swing.JRadioButton newDiscover;
+    private javax.swing.ButtonGroup radioBtnGroup;
     // End of variables declaration//GEN-END:variables
-
-    
 }
