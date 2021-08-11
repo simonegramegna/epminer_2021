@@ -159,10 +159,11 @@ public class Win2 extends javax.swing.JPanel {
                         .addGap(45, 45, 45)));
     }// </editor-fold>//GEN-END:initComponents
 
-    private String getInfoTableMessage(){
-        return "Le tabelle presenti sono: \n" + java.util.Arrays.toString(availableTables).replace("]", "").replace("[", "");
+    private String getInfoTableMessage() {
+        return "Le tabelle presenti sono: \n"
+                + java.util.Arrays.toString(availableTables).replace("]", "").replace("[", "");
     }
-    
+
     private void inputGrowRateActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_inputGrowRateActionPerformed
         // TODO add your handling code here:
     }// GEN-LAST:event_inputGrowRateActionPerformed
@@ -211,54 +212,49 @@ public class Win2 extends javax.swing.JPanel {
                 }
             }
         }
-        
-        if(targetTable.equals("")){
-             JOptionPane.showMessageDialog(null, "Inserire per la tabella target", "Errore",
-                            JOptionPane.ERROR_MESSAGE);
-             
-             targetInput.setText("");
-        }else{
-            
-            if(Utils.checkStringArray(availableTables, targetTable)){
-                
+
+        if (targetTable.equals("")) {
+            JOptionPane.showMessageDialog(null, "Inserire per la tabella target", "Errore", JOptionPane.ERROR_MESSAGE);
+
+            targetInput.setText("");
+        } else {
+
+            if (Utils.checkStringArray(availableTables, targetTable)) {
+
                 sentTargetTable = targetTable;
-            }else{
-              JOptionPane.showMessageDialog(null, "La tabella inserita non e' presente tra le tabelle", "Errore",
-                            JOptionPane.ERROR_MESSAGE); 
-              targetInput.setText("");
+            } else {
+                JOptionPane.showMessageDialog(null, "La tabella inserita non e' presente tra le tabelle", "Errore",
+                        JOptionPane.ERROR_MESSAGE);
+                targetInput.setText("");
             }
         }
-        
-        if(backgroundTable.equals("")){
-             JOptionPane.showMessageDialog(null, "Inserire per la tabella target", "Errore",
-                            JOptionPane.ERROR_MESSAGE);
-             
-             backgroundInput.setText("");
-        }else{
-            
-            if(Utils.checkStringArray(availableTables, backgroundTable)){
-                
+
+        if (backgroundTable.equals("")) {
+            JOptionPane.showMessageDialog(null, "Inserire per la tabella target", "Errore", JOptionPane.ERROR_MESSAGE);
+
+            backgroundInput.setText("");
+        } else {
+
+            if (Utils.checkStringArray(availableTables, backgroundTable)) {
+
                 sentBackgroundTable = backgroundTable;
-            }else{
-              JOptionPane.showMessageDialog(null, "La tabella inserita non e' presente tra le tabelle", "Errore",
-                            JOptionPane.ERROR_MESSAGE); 
-              backgroundInput.setText("");
+            } else {
+                JOptionPane.showMessageDialog(null, "La tabella inserita non e' presente tra le tabelle", "Errore",
+                        JOptionPane.ERROR_MESSAGE);
+                backgroundInput.setText("");
             }
         }
-        
-        if( (sentMinSup > 0 && sentMinSup <= 1) && (sentMinGrow > 0) && Utils.checkStringArray(availableTables, backgroundTable) && Utils.checkStringArray(availableTables, targetTable)){
+
+        if ((sentMinSup > 0 && sentMinSup <= 1) && (sentMinGrow > 0)
+                && Utils.checkStringArray(availableTables, sentBackgroundTable)
+                && Utils.checkStringArray(availableTables, sentTargetTable)) {
             System.out.println("ok");
-        }else{
-               JOptionPane.showMessageDialog(null, "I valori inseriti non sono validi ", "Qualcosa e' andato storto ",
-                            JOptionPane.ERROR_MESSAGE);
-               
-               backgroundInput.setText("");
-               targetInput.setText("");
-               inputGrowRate.setText("");
-               inputMinSup.setText("");
+
+        } else {
+            JOptionPane.showMessageDialog(null, "I valori inseriti non sono validi ", "Qualcosa e' andato storto ",
+                    JOptionPane.ERROR_MESSAGE);
         }
-        
-       
+
     }// GEN-LAST:event_btnInputActionPerformed
 
     private void detailBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_detailBtnActionPerformed
