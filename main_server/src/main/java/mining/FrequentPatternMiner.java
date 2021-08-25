@@ -125,6 +125,10 @@ public class FrequentPatternMiner implements Serializable {
 		return miner;
 
 	}
+	//return miner;
+
+	//}
+
 }
 
 

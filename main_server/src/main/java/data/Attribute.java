@@ -1,5 +1,6 @@
 package data;
 
+import java.io.IOException;
 import java.io.Serializable;
 
 public abstract class Attribute implements Serializable {

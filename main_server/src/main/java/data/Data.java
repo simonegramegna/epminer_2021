@@ -33,7 +33,10 @@ public class Data {
 			
 			DbAccess db= new DbAccess();
 			db.initConnection();
-			
+	
+		
+		
+		
 			TableSchema tSchema;
 			try {
 				tSchema = new TableSchema(tableName, db.getConnection());

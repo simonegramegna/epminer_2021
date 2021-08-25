@@ -1,10 +1,8 @@
 package database;
 
-import java.lang.reflect.InvocationTargetException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-
 
 /**
  * Gestisce l'accesso al DB per la lettura dei dati di training
@@ -18,9 +16,9 @@ public class DbAccess {
     private final String DBMS = "jdbc:mysql";
     private final String SERVER = "localhost";
     private final int PORT = 3306;
-    private final String DATABASE = "map";
-    private final String USER_ID = "root";
-    private final String PASSWORD = "user";
+    private final String DATABASE = "Map";
+    private final String USER_ID = "Student";
+    private final String PASSWORD = "map";
 
     private Connection conn;
 
@@ -31,39 +29,16 @@ public class DbAccess {
         String connectionString = DBMS + "://" + SERVER + ":" + PORT + "/" + DATABASE + "?user=" + USER_ID
                 + "&password=" + PASSWORD + "&serverTimezone=UTC";
 
-        System.out.println(connectionString);
-
-
         try {
-
-            Class.forName(DRIVER_CLASS_NAME).getDeclaredConstructor().newInstance();
-
-        } catch (NoSuchMethodException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
-        }
-
-        catch (IllegalAccessException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-            throw new DatabaseConnectionException(e.toString());
-        } catch (InstantiationException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-            throw new DatabaseConnectionException(e.toString());
+            Class.forName(DRIVER_CLASS_NAME);
         } catch (ClassNotFoundException e) {
-            System.out.println("Impossibile trovare il Driver: " + DRIVER_CLASS_NAME);
-            throw new DatabaseConnectionException(e.toString());
+            e.printStackTrace();
         }
 
         try {
-            conn = DriverManager.getConnection(connectionString, USER_ID, PASSWORD);
-
+            conn = DriverManager.getConnection(connectionString);
         } catch (SQLException e) {
-            System.out.println("Impossibile connettersi al DB");
             e.printStackTrace();
-            throw new DatabaseConnectionException(e.toString());
         }
 
     }

@@ -30,9 +30,12 @@ public class MainTest {
 
         ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
         ObjectInputStream in = new ObjectInputStream(socket.getInputStream());
-        ; // stream con richieste del client
+        // stream con richieste del client
 
         char risp = 's';
+
+        out.writeObject(risp);
+
         do {
             System.out.println("Scegli una opzione:");
             int opzione;
@@ -77,6 +80,8 @@ public class MainTest {
 
             System.out.println("Vuoi ripetere?(s/n)");
             risp = Keyboard.readChar();
+
+            out.writeObject(risp);
         } while (risp != 'n');
 
     }
