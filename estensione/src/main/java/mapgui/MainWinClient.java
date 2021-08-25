@@ -5,6 +5,13 @@
  */
 package mapgui;
 
+import javax.swing.JOptionPane;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.net.InetAddress;
+import java.net.Socket;
+
 /**
  *
  * @author User
@@ -144,7 +151,7 @@ public class MainWinClient extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String args[]) throws IOException{
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -174,6 +181,25 @@ public class MainWinClient extends javax.swing.JFrame {
                 new MainWinClient().setVisible(true);
             }
         });
+
+        InetAddress addr = InetAddress.getByName("localhost");
+        System.out.println("addr = " + addr + "\nport=" + 5000);
+
+        Socket socket = null;
+
+        try {
+            socket = new Socket(addr, 5000);
+
+        } catch (java.net.ConnectException e) {
+            JOptionPane.showMessageDialog(null, "Connessione assente", "Errore",
+                        JOptionPane.ERROR_MESSAGE);
+            System.exit(0);
+        }
+
+        
+        ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
+        ObjectInputStream in = new ObjectInputStream(socket.getInputStream());
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
