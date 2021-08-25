@@ -22,7 +22,7 @@
                         <manifest>
 
                             <!-- give full qualified name of your main class-->
-                            <mainClass>mapgui.MainWin</mainClass>
+                            <mainClass>mapgui.MainWinClient</mainClass>
 
                         </manifest>
                     </archive>
