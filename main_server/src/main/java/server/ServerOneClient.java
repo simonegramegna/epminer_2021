@@ -38,7 +38,7 @@ public class ServerOneClient extends Thread {
 
         try {
 
-        	char choose = (char) in.readObject();
+            char choose = (char) in.readObject();
 
             while (choose == 's') {
 
@@ -47,6 +47,8 @@ public class ServerOneClient extends Thread {
                 mingr = (float) in.readObject();
                 targetName = (String) in.readObject();
                 backgroundName = (String) in.readObject();
+
+                System.out.println("opzione " + opzione + "\n\n\n");
 
                 Data datat = new Data(targetName);
                 System.out.println("datat: " + datat);

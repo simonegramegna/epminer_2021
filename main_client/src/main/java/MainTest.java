@@ -30,26 +30,30 @@ public class MainTest {
 
         ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
         ObjectInputStream in = new ObjectInputStream(socket.getInputStream());
-        // stream con richieste del client
 
         char risp = 's';
-
         out.writeObject(risp);
 
         do {
             System.out.println("Scegli una opzione:");
             int opzione;
+
             do {
                 System.out.println("1:Nuova scoperta");
                 System.out.println("2: Risultati in archivio");
                 opzione = Keyboard.readInt();
+
             } while (opzione != 1 && opzione != 2);
+
+            out.writeObject(opzione);
 
             float minsup = 0f;
             float minGr = 0f;
+
             do {
                 System.out.println("Inserire valore minimo supporto (minsup>0 e minsup<=1):");
                 minsup = Keyboard.readFloat();
+
             } while (minsup <= 0 || minsup > 1);
 
             do {
@@ -60,20 +64,23 @@ public class MainTest {
             System.out.println("Tabella target:");
             String targetName = Keyboard.readString();
             System.out.println("Tabella background:");
+
             String backgroundName = Keyboard.readString();
             String nameFile = targetName + "_" + backgroundName;
+
             try {
                 out.writeObject(opzione);
                 out.writeObject(minsup);
                 out.writeObject(minGr);
                 out.writeObject(targetName);
                 out.writeObject(backgroundName);
+
                 String fpMiner = (String) (in.readObject());
-
                 System.out.println(fpMiner);
-                String epMiner = (String) (in.readObject());
 
+                String epMiner = (String) (in.readObject());
                 System.out.println(epMiner);
+
             } catch (IOException | ClassNotFoundException e) {
                 e.printStackTrace();
             }
@@ -82,8 +89,7 @@ public class MainTest {
             risp = Keyboard.readChar();
 
             out.writeObject(risp);
+            
         } while (risp != 'n');
-
     }
-
 }
