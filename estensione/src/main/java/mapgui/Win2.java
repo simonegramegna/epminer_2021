@@ -6,6 +6,11 @@
 package mapgui;
 
 import javax.swing.JOptionPane;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.net.InetAddress;
+import java.net.Socket;
 
 /**
  *
@@ -13,11 +18,18 @@ import javax.swing.JOptionPane;
  */
 public class Win2 extends javax.swing.JPanel {
 
+    private Socket panelSocket;
+    private ObjectInputStream panelIn;
+    private ObjectOutputStream panelOut;
+
     /**
      * Creates new form Win2
      */
-    public Win2() {
+    public Win2(Socket s, ObjectInputStream in, ObjectOutputStream out) {
         initComponents();
+        panelSocket = s;
+        panelIn = in;
+        panelOut = out;
     }
 
     private static String availableTables[] = { "playtennisbackground", "playtennistarget" };

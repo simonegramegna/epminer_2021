@@ -18,13 +18,39 @@ import java.net.Socket;
  */
 public class MainWinClient extends javax.swing.JFrame {
 
+    private int choose;
+    private Socket mainSocket;
+    private ObjectInputStream in;
+    private ObjectOutputStream out;
+
     /**
      * Creates new form MainWinClient
      */
-    public MainWinClient() {
+    public MainWinClient() throws IOException {
+        
         initComponents();
         this.setResizable(false);
         computeBtn.setVisible(false);
+        choose = 0;
+
+        InetAddress addr = InetAddress.getByName("localhost");
+        System.out.println("addr = " + addr + "\nport=" + 5000);
+
+        
+
+        try {
+            mainSocket = new Socket(addr, 5000);
+
+        } catch (java.net.ConnectException e) {
+            JOptionPane.showMessageDialog(null, "Connessione assente", "Errore",
+                        JOptionPane.ERROR_MESSAGE);
+            System.exit(0);
+        }
+
+        
+        out = new ObjectOutputStream(mainSocket.getOutputStream());
+        in = new ObjectInputStream(mainSocket.getInputStream());
+
     }
 
     /**
@@ -78,7 +104,16 @@ public class MainWinClient extends javax.swing.JFrame {
         computeBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 computeBtnActionPerformed(evt);
+                try{
+                    out.writeObject(choose);
+                }catch (IOException e) {
+                    JOptionPane.showMessageDialog(null, "Errore: IOException", "Errore",
+                    JOptionPane.ERROR_MESSAGE);
+                }
+                
             }
+
+           
         });
 
         javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
@@ -135,17 +170,19 @@ public class MainWinClient extends javax.swing.JFrame {
     private void newEPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newEPActionPerformed
         // TODO add your handling code here:
         computeBtn.setVisible(true);
+        choose = 1;
     }//GEN-LAST:event_newEPActionPerformed
 
     private void fileEPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fileEPActionPerformed
         // TODO add your handling code here:
         computeBtn.setVisible(true);
+        choose = 2;
     }//GEN-LAST:event_fileEPActionPerformed
 
     private void computeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_computeBtnActionPerformed
         // TODO add your handling code here:
         mainPanel.setVisible(false);
-        this.setContentPane(new Win2());
+        this.setContentPane(new Win2(mainSocket, in, out));
     }//GEN-LAST:event_computeBtnActionPerformed
 
     /**
@@ -178,28 +215,17 @@ public class MainWinClient extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MainWinClient().setVisible(true);
+                try{
+                    new MainWinClient().setVisible(true);
+                } catch (IOException e) {
+                    JOptionPane.showMessageDialog(null, "Errore: IOException", "Errore",
+                    JOptionPane.ERROR_MESSAGE);
+                }
+               
             }
         });
 
-        InetAddress addr = InetAddress.getByName("localhost");
-        System.out.println("addr = " + addr + "\nport=" + 5000);
-
-        Socket socket = null;
-
-        try {
-            socket = new Socket(addr, 5000);
-
-        } catch (java.net.ConnectException e) {
-            JOptionPane.showMessageDialog(null, "Connessione assente", "Errore",
-                        JOptionPane.ERROR_MESSAGE);
-            System.exit(0);
-        }
-
         
-        ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
-        ObjectInputStream in = new ObjectInputStream(socket.getInputStream());
-
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

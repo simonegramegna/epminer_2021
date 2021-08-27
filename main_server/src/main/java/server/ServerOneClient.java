@@ -39,15 +39,17 @@ public class ServerOneClient extends Thread {
 
         try {
 
-            char choose = (char) in.readObject();
+            //char choose = (char) in.readObject();
 
-            while (choose == 's') {
+            while (true) {
 
                 opzione = (int) in.readObject();
                 minsup = (float) in.readObject();
                 mingr = (float) in.readObject();
                 targetName = (String) in.readObject();
                 backgroundName = (String) in.readObject();
+
+                System.out.println("Opzione " + opzione);
 
                 if (opzione == 1) {
 
@@ -109,10 +111,10 @@ public class ServerOneClient extends Thread {
                     }
                 }
 
-                choose = (char) in.readObject();
+                //choose = (char) in.readObject();
             }
 
-            socket.close();
+            //socket.close();
 
         } catch (NumberFormatException e) {
 
