@@ -260,6 +260,27 @@ public class WinInput extends javax.swing.JPanel {
                 && Utils.checkStringArray(availableTables, sentBackgroundTable)
                 && Utils.checkStringArray(availableTables, sentTargetTable)) {
 
+            try{
+                panelOut.writeObject(sentMinSup);
+                panelOut.writeObject(sentMinGrow);
+                panelOut.writeObject(sentTargetTable);
+                panelOut.writeObject(sentBackgroundTable);
+
+                String fpMiner = (String) (panelIn.readObject());
+                System.out.println(fpMiner);
+
+                String epMiner = (String) (panelIn.readObject());
+                System.out.println(epMiner);
+
+            } catch (IOException e) {
+                JOptionPane.showMessageDialog(null, "Errore invio dei dati ", "Qualcosa e' andato storto ",
+                JOptionPane.ERROR_MESSAGE);
+            } catch (ClassNotFoundException e) {
+                JOptionPane.showMessageDialog(null, "Errore invio dei dati ", "Qualcosa e' andato storto ",
+                JOptionPane.ERROR_MESSAGE);
+            }
+            
+
         } else {
             JOptionPane.showMessageDialog(null, "I valori inseriti non sono validi ", "Qualcosa e' andato storto ",
                     JOptionPane.ERROR_MESSAGE);
