@@ -182,7 +182,7 @@ public class MainWinClient extends javax.swing.JFrame {
     private void computeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_computeBtnActionPerformed
         // TODO add your handling code here:
         mainPanel.setVisible(false);
-        this.setContentPane(new Win2(mainSocket, in, out));
+        this.setContentPane(new WinInput(mainSocket, in, out));
     }//GEN-LAST:event_computeBtnActionPerformed
 
     /**

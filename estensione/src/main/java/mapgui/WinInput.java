@@ -16,7 +16,7 @@ import java.net.Socket;
  *
  * @author User
  */
-public class Win2 extends javax.swing.JPanel {
+public class WinInput extends javax.swing.JPanel {
 
     private Socket panelSocket;
     private ObjectInputStream panelIn;
@@ -25,7 +25,7 @@ public class Win2 extends javax.swing.JPanel {
     /**
      * Creates new form Win2
      */
-    public Win2(Socket s, ObjectInputStream in, ObjectOutputStream out) {
+    public WinInput(Socket s, ObjectInputStream in, ObjectOutputStream out) {
         initComponents();
         panelSocket = s;
         panelIn = in;
