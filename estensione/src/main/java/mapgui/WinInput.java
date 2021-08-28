@@ -18,16 +18,14 @@ import java.net.Socket;
  */
 public class WinInput extends javax.swing.JPanel {
 
-    private Socket panelSocket;
     private ObjectInputStream panelIn;
     private ObjectOutputStream panelOut;
 
     /**
      * Creates new form Win2
      */
-    public WinInput(Socket s, ObjectInputStream in, ObjectOutputStream out) {
+    public WinInput(ObjectInputStream in, ObjectOutputStream out) {
         initComponents();
-        panelSocket = s;
         panelIn = in;
         panelOut = out;
     }
@@ -261,7 +259,6 @@ public class WinInput extends javax.swing.JPanel {
         if ((sentMinSup > 0 && sentMinSup <= 1) && (sentMinGrow > 0)
                 && Utils.checkStringArray(availableTables, sentBackgroundTable)
                 && Utils.checkStringArray(availableTables, sentTargetTable)) {
-            System.out.println("ok");
 
         } else {
             JOptionPane.showMessageDialog(null, "I valori inseriti non sono validi ", "Qualcosa e' andato storto ",

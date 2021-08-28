@@ -51,6 +51,8 @@ public class MainWinClient extends javax.swing.JFrame {
         out = new ObjectOutputStream(mainSocket.getOutputStream());
         in = new ObjectInputStream(mainSocket.getInputStream());
 
+        out.writeObject('s');
+
     }
 
     /**
@@ -104,16 +106,12 @@ public class MainWinClient extends javax.swing.JFrame {
         computeBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 computeBtnActionPerformed(evt);
-                try{
+                try {
                     out.writeObject(choose);
-                }catch (IOException e) {
-                    JOptionPane.showMessageDialog(null, "Errore: IOException", "Errore",
-                    JOptionPane.ERROR_MESSAGE);
+                } catch (IOException e) {
+                    JOptionPane.showMessageDialog(null, "Errore: IOException", "Errore", JOptionPane.ERROR_MESSAGE);
                 }
-                
             }
-
-           
         });
 
         javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
@@ -182,7 +180,7 @@ public class MainWinClient extends javax.swing.JFrame {
     private void computeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_computeBtnActionPerformed
         // TODO add your handling code here:
         mainPanel.setVisible(false);
-        this.setContentPane(new WinInput(mainSocket, in, out));
+        this.setContentPane(new WinInput(in, out));
     }//GEN-LAST:event_computeBtnActionPerformed
 
     /**

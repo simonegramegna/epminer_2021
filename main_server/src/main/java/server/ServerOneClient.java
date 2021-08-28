@@ -38,12 +38,9 @@ public class ServerOneClient extends Thread {
         String backgroundName;
 
         try {
+            char  continuareEp = (char) in.readObject();
 
-            char choose = (char) in.readObject();
-
-            
-
-            while (choose == 's') {
+            while (continuareEp == 's') {
 
                 opzione = (int) in.readObject();
                 minsup = (float) in.readObject();
@@ -113,7 +110,7 @@ public class ServerOneClient extends Thread {
                     }
                 }
 
-                choose = (char) in.readObject();
+                continuareEp = (char) in.readObject();
             }
 
             socket.close();
