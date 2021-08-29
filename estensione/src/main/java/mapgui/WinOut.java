@@ -5,40 +5,51 @@
  */
 package mapgui;
 
+import javax.swing.DefaultListModel;
+import java.util.ArrayList;
+import java.util.Arrays;
+
 /**
  *
  * @author User
  */
 public class WinOut extends javax.swing.JPanel {
 
-    private String epMiner;
-    private String fpMiner;
-    private float minSup;
-    private float minGrow;
-    private String targetTable;
-    private String backgroundTable;
+    private DefaultListModel listModel;
 
     /**
      * Creates new form WinOut
      */
-    public WinOut(String ep, String fp, float mins, float mingr, String target, String background) {
-        
-        epMiner = ep;
-        fpMiner = fp;
-        minSup = mins;
-        minGrow = mingr;
-        targetTable = target;
-        backgroundTable = background;
+    public WinOut(String epMiner, String fpMiner, float minsup, float mingr, String target, String background) {
 
+        listModel = new DefaultListModel<>();
         initComponents();
-
-        minsoutLabel.setText(Float.toString(mins));
-        mingroutLabel.setText(Float.toString(mingr));
-        targetoutLabel.setText(targetTable);
-        backgroundoutLabel.setText(backgroundTable);
-
-        outLabel.setText(ep + "\n\n" + fp);
+        setDisplayedInput(minsup, mingr, target, background);
+        
+        setDisplayedOutput(epMiner, fpMiner);
     }
+
+    private void setDisplayedInput(float minsup, float mingr, String target, String background) {
+
+        minsoutLabel.setText(Float.toString(minsup));
+        mingroutLabel.setText(Float.toString(mingr));
+        targetoutLabel.setText(target);
+        backgroundoutLabel.setText(background);
+
+    }
+    
+    private void setDisplayedOutput(String epMiner, String fpMiner) {
+
+        String outputString = epMiner + "\n" + fpMiner;
+        ArrayList<String> outList = new ArrayList<String>(Arrays.asList(outputString.split("\n")));
+
+        for (String s : outList) {
+            listModel.addElement(s);
+        }
+
+        
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -51,7 +62,7 @@ public class WinOut extends javax.swing.JPanel {
 
         jSeparator1 = new javax.swing.JSeparator();
         jScrollPane1 = new javax.swing.JScrollPane();
-        outLabel = new javax.swing.JLabel();
+        listOut = new javax.swing.JList<>(listModel);
         minsLabel = new javax.swing.JLabel();
         mingrLabel = new javax.swing.JLabel();
         targetLabel = new javax.swing.JLabel();
@@ -65,7 +76,7 @@ public class WinOut extends javax.swing.JPanel {
 
         setPreferredSize(new java.awt.Dimension(600, 500));
 
-        jScrollPane1.setViewportView(outLabel);
+        jScrollPane1.setViewportView(listOut);
 
         minsLabel.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         minsLabel.setForeground(new java.awt.Color(30, 0, 255));
@@ -110,15 +121,6 @@ public class WinOut extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(newEPBtn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(quitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34))
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1)
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -140,6 +142,15 @@ public class WinOut extends javax.swing.JPanel {
                         .addComponent(backgroundoutLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 425, Short.MAX_VALUE)
                         .addContainerGap())))
             .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(45, 45, 45)
+                .addComponent(newEPBtn)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(quitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(48, 48, 48))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jScrollPane1)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -160,13 +171,13 @@ public class WinOut extends javax.swing.JPanel {
                     .addComponent(backgroundoutLabel))
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 263, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(quitBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
-                    .addComponent(newEPBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(newEPBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(quitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(34, 34, 34))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -184,12 +195,12 @@ public class WinOut extends javax.swing.JPanel {
     private javax.swing.JLabel backgroundoutLabel;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JList<String> listOut;
     private javax.swing.JLabel mingrLabel;
     private javax.swing.JLabel mingroutLabel;
     private javax.swing.JLabel minsLabel;
     private javax.swing.JLabel minsoutLabel;
     private javax.swing.JButton newEPBtn;
-    private javax.swing.JLabel outLabel;
     private javax.swing.JButton quitBtn;
     private javax.swing.JLabel targetLabel;
     private javax.swing.JLabel targetoutLabel;

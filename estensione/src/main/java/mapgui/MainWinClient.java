@@ -58,7 +58,7 @@ public class MainWinClient extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         startGroup = new javax.swing.ButtonGroup();
@@ -102,56 +102,58 @@ public class MainWinClient extends javax.swing.JFrame {
         computeBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 computeBtnActionPerformed(evt);
-                try {
-                    out.writeObject(choose);
-                } catch (IOException e) {
-                    JOptionPane.showMessageDialog(null, "Errore: IOException", "Errore", JOptionPane.ERROR_MESSAGE);
-                }
             }
         });
 
         javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
         mainPanel.setLayout(mainPanelLayout);
-        mainPanelLayout.setHorizontalGroup(mainPanelLayout
-                .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(mainPanelLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(newEP, javax.swing.GroupLayout.PREFERRED_SIZE, 161,
-                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING,
-                                        mainPanelLayout.createSequentialGroup().addGap(31, 31, 31).addComponent(
-                                                startLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 77,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(238, 238, 238))
-                .addGroup(mainPanelLayout.createSequentialGroup().addGap(200, 200, 200)
-                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(fileEP).addComponent(computeBtn, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                        147, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                .addGroup(mainPanelLayout.createSequentialGroup().addGap(109, 109, 109).addComponent(mainTitle)
-                        .addContainerGap(135, Short.MAX_VALUE)));
-        mainPanelLayout
-                .setVerticalGroup(
-                        mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(mainPanelLayout.createSequentialGroup().addGap(27, 27, 27)
-                                        .addComponent(mainTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 42,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(startLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 43,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18).addComponent(newEP).addGap(30, 30, 30).addComponent(fileEP)
-                                        .addGap(67, 67, 67)
-                                        .addComponent(computeBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 55,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addContainerGap(257, Short.MAX_VALUE)));
+        mainPanelLayout.setHorizontalGroup(
+            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(mainPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(newEP, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, mainPanelLayout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addComponent(startLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(238, 238, 238))
+            .addGroup(mainPanelLayout.createSequentialGroup()
+                .addGap(200, 200, 200)
+                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(fileEP)
+                    .addComponent(computeBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(mainPanelLayout.createSequentialGroup()
+                .addGap(109, 109, 109)
+                .addComponent(mainTitle)
+                .addContainerGap(135, Short.MAX_VALUE))
+        );
+        mainPanelLayout.setVerticalGroup(
+            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(mainPanelLayout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addComponent(mainTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(startLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(newEP)
+                .addGap(30, 30, 30)
+                .addComponent(fileEP)
+                .addGap(67, 67, 67)
+                .addComponent(computeBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(57, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE));
-        layout.setVerticalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE));
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -172,6 +174,12 @@ public class MainWinClient extends javax.swing.JFrame {
         // TODO add your handling code here:
         mainPanel.setVisible(false);
         this.setContentPane(new WinInput(in, out));
+        try{
+            out.writeObject(choose);
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(null, "Errore nell'invio dei dati", "Errore", JOptionPane.ERROR_MESSAGE);
+        }
+       
     }// GEN-LAST:event_computeBtnActionPerformed
 
     /**
