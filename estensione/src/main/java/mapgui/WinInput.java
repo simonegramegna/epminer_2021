@@ -267,10 +267,12 @@ public class WinInput extends javax.swing.JPanel {
 
                 String epMiner = (String) (panelIn.readObject());
                 System.out.println(epMiner);
-
+                /*
                 JFrame topFrame = (JFrame) SwingUtilities.getWindowAncestor(this);
                 this.setVisible(false);
-                topFrame.setContentPane(new WinOut(epMiner, fpMiner, sentMinSup, sentMinGrow, sentTargetTable, sentBackgroundTable));
+                topFrame.setContentPane(new WinOut(epMiner, fpMiner, sentMinSup, sentMinGrow, sentTargetTable, sentBackgroundTable));*/
+                
+               
 
             } catch (IOException e) {
                 JOptionPane.showMessageDialog(null, "Errore invio dei dati ", "Qualcosa e' andato storto ",
