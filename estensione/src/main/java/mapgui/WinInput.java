@@ -203,7 +203,6 @@ public class WinInput extends javax.swing.JPanel {
                 }
             }
         }
-
         if (minGrow.equals("")) {
             JOptionPane.showMessageDialog(null, "Inserire un valore di grow rate", "Errore", JOptionPane.ERROR_MESSAGE);
         } else {
@@ -263,22 +262,14 @@ public class WinInput extends javax.swing.JPanel {
                 panelOut.writeObject(sentBackgroundTable);
 
                 String fpMiner = (String) (panelIn.readObject());
-                System.out.println(fpMiner);
-
                 String epMiner = (String) (panelIn.readObject());
-                System.out.println(epMiner);
                 
                 resetInput();
-                
                 this.setVisible(false);
-                
                 MainWinClient topFrame = (MainWinClient) SwingUtilities.getWindowAncestor(this);
                 topFrame.resetMainPanel();
                 
-                
-                
-               
-             WinOutEp dialog = new WinOutEp(new javax.swing.JFrame(), true, epMiner, fpMiner, sentMinSup, sentMinGrow, sentTargetTable, sentBackgroundTable);
+             WinOutEp dialog = new WinOutEp(new javax.swing.JFrame(), true, epMiner, fpMiner, sentMinSup, sentMinGrow, sentTargetTable, sentBackgroundTable, fpMiner, epMiner);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {

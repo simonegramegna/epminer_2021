@@ -5,21 +5,34 @@
  */
 package mapgui;
 
+import javax.swing.DefaultListModel;
+import java.util.LinkedList;
+import java.util.Arrays;
+
 /**
  *
  * @author User
  */
 public class WinOutEp extends javax.swing.JDialog {
 
+    private DefaultListModel<String> modelEP;
+    private DefaultListModel<String> modelFP;
+    
     /**
      * Creates new form WinOutEp
      */
-    public WinOutEp(java.awt.Frame parent, boolean modal, String epMiner, String fpMiner, float minsup, float mingr, String target, String background) {
+    public WinOutEp(java.awt.Frame parent, boolean modal, String epMiner, String fpMiner, float minsup, float mingr, String target, String background, String fp, String ep) {
         super(parent, modal);
+        
+        modelEP = new DefaultListModel<>();
+        modelFP = new DefaultListModel<>();
         initComponents();
 
         this.setResizable(false);
         this.setDisplayedInput(minsup, mingr, target, background);
+        
+        setDisplayedFPEP(modelFP, fp);
+        setDisplayedFPEP(modelEP, ep);
     }
     
      private void setDisplayedInput(float minsup, float mingr, String target, String background) {
@@ -29,6 +42,18 @@ public class WinOutEp extends javax.swing.JDialog {
         targetoutLabel.setText(target);
         backgroundoutLabel.setText(background);
      }
+     
+     private void setDisplayedFPEP(DefaultListModel<String> listM, String fpEp){
+         
+         LinkedList<String> outputList = new LinkedList<String>(Arrays.asList(fpEp.split("\n")));
+         
+         for( String outEPFP : outputList){
+             
+             listM.addElement(outEPFP);
+         }
+     }
+     
+     
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -55,9 +80,9 @@ public class WinOutEp extends javax.swing.JDialog {
         fpLabel = new javax.swing.JLabel();
         EPLabel = new javax.swing.JLabel();
         FPScroll = new javax.swing.JScrollPane();
-        FPOut = new javax.swing.JList<>();
+        FPOut = new javax.swing.JList<>(modelFP);
         EPScroll = new javax.swing.JScrollPane();
-        EPOut = new javax.swing.JList<>();
+        EPOut = new javax.swing.JList<>(modelEP);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -238,20 +263,6 @@ public class WinOutEp extends javax.swing.JDialog {
             java.util.logging.Logger.getLogger(WinOutEp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         // </editor-fold>
-/*
-        /* Create and display the dialog 
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                WinOutEp dialog = new WinOutEp(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
-        });*/
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
