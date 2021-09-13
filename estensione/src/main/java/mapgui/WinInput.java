@@ -269,6 +269,14 @@ public class WinInput extends javax.swing.JPanel {
                 System.out.println(epMiner);
                 
                 resetInput();
+                
+                this.setVisible(false);
+                
+                MainWinClient topFrame = (MainWinClient) SwingUtilities.getWindowAncestor(this);
+                topFrame.resetMainPanel();
+                
+                
+                
                
              WinOutEp dialog = new WinOutEp(new javax.swing.JFrame(), true, epMiner, fpMiner, sentMinSup, sentMinGrow, sentTargetTable, sentBackgroundTable);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {

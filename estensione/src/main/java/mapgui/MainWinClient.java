@@ -5,6 +5,7 @@
  */
 package mapgui;
 
+import javax.swing.JPanel;
 import javax.swing.JOptionPane;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -22,6 +23,7 @@ public class MainWinClient extends javax.swing.JFrame {
     private Socket mainSocket;
     private ObjectInputStream in;
     private ObjectOutputStream out;
+    private WinInput mainInputPanel;
 
     /**
      * Creates new form MainWinClient
@@ -32,7 +34,7 @@ public class MainWinClient extends javax.swing.JFrame {
         this.setResizable(false);
         computeBtn.setVisible(false);
         choose = 0;
-
+        
         InetAddress addr = InetAddress.getByName("localhost");
         System.out.println("addr = " + addr + "\nport=" + 5000);
 
@@ -46,6 +48,9 @@ public class MainWinClient extends javax.swing.JFrame {
 
         out = new ObjectOutputStream(mainSocket.getOutputStream());
         in = new ObjectInputStream(mainSocket.getInputStream());
+        
+        mainInputPanel = new WinInput(in, out);
+        mainInputPanel.setVisible(false);
 
         out.writeObject('s');
     }
@@ -172,7 +177,8 @@ public class MainWinClient extends javax.swing.JFrame {
     private void computeBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_computeBtnActionPerformed
         // TODO add your handling code here:
         mainPanel.setVisible(false);
-        this.setContentPane(new WinInput(in, out));
+        this.setContentPane(mainInputPanel);
+        mainInputPanel.setVisible(true);
         resetInput();
         try{
             out.writeObject(choose);
@@ -186,8 +192,13 @@ public class MainWinClient extends javax.swing.JFrame {
         
         startGroup.clearSelection();
         computeBtn.setVisible(false);
+        choose = 0;
     }
     
+    protected void resetMainPanel(){
+        mainPanel.setVisible(true);
+        this.setContentPane(mainPanel);
+    }
 
     /**
      * @param args the command line arguments
@@ -231,10 +242,8 @@ public class MainWinClient extends javax.swing.JFrame {
                 } catch (IOException e) {
                     JOptionPane.showMessageDialog(null, "Errore: IOException", "Errore", JOptionPane.ERROR_MESSAGE);
                 }
-
             }
         });
-
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
