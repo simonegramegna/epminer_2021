@@ -5,7 +5,6 @@
  */
 package mapgui;
 
-import javax.swing.JPanel;
 import javax.swing.JOptionPane;
 import java.io.IOException;
 import java.io.ObjectInputStream;
