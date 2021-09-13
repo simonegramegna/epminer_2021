@@ -48,7 +48,6 @@ public class MainWinClient extends javax.swing.JFrame {
         in = new ObjectInputStream(mainSocket.getInputStream());
 
         out.writeObject('s');
-
     }
 
     /**
@@ -174,6 +173,7 @@ public class MainWinClient extends javax.swing.JFrame {
         // TODO add your handling code here:
         mainPanel.setVisible(false);
         this.setContentPane(new WinInput(in, out));
+        resetInput();
         try{
             out.writeObject(choose);
         } catch (IOException e) {
@@ -181,6 +181,13 @@ public class MainWinClient extends javax.swing.JFrame {
         }
        
     }// GEN-LAST:event_computeBtnActionPerformed
+    
+    private void resetInput(){
+        
+        startGroup.clearSelection();
+        computeBtn.setVisible(false);
+    }
+    
 
     /**
      * @param args the command line arguments

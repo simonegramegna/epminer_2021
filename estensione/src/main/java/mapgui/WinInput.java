@@ -267,10 +267,10 @@ public class WinInput extends javax.swing.JPanel {
 
                 String epMiner = (String) (panelIn.readObject());
                 System.out.println(epMiner);
-               
                 
-           
-            WinOutEp dialog = new WinOutEp(new javax.swing.JFrame(), true, epMiner, fpMiner, sentMinSup, sentMinGrow, sentTargetTable, sentBackgroundTable);
+                resetInput();
+               
+             WinOutEp dialog = new WinOutEp(new javax.swing.JFrame(), true, epMiner, fpMiner, sentMinSup, sentMinGrow, sentTargetTable, sentBackgroundTable);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -278,11 +278,6 @@ public class WinInput extends javax.swing.JPanel {
                     }
                 });
                 dialog.setVisible(true);
-            
-       
-                
-               
-
             } catch (IOException e) {
                 JOptionPane.showMessageDialog(null, "Errore invio dei dati ", "Qualcosa e' andato storto ",
                 JOptionPane.ERROR_MESSAGE);
@@ -290,8 +285,8 @@ public class WinInput extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(null, "Errore invio dei dati ", "Qualcosa e' andato storto ",
                 JOptionPane.ERROR_MESSAGE);
             }
-            
-
+        
+          
         } else {
             JOptionPane.showMessageDialog(null, "I valori inseriti non sono validi ", "Qualcosa e' andato storto ",
                     JOptionPane.ERROR_MESSAGE);
@@ -303,6 +298,14 @@ public class WinInput extends javax.swing.JPanel {
 
         JOptionPane.showMessageDialog(this, getInfoTableMessage());
     }// GEN-LAST:event_detailBtnActionPerformed
+    
+    private void resetInput(){
+        
+        backgroundInput.setText("");
+        inputGrowRate.setText("");
+        inputMinSup.setText("");
+        targetInput.setText("");
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField backgroundInput;
