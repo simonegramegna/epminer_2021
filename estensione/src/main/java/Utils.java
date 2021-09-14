@@ -1,5 +1,3 @@
-package mapgui;
-
 import java.util.Arrays;
 
 class Utils {

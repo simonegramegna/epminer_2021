@@ -3,8 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mapgui;
-
 import javax.swing.DefaultListModel;
 import java.util.LinkedList;
 import java.util.Arrays;
