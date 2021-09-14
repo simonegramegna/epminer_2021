@@ -4,8 +4,11 @@
  * and open the template in the editor.
  */
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
+import java.io.IOException;
 import java.util.LinkedList;
 import java.util.Arrays;
+import java.io.ObjectOutputStream;
 
 /**
  *
@@ -15,11 +18,12 @@ public class WinOutEp extends javax.swing.JDialog {
 
     private DefaultListModel<String> modelEP;
     private DefaultListModel<String> modelFP;
+    private ObjectOutputStream winOutStream;
     
     /**
      * Creates new form WinOutEp
      */
-    public WinOutEp(java.awt.Frame parent, boolean modal, String epMiner, String fpMiner, float minsup, float mingr, String target, String background, String fp, String ep) {
+    public WinOutEp(java.awt.Frame parent, boolean modal, String epMiner, String fpMiner, float minsup, float mingr, String target, String background, String fp, String ep, ObjectOutputStream out) {
         super(parent, modal);
         
         modelEP = new DefaultListModel<>();
@@ -31,6 +35,8 @@ public class WinOutEp extends javax.swing.JDialog {
         
         setDisplayedFPEP(modelFP, fp);
         setDisplayedFPEP(modelEP, ep);
+
+        winOutStream = out;
     }
     
      private void setDisplayedInput(float minsup, float mingr, String target, String background) {
@@ -235,6 +241,14 @@ public class WinOutEp extends javax.swing.JDialog {
 
     private void newEPbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newEPbtnActionPerformed
         // TODO add your handling code here:
+
+        try {
+            winOutStream.writeObject('s');
+
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(null, "Errore nell'invio dei dati", "Errore", JOptionPane.ERROR_MESSAGE);
+        }
+
         dispose();
     }//GEN-LAST:event_newEPbtnActionPerformed
 

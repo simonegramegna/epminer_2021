@@ -182,6 +182,7 @@ public class MainWinClient extends javax.swing.JFrame {
         this.setContentPane(mainInputPanel);
         mainInputPanel.setVisible(true);
         resetInput();
+
         try {
             out.writeObject(choose);
         } catch (IOException e) {

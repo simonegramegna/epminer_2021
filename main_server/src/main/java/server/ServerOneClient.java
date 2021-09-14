@@ -38,7 +38,7 @@ public class ServerOneClient extends Thread {
         String backgroundName;
 
         try {
-            char  continuareEp = (char) in.readObject();
+            char continuareEp = (char) in.readObject();
 
             while (continuareEp == 's') {
 
