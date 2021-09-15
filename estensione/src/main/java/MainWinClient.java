@@ -23,6 +23,9 @@ public class MainWinClient extends javax.swing.JFrame {
 
     private static int mainWidth = 500;
     private static int mainHeight = 400;
+    
+    private final static int newEpChoose = 1;
+    private final static int fileChoose = 2;
 
     /**
      * Creates new form MainWinClient
@@ -32,7 +35,6 @@ public class MainWinClient extends javax.swing.JFrame {
         initComponents();
         this.setResizable(false);
         
-
         InetAddress addr = InetAddress.getByName("localhost");
         System.out.println("addr = " + addr + "\nport=" + 5000);
 
@@ -68,7 +70,7 @@ public class MainWinClient extends javax.swing.JFrame {
         mainTitle = new javax.swing.JLabel();
         startLabel = new javax.swing.JLabel();
         newEpBtn = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        fileEpBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -84,13 +86,18 @@ public class MainWinClient extends javax.swing.JFrame {
         newEpBtn.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         newEpBtn.setForeground(new java.awt.Color(191, 14, 14));
         newEpBtn.setText("Nuova Scoperta");
-
-        jButton1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 141, 14));
-        jButton1.setText("Risultati in archivio");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        newEpBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                newEpBtnActionPerformed(evt);
+            }
+        });
+
+        fileEpBtn.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        fileEpBtn.setForeground(new java.awt.Color(0, 141, 14));
+        fileEpBtn.setText("Risultati in archivio");
+        fileEpBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fileEpBtnActionPerformed(evt);
             }
         });
 
@@ -110,7 +117,7 @@ public class MainWinClient extends javax.swing.JFrame {
                     .addGroup(mainPanelLayout.createSequentialGroup()
                         .addGap(180, 180, 180)
                         .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
+                            .addComponent(fileEpBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
                             .addComponent(newEpBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -124,7 +131,7 @@ public class MainWinClient extends javax.swing.JFrame {
                 .addGap(30, 30, 30)
                 .addComponent(newEpBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(46, 46, 46)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(fileEpBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(108, Short.MAX_VALUE))
         );
 
@@ -143,35 +150,33 @@ public class MainWinClient extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void fileEpBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fileEpBtnActionPerformed
+       
+        try {
+            out.writeObject(fileChoose);
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(null, "Errore nell'invio dei dati", "Errore", JOptionPane.ERROR_MESSAGE);
+        }
+        changePanel();
+    }//GEN-LAST:event_fileEpBtnActionPerformed
 
-    
+    private void newEpBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newEpBtnActionPerformed
+        
+        try {
+            out.writeObject(newEpChoose);
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(null, "Errore nell'invio dei dati", "Errore", JOptionPane.ERROR_MESSAGE);
+        }
+        changePanel();
+    }//GEN-LAST:event_newEpBtnActionPerformed
 
-   
-
-    private void computeBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_computeBtnActionPerformed
-        // TODO add your handling code here:
-       /* 
+    private void changePanel(){
+        
         mainPanel.setVisible(false);
         this.setContentPane(mainInputPanel);
         mainInputPanel.setVisible(true);
-        resetInput();
-
-        try {
-            out.writeObject(choose);
-        } catch (IOException e) {
-            JOptionPane.showMessageDialog(null, "Errore nell'invio dei dati", "Errore", JOptionPane.ERROR_MESSAGE);
-        }*/
-
-    }// GEN-LAST:event_computeBtnActionPerformed
-
-    private void resetInput() {
-
-       
-    }
-
+     }
+    
     protected void resetMainPanel() {
 
         mainPanel.setVisible(true);
@@ -225,7 +230,7 @@ public class MainWinClient extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton fileEpBtn;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JLabel mainTitle;
     private javax.swing.JButton newEpBtn;

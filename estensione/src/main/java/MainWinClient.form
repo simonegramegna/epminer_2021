@@ -57,7 +57,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="180" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jButton1" pref="216" max="32767" attributes="0"/>
+                              <Component id="fileEpBtn" pref="216" max="32767" attributes="0"/>
                               <Component id="newEpBtn" max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -76,7 +76,7 @@
                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="newEpBtn" min="-2" pref="46" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
-                  <Component id="jButton1" min="-2" pref="47" max="-2" attributes="0"/>
+                  <Component id="fileEpBtn" min="-2" pref="47" max="-2" attributes="0"/>
                   <EmptySpace pref="108" max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -112,8 +112,11 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Nuova Scoperta"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="newEpBtnActionPerformed"/>
+          </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton1">
+        <Component class="javax.swing.JButton" name="fileEpBtn">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial" size="14" style="0"/>
@@ -124,7 +127,7 @@
             <Property name="text" type="java.lang.String" value="Risultati in archivio"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fileEpBtnActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
