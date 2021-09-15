@@ -16,7 +16,6 @@ import java.net.Socket;
  */
 public class MainWinClient extends javax.swing.JFrame {
 
-    private int choose;
     private Socket mainSocket;
     private ObjectInputStream in;
     private ObjectOutputStream out;
@@ -24,6 +23,9 @@ public class MainWinClient extends javax.swing.JFrame {
 
     private static int mainWidth = 500;
     private static int mainHeight = 400;
+    
+    private final static int newEpChoose = 1;
+    private final static int fileChoose = 2;
 
     /**
      * Creates new form MainWinClient
@@ -32,9 +34,7 @@ public class MainWinClient extends javax.swing.JFrame {
 
         initComponents();
         this.setResizable(false);
-        computeBtn.setVisible(false);
-        choose = 0;
-
+        
         InetAddress addr = InetAddress.getByName("localhost");
         System.out.println("addr = " + addr + "\nport=" + 5000);
 
@@ -66,13 +66,11 @@ public class MainWinClient extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        startGroup = new javax.swing.ButtonGroup();
         mainPanel = new javax.swing.JPanel();
         mainTitle = new javax.swing.JLabel();
         startLabel = new javax.swing.JLabel();
-        newEP = new javax.swing.JRadioButton();
-        fileEP = new javax.swing.JRadioButton();
-        computeBtn = new javax.swing.JButton();
+        newEpBtn = new javax.swing.JButton();
+        fileEpBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -85,28 +83,21 @@ public class MainWinClient extends javax.swing.JFrame {
         startLabel.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         startLabel.setText("   Inizia!");
 
-        startGroup.add(newEP);
-        newEP.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        newEP.setText("Nuova scoperta");
-        newEP.addActionListener(new java.awt.event.ActionListener() {
+        newEpBtn.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        newEpBtn.setForeground(new java.awt.Color(191, 14, 14));
+        newEpBtn.setText("Nuova Scoperta");
+        newEpBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                newEPActionPerformed(evt);
+                newEpBtnActionPerformed(evt);
             }
         });
 
-        startGroup.add(fileEP);
-        fileEP.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        fileEP.setText(" Risultati in archivio");
-        fileEP.addActionListener(new java.awt.event.ActionListener() {
+        fileEpBtn.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        fileEpBtn.setForeground(new java.awt.Color(0, 141, 14));
+        fileEpBtn.setText("Risultati in archivio");
+        fileEpBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fileEPActionPerformed(evt);
-            }
-        });
-
-        computeBtn.setText("VAI!");
-        computeBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                computeBtnActionPerformed(evt);
+                fileEpBtnActionPerformed(evt);
             }
         });
 
@@ -115,23 +106,20 @@ public class MainWinClient extends javax.swing.JFrame {
         mainPanelLayout.setHorizontalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mainPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(newEP, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, mainPanelLayout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addComponent(startLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(238, 238, 238))
+                .addContainerGap(232, Short.MAX_VALUE)
+                .addComponent(startLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(291, 291, 291))
             .addGroup(mainPanelLayout.createSequentialGroup()
-                .addGap(200, 200, 200)
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(fileEP)
-                    .addComponent(computeBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(mainPanelLayout.createSequentialGroup()
-                .addGap(109, 109, 109)
-                .addComponent(mainTitle)
-                .addContainerGap(135, Short.MAX_VALUE))
+                    .addGroup(mainPanelLayout.createSequentialGroup()
+                        .addGap(109, 109, 109)
+                        .addComponent(mainTitle))
+                    .addGroup(mainPanelLayout.createSequentialGroup()
+                        .addGap(180, 180, 180)
+                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(fileEpBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
+                            .addComponent(newEpBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         mainPanelLayout.setVerticalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -140,13 +128,11 @@ public class MainWinClient extends javax.swing.JFrame {
                 .addComponent(mainTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(startLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(newEP)
                 .addGap(30, 30, 30)
-                .addComponent(fileEP)
-                .addGap(67, 67, 67)
-                .addComponent(computeBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(57, Short.MAX_VALUE))
+                .addComponent(newEpBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(46, 46, 46)
+                .addComponent(fileEpBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(108, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -164,40 +150,33 @@ public class MainWinClient extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void newEPActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_newEPActionPerformed
-        // TODO add your handling code here:
-        computeBtn.setVisible(true);
-        choose = 1;
-    }// GEN-LAST:event_newEPActionPerformed
-
-    private void fileEPActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_fileEPActionPerformed
-        // TODO add your handling code here:
-        computeBtn.setVisible(true);
-        choose = 2;
-    }// GEN-LAST:event_fileEPActionPerformed
-
-    private void computeBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_computeBtnActionPerformed
-        // TODO add your handling code here:
-        mainPanel.setVisible(false);
-        this.setContentPane(mainInputPanel);
-        mainInputPanel.setVisible(true);
-        resetInput();
-
+    private void fileEpBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fileEpBtnActionPerformed
+       
         try {
-            out.writeObject(choose);
+            out.writeObject(fileChoose);
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null, "Errore nell'invio dei dati", "Errore", JOptionPane.ERROR_MESSAGE);
         }
+        changePanel();
+    }//GEN-LAST:event_fileEpBtnActionPerformed
 
-    }// GEN-LAST:event_computeBtnActionPerformed
+    private void newEpBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newEpBtnActionPerformed
+        
+        try {
+            out.writeObject(newEpChoose);
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(null, "Errore nell'invio dei dati", "Errore", JOptionPane.ERROR_MESSAGE);
+        }
+        changePanel();
+    }//GEN-LAST:event_newEpBtnActionPerformed
 
-    private void resetInput() {
-
-        startGroup.clearSelection();
-        computeBtn.setVisible(false);
-        choose = 0;
-    }
-
+    private void changePanel(){
+        
+        mainPanel.setVisible(false);
+        this.setContentPane(mainInputPanel);
+        mainInputPanel.setVisible(true);
+     }
+    
     protected void resetMainPanel() {
 
         mainPanel.setVisible(true);
@@ -251,12 +230,10 @@ public class MainWinClient extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton computeBtn;
-    private javax.swing.JRadioButton fileEP;
+    private javax.swing.JButton fileEpBtn;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JLabel mainTitle;
-    private javax.swing.JRadioButton newEP;
-    private javax.swing.ButtonGroup startGroup;
+    private javax.swing.JButton newEpBtn;
     private javax.swing.JLabel startLabel;
     // End of variables declaration//GEN-END:variables
 }
