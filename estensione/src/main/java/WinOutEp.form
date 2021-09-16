@@ -207,6 +207,12 @@
         </Component>
         <Component class="javax.swing.JButton" name="newEPbtn">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Arial" size="14" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="e" green="8d" red="0" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Nuova Computazione"/>
           </Properties>
           <Events>

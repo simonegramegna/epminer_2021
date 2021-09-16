@@ -112,6 +112,8 @@ public class WinOutEp extends javax.swing.JDialog {
 
         backgroundoutLabel.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
 
+        newEPbtn.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        newEPbtn.setForeground(new java.awt.Color(0, 141, 14));
         newEPbtn.setText("Nuova Computazione");
         newEPbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
