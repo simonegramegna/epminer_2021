@@ -51,10 +51,9 @@ public class WinOutEp extends javax.swing.JDialog {
          
          LinkedList<String> outputList = new LinkedList<String>(Arrays.asList(fpEp.split("\n")));
          
-         for( String outEPFP : outputList){
-             
-            listM.addElement(outEPFP);
-         }
+         outputList.forEach(outEPFP -> {
+             listM.addElement(outEPFP);
+        });
      }
      
      
@@ -80,7 +79,6 @@ public class WinOutEp extends javax.swing.JDialog {
         backgroundoutLabel = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         newEPbtn = new javax.swing.JButton();
-        quitEP = new javax.swing.JButton();
         fpLabel = new javax.swing.JLabel();
         EPLabel = new javax.swing.JLabel();
         FPScroll = new javax.swing.JScrollPane();
@@ -118,13 +116,6 @@ public class WinOutEp extends javax.swing.JDialog {
         newEPbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 newEPbtnActionPerformed(evt);
-            }
-        });
-
-        quitEP.setText("Esci");
-        quitEP.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                quitEPActionPerformed(evt);
             }
         });
 
@@ -169,12 +160,6 @@ public class WinOutEp extends javax.swing.JDialog {
                 .addContainerGap())
             .addComponent(jSeparator1)
             .addGroup(mainPanelLayout.createSequentialGroup()
-                .addGap(70, 70, 70)
-                .addComponent(newEPbtn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(quitEP, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(76, 76, 76))
-            .addGroup(mainPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(FPScroll)
@@ -188,6 +173,10 @@ public class WinOutEp extends javax.swing.JDialog {
                 .addContainerGap()
                 .addComponent(EPScroll)
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(newEPbtn)
+                .addGap(340, 340, 340))
         );
         mainPanelLayout.setVerticalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -217,11 +206,9 @@ public class WinOutEp extends javax.swing.JDialog {
                 .addComponent(EPLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(EPScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(quitEP, javax.swing.GroupLayout.DEFAULT_SIZE, 68, Short.MAX_VALUE)
-                    .addComponent(newEPbtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addComponent(newEPbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -251,11 +238,6 @@ public class WinOutEp extends javax.swing.JDialog {
 
         dispose();
     }//GEN-LAST:event_newEPbtnActionPerformed
-
-    private void quitEPActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_quitEPActionPerformed
-        // TODO add your handling code here:
-        dispose();
-    }// GEN-LAST:event_quitEPActionPerformed
 
     /**
      * @param args the command line arguments
@@ -304,7 +286,6 @@ public class WinOutEp extends javax.swing.JDialog {
     private javax.swing.JLabel minsLabel;
     private javax.swing.JLabel minsoutLabel;
     private javax.swing.JButton newEPbtn;
-    private javax.swing.JButton quitEP;
     private javax.swing.JLabel targetLabel;
     private javax.swing.JLabel targetoutLabel;
     // End of variables declaration//GEN-END:variables

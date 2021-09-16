@@ -71,6 +71,7 @@ public class MainWinClient extends javax.swing.JFrame {
         startLabel = new javax.swing.JLabel();
         newEpBtn = new javax.swing.JButton();
         fileEpBtn = new javax.swing.JButton();
+        quitBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -83,7 +84,7 @@ public class MainWinClient extends javax.swing.JFrame {
         startLabel.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         startLabel.setText("   Inizia!");
 
-        newEpBtn.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        newEpBtn.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         newEpBtn.setForeground(new java.awt.Color(191, 14, 14));
         newEpBtn.setText("Nuova Scoperta");
         newEpBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -92,7 +93,7 @@ public class MainWinClient extends javax.swing.JFrame {
             }
         });
 
-        fileEpBtn.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        fileEpBtn.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         fileEpBtn.setForeground(new java.awt.Color(0, 141, 14));
         fileEpBtn.setText("Risultati in archivio");
         fileEpBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -101,25 +102,33 @@ public class MainWinClient extends javax.swing.JFrame {
             }
         });
 
+        quitBtn.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        quitBtn.setText("Esci");
+        quitBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                quitBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
         mainPanel.setLayout(mainPanelLayout);
         mainPanelLayout.setHorizontalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(mainPanelLayout.createSequentialGroup()
-                .addContainerGap(232, Short.MAX_VALUE)
-                .addComponent(startLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(291, 291, 291))
             .addGroup(mainPanelLayout.createSequentialGroup()
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(mainPanelLayout.createSequentialGroup()
                         .addGap(109, 109, 109)
                         .addComponent(mainTitle))
                     .addGroup(mainPanelLayout.createSequentialGroup()
+                        .addGap(245, 245, 245)
+                        .addComponent(startLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(mainPanelLayout.createSequentialGroup()
                         .addGap(180, 180, 180)
                         .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(fileEpBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
-                            .addComponent(newEpBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(newEpBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(quitBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(135, Short.MAX_VALUE))
         );
         mainPanelLayout.setVerticalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -128,11 +137,13 @@ public class MainWinClient extends javax.swing.JFrame {
                 .addComponent(mainTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(startLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
+                .addGap(18, 18, 18)
                 .addComponent(newEpBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46)
+                .addGap(43, 43, 43)
                 .addComponent(fileEpBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(108, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                .addComponent(quitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -169,6 +180,19 @@ public class MainWinClient extends javax.swing.JFrame {
         }
         changePanel();
     }//GEN-LAST:event_newEpBtnActionPerformed
+
+    private void quitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quitBtnActionPerformed
+        
+        if(mainSocket != null){
+            try {
+                mainSocket.close();
+            } catch (IOException e) {
+                JOptionPane.showMessageDialog(null, "Errore di chiusura della connessione", "Errore", JOptionPane.ERROR_MESSAGE);
+            } 
+        }
+        dispose();
+        System.exit(0);
+    }//GEN-LAST:event_quitBtnActionPerformed
 
     private void changePanel(){
         
@@ -234,6 +258,7 @@ public class MainWinClient extends javax.swing.JFrame {
     private javax.swing.JPanel mainPanel;
     private javax.swing.JLabel mainTitle;
     private javax.swing.JButton newEpBtn;
+    private javax.swing.JButton quitBtn;
     private javax.swing.JLabel startLabel;
     // End of variables declaration//GEN-END:variables
 }
