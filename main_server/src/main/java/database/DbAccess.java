@@ -26,6 +26,7 @@ public class DbAccess {
      * Inizializza una connessione al DB
      */
     public void initConnection() throws DatabaseConnectionException {
+
         String connectionString = DBMS + "://" + SERVER + ":" + PORT + "/" + DATABASE + "?user=" + USER_ID
                 + "&password=" + PASSWORD + "&serverTimezone=UTC";
 
@@ -44,6 +45,7 @@ public class DbAccess {
     }
 
     public Connection getConnection() {
+
         return conn;
     }
 
@@ -54,5 +56,4 @@ public class DbAccess {
             System.out.println("Impossibile chiudere la connessione");
         }
     }
-
 }

@@ -12,18 +12,22 @@ class Interval {
     }
 
     float getInf() {
+
         return inf;
     }
 
     void setInf(float inf) {
+
         this.inf = inf;
     }
 
     float getSup() {
+
         return sup;
     }
 
     void setSup(float sup) {
+        
         this.sup = sup;
     }
 
@@ -36,5 +40,4 @@ class Interval {
         
         return "[" + inf + "," + sup + "[";
     }
-
 }

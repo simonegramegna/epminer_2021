@@ -4,10 +4,10 @@ import data.DiscreteAttribute;
 
 public class DiscreteItem extends Item {
 
-	private static final long serialVersionUID = 2274848088367829499L;
+    private static final long serialVersionUID = 2274848088367829499L;
 
-	public DiscreteItem(DiscreteAttribute attribute, String value) {
-        
+    public DiscreteItem(DiscreteAttribute attribute, String value) {
+
         super(attribute, value);
     }
 
@@ -15,5 +15,4 @@ public class DiscreteItem extends Item {
 
         return value.equals(this.getValue());
     }
- 
 }

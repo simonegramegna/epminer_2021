@@ -14,14 +14,13 @@ import java.util.LinkedList;
 import data.*;
 import utility.ComparatorGrowRate;
 
-public class EmergingPatternMiner implements Iterable<EmergingPattern>,Serializable {
-    
+public class EmergingPatternMiner implements Iterable<EmergingPattern>, Serializable {
+
     private LinkedList<EmergingPattern> epList;
 
     public EmergingPatternMiner(Data dataBackGround, FrequentPatternMiner fpList, float minG) throws EmptySetException {
 
         super();
-
         if (fpList.getOutputFP().isEmpty()) {
 
             throw new EmptySetException();
@@ -41,7 +40,7 @@ public class EmergingPatternMiner implements Iterable<EmergingPattern>,Serializa
             }
 
             if (ep != null) {
-
+                
                 epList.add(ep);
             }
         }
@@ -61,10 +60,12 @@ public class EmergingPatternMiner implements Iterable<EmergingPattern>,Serializa
             throws EmergingPatternException {
 
         float growrate = this.computeGrowRate(dataBackground, fp);
+
         if (growrate > minGR) {
 
             EmergingPattern ep = new EmergingPattern(fp, growrate);
             return ep;
+
         } else {
 
             throw new EmergingPatternException();
@@ -74,6 +75,7 @@ public class EmergingPatternMiner implements Iterable<EmergingPattern>,Serializa
     public String toString() {
 
         String value = "";
+
         for (EmergingPattern ep : epList) {
             value += ep.toString() + "\n";
         }
@@ -87,21 +89,24 @@ public class EmergingPatternMiner implements Iterable<EmergingPattern>,Serializa
     }
 
     private void sort() {
+
         Collections.sort(epList, new ComparatorGrowRate());
     }
-    
-    public void salva(String nomeFile) throws FileNotFoundException, IOException{
 
-		FileOutputStream out = new FileOutputStream(nomeFile);
-		ObjectOutputStream s = new ObjectOutputStream(out);
-		s.writeObject(this);
-	}
-    
-    public static EmergingPatternMiner carica(String nomeFile) throws FileNotFoundException,IOException,ClassNotFoundException{
+    public void salva(String nomeFile) throws FileNotFoundException, IOException {
 
-		FileInputStream in=new FileInputStream(nomeFile);
-		ObjectInputStream o=new ObjectInputStream(in);
-		EmergingPatternMiner miner=(EmergingPatternMiner) o.readObject();
-		return miner;
-	}
+        FileOutputStream out = new FileOutputStream(nomeFile);
+        ObjectOutputStream s = new ObjectOutputStream(out);
+        s.writeObject(this);
+    }
+
+    public static EmergingPatternMiner carica(String nomeFile)
+            throws FileNotFoundException, IOException, ClassNotFoundException {
+
+        FileInputStream in = new FileInputStream(nomeFile);
+        ObjectInputStream o = new ObjectInputStream(in);
+        EmergingPatternMiner miner = (EmergingPatternMiner) o.readObject();
+
+        return miner;
+    }
 }
