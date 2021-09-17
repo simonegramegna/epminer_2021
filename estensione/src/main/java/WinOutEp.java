@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import java.io.IOException;
@@ -82,9 +77,9 @@ public class WinOutEp extends javax.swing.JDialog {
         fpLabel = new javax.swing.JLabel();
         EPLabel = new javax.swing.JLabel();
         FPScroll = new javax.swing.JScrollPane();
-        FPOut = new javax.swing.JList<>();
+        FPOut = new javax.swing.JList<>(modelFP);
         EPScroll = new javax.swing.JScrollPane();
-        EPOut = new javax.swing.JList<>();
+        EPOut = new javax.swing.JList<>(modelEP);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -233,15 +228,13 @@ public class WinOutEp extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void newEPbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newEPbtnActionPerformed
-        // TODO add your handling code here:
-
+        
         try {
             winOutStream.writeObject('s');
 
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null, "Errore nell'invio dei dati", "Errore", JOptionPane.ERROR_MESSAGE);
         }
-
         dispose();
     }//GEN-LAST:event_newEPbtnActionPerformed
 
