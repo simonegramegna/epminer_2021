@@ -146,8 +146,8 @@ public class WinInput extends javax.swing.JPanel {
 
         float sentMinSup = -1;
         float sentMinGrow = -1;
-        String sentTargetTable = (String) backgroundChoose.getSelectedItem();
-        String sentBackgroundTable = (String) targetChoose.getSelectedItem();;
+        String sentTargetTable = (String) targetChoose.getSelectedItem();
+        String sentBackgroundTable = (String) backgroundChoose.getSelectedItem();;
 
         if (minSup.equals("")) {
             JOptionPane.showMessageDialog(null, "Inserire un valore di minimo supporto", "Errore",
