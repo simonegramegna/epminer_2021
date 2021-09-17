@@ -40,14 +40,12 @@ public class MainWinClient extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Connessione assente", "Errore", JOptionPane.ERROR_MESSAGE);
             System.exit(0);
         }
-
         out = new ObjectOutputStream(mainSocket.getOutputStream());
         in = new ObjectInputStream(mainSocket.getInputStream());
-
+        out.writeObject('s');
+        
         mainInputPanel = new WinInput(in, out);
         mainInputPanel.setVisible(false);
-
-        out.writeObject('s');
     }
 
     /**

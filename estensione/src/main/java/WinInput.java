@@ -70,7 +70,7 @@ public class WinInput extends javax.swing.JPanel {
         targetChoose.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "playtennistarget" }));
 
         backgroundChoose.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        backgroundChoose.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "playtennisbackground" }));
+        backgroundChoose.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "playtennisBackground" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
