@@ -1,14 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-import javax.swing.JOptionPane;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.InetAddress;
 import java.net.Socket;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -183,15 +178,19 @@ public class MainWinClient extends javax.swing.JFrame {
 
     private void quitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quitBtnActionPerformed
         
-        if(mainSocket != null){
-            try {
-                mainSocket.close();
-            } catch (IOException e) {
-                JOptionPane.showMessageDialog(null, "Errore di chiusura della connessione", "Errore", JOptionPane.ERROR_MESSAGE);
-            } 
-        }
-        dispose();
-        System.exit(0);
+        if(JOptionPane.showConfirmDialog(rootPane,"Uscire dal programma?", "Epminer2021",
+                JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION ){
+            
+            if(mainSocket != null){
+                try {
+                    mainSocket.close();
+                } catch (IOException e) {
+                    JOptionPane.showMessageDialog(null, "Errore di chiusura della connessione", "Errore", JOptionPane.ERROR_MESSAGE);
+                } 
+            }
+            dispose();
+            System.exit(0);
+        } 
     }//GEN-LAST:event_quitBtnActionPerformed
 
     private void changePanel(){
