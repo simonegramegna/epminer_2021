@@ -21,6 +21,8 @@ public class MainWinClient extends javax.swing.JFrame {
     
     private final static int newEpChoose = 1;
     private final static int fileChoose = 2;
+    
+    private final static int defaultPort = 5000;
 
     /**
      * Creates new form MainWinClient
@@ -31,15 +33,16 @@ public class MainWinClient extends javax.swing.JFrame {
         this.setResizable(false);
         
         InetAddress addr = InetAddress.getByName("localhost");
-        System.out.println("addr = " + addr + "\nport=" + 5000);
 
         try {
-            mainSocket = new Socket(addr, 5000);
+            mainSocket = new Socket(addr, defaultPort);
 
         } catch (java.net.ConnectException e) {
             JOptionPane.showMessageDialog(null, "Connessione assente", "Errore", JOptionPane.ERROR_MESSAGE);
             System.exit(0);
         }
+        connectLabel.setText("Connesso sulla porta " + defaultPort);
+        
         out = new ObjectOutputStream(mainSocket.getOutputStream());
         in = new ObjectInputStream(mainSocket.getInputStream());
         out.writeObject('s');
@@ -65,6 +68,7 @@ public class MainWinClient extends javax.swing.JFrame {
         newEpBtn = new javax.swing.JButton();
         fileEpBtn = new javax.swing.JButton();
         quitBtn = new javax.swing.JButton();
+        connectLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -103,6 +107,9 @@ public class MainWinClient extends javax.swing.JFrame {
             }
         });
 
+        connectLabel.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        connectLabel.setForeground(new java.awt.Color(0, 141, 14));
+
         javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
         mainPanel.setLayout(mainPanelLayout);
         mainPanelLayout.setHorizontalGroup(
@@ -120,7 +127,10 @@ public class MainWinClient extends javax.swing.JFrame {
                         .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(fileEpBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
                             .addComponent(newEpBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(quitBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(quitBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(mainPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(connectLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(135, Short.MAX_VALUE))
         );
         mainPanelLayout.setVerticalGroup(
@@ -134,9 +144,11 @@ public class MainWinClient extends javax.swing.JFrame {
                 .addComponent(newEpBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(43, 43, 43)
                 .addComponent(fileEpBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                .addGap(38, 38, 38)
                 .addComponent(quitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36))
+                .addGap(18, 18, 18)
+                .addComponent(connectLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -147,7 +159,7 @@ public class MainWinClient extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 430, Short.MAX_VALUE)
         );
 
         pack();
@@ -251,6 +263,7 @@ public class MainWinClient extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel connectLabel;
     private javax.swing.JButton fileEpBtn;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JLabel mainTitle;
