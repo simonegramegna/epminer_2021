@@ -31,6 +31,7 @@ public class MainWinClient extends javax.swing.JFrame {
 
         initComponents();
         this.setResizable(false);
+        this.setTitle("EpMiner2021");
         
         InetAddress addr = InetAddress.getByName("localhost");
 
@@ -174,6 +175,7 @@ public class MainWinClient extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Errore nell'invio dei dati", "Errore", JOptionPane.ERROR_MESSAGE);
         }
         changePanel();
+        this.setTitle("EpMiner2021 - EP da file");
     }//GEN-LAST:event_fileEpBtnActionPerformed
 
     private void newEpBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newEpBtnActionPerformed
@@ -184,6 +186,7 @@ public class MainWinClient extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Errore nell'invio dei dati", "Errore", JOptionPane.ERROR_MESSAGE);
         }
         changePanel();
+        this.setTitle("EpMiner2021 - Nuovo EP");
     }//GEN-LAST:event_newEpBtnActionPerformed
 
     private void quitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quitBtnActionPerformed
@@ -214,6 +217,7 @@ public class MainWinClient extends javax.swing.JFrame {
 
         mainPanel.setVisible(true);
         this.setContentPane(mainPanel);
+        this.setTitle("EpMiner2021");
     }
 
     /**

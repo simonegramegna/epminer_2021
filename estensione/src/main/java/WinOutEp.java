@@ -27,6 +27,7 @@ public class WinOutEp extends javax.swing.JDialog {
 
         this.setResizable(false);
         this.setDisplayedInput(minsup, mingr, target, background);
+        this.setTitle("EP: mingr: " + mingr + " minsup: " + minsup);
         
         setDisplayedFPEP(modelFP, fp);
         setDisplayedFPEP(modelEP, ep);
