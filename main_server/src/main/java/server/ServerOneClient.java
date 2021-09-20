@@ -6,7 +6,6 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.sql.SQLException;
-
 import data.Data;
 import data.EmptySetException;
 import database.DatabaseConnectionException;
@@ -48,15 +47,10 @@ public class ServerOneClient extends Thread {
                 targetName = (String) in.readObject();
                 backgroundName = (String) in.readObject();
 
-                System.out.println("Opzione " + opzione);
-
                 if (opzione == 1) {
 
                     Data dataTarget = new Data(targetName);
-
                     Data dataBackground = new Data(backgroundName);
-                    System.out.println("Background data");
-                    System.out.println(dataBackground);
 
                     try {
                         FrequentPatternMiner fpMiner = new FrequentPatternMiner(dataTarget, minsup);
@@ -80,19 +74,17 @@ public class ServerOneClient extends Thread {
 
                                 out.writeObject(e1.toString());
                             }
-
                             out.writeObject(epMiner.toString());
 
                         } catch (EmptySetException e) {
 
                             out.writeObject(e.toString());
                         }
-
                     } catch (EmptySetException e) {
+
                         out.writeObject(e.toString());
                     }
                 } else {
-
                     try {
                         FrequentPatternMiner fpMiner = FrequentPatternMiner
                                 .carica("FP_playtennis_minSup" + minsup + ".dat");
@@ -101,26 +93,29 @@ public class ServerOneClient extends Thread {
 
                         EmergingPatternMiner epMiner = EmergingPatternMiner
                                 .carica("EP_playtennis_minSup" + minsup + "_minGr" + mingr + ".dat");
-
                         out.writeObject(epMiner.toString());
 
                     } catch (ClassNotFoundException | IOException e) {
-                        out.writeObject(e.toString());
 
+                        out.writeObject(e.toString());
                     }
                 }
-
                 continuareEp = (char) in.readObject();
             }
-
             socket.close();
-
         } catch (NumberFormatException e) {
 
             e.printStackTrace();
         } catch (ClassNotFoundException | IOException e) {
 
             e.printStackTrace();
+            try {
+
+                socket.close();
+                System.exit(0);
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
         } catch (DatabaseConnectionException e) {
 
             e.printStackTrace();
@@ -134,7 +129,5 @@ public class ServerOneClient extends Thread {
 
             e.printStackTrace();
         }
-
     }
-
 }
