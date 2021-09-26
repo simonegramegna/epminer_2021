@@ -27,7 +27,7 @@ import java.util.logging.Logger;
 import java.util.logging.Level;
 import javax.swing.WindowConstants;
 
-public class WinOutEp extends JDialog {
+class WinOutEp extends JDialog {
 
     private JLabel epLabel;
     private JList<String> epOut;
@@ -51,8 +51,9 @@ public class WinOutEp extends JDialog {
     private DefaultListModel<String> modelFP;
     private ObjectOutputStream winOutStream;
 
-    public WinOutEp(Frame parent, boolean modal, String epMiner, String fpMiner, float minsup, float mingr,
-            String target, String background, String fp, String ep, ObjectOutputStream out) {
+    WinOutEp(Frame parent, boolean modal, String epMiner, String fpMiner, float minsup, float mingr, String target,
+            String background, String fp, String ep, ObjectOutputStream out) {
+
         super(parent, modal);
 
         modelEP = new DefaultListModel<>();
@@ -85,7 +86,6 @@ public class WinOutEp extends JDialog {
         });
     }
 
-    @SuppressWarnings("unchecked")
     private void initComponents() {
 
         mainPanel = new JPanel();

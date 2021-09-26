@@ -45,7 +45,7 @@ public class MainWinClient extends JFrame {
     private final static int fileChoose = 2;
     private final static int defaultPort = 5000;
 
-    public MainWinClient() throws IOException {
+    private MainWinClient() throws IOException {
 
         initComponents();
         this.setResizable(false);
@@ -70,7 +70,6 @@ public class MainWinClient extends JFrame {
         mainInputPanel.setVisible(false);
     }
 
-    @SuppressWarnings("unchecked")
     private void initComponents() {
 
         mainPanel = new JPanel();
@@ -85,40 +84,46 @@ public class MainWinClient extends JFrame {
 
         mainPanel.setPreferredSize(new java.awt.Dimension(500, 400));
 
-        mainTitle.setFont(new Font("Arial", 0, 36)); // NOI18N
+        mainTitle.setFont(new Font("Arial", 0, 36)); 
         mainTitle.setForeground(new Color(30, 0, 255));
         mainTitle.setText("Benvenuto in EpMiner!");
 
-        startLabel.setFont(new Font("Arial", 0, 18)); // NOI18N
+        startLabel.setFont(new Font("Arial", 0, 18)); 
         startLabel.setText("   Inizia!");
 
-        newEpBtn.setFont(new Font("Arial", 1, 14)); // NOI18N
+        newEpBtn.setFont(new Font("Arial", 1, 14)); 
         newEpBtn.setForeground(new Color(191, 14, 14));
         newEpBtn.setText("Nuova Scoperta");
         newEpBtn.addActionListener(new ActionListener() {
+
             public void actionPerformed(ActionEvent evt) {
+
                 newEpBtnActionPerformed(evt);
             }
         });
 
-        fileEpBtn.setFont(new Font("Arial", 1, 14)); // NOI18N
+        fileEpBtn.setFont(new Font("Arial", 1, 14)); 
         fileEpBtn.setForeground(new Color(0, 141, 14));
         fileEpBtn.setText("Risultati in archivio");
         fileEpBtn.addActionListener(new ActionListener() {
+
             public void actionPerformed(ActionEvent evt) {
+
                 fileEpBtnActionPerformed(evt);
             }
         });
 
-        quitBtn.setFont(new Font("Arial", 1, 14)); // NOI18N
+        quitBtn.setFont(new Font("Arial", 1, 14)); 
         quitBtn.setText("Esci");
         quitBtn.addActionListener(new ActionListener() {
+
             public void actionPerformed(ActionEvent evt) {
+
                 quitBtnActionPerformed(evt);
             }
         });
 
-        connectLabel.setFont(new Font("Arial", 0, 14)); // NOI18N
+        connectLabel.setFont(new Font("Arial", 0, 14)); 
         connectLabel.setForeground(new Color(0, 141, 14));
 
         GroupLayout mainPanelLayout = new GroupLayout(mainPanel);
@@ -218,9 +223,6 @@ public class MainWinClient extends JFrame {
         this.setTitle("EpMiner2021");
     }
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) throws IOException {
         try {
             for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
@@ -244,9 +246,11 @@ public class MainWinClient extends JFrame {
         }
 
         EventQueue.invokeLater(new Runnable() {
+
             public void run() {
                 try {
                     new MainWinClient().setVisible(true);
+
                 } catch (IOException e) {
                     JOptionPane.showMessageDialog(null, "Errore: IOException", "Errore", JOptionPane.ERROR_MESSAGE);
                 }

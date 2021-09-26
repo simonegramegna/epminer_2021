@@ -24,7 +24,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 
-public class WinInput extends JPanel {
+class WinInput extends JPanel {
 
     private JComboBox<String> backgroundChoose;
     private JLabel backgroundLabel;
@@ -40,14 +40,13 @@ public class WinInput extends JPanel {
     private ObjectInputStream panelIn;
     private ObjectOutputStream panelOut;
 
-    public WinInput(ObjectInputStream in, ObjectOutputStream out) {
+    WinInput(ObjectInputStream in, ObjectOutputStream out) {
 
         initComponents();
         panelIn = in;
         panelOut = out;
     }
 
-    @SuppressWarnings("unchecked")
     private void initComponents() {
 
         supLabel = new JLabel();
