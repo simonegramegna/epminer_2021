@@ -3,6 +3,7 @@ package mining;
 import java.io.Serializable;
 
 public class EmergingPattern extends FrequentPattern implements Serializable {
+    
     private float growrate;
 
     public EmergingPattern(FrequentPattern fp, float growrate) {

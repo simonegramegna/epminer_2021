@@ -2,6 +2,9 @@ package mining;
 
 import data.ContinuousAttribute;
 
+/**
+ * 
+ */
 public class ContinuousItem extends Item {
     
     private static final long serialVersionUID = 7893147173498448187L;
