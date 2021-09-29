@@ -83,6 +83,8 @@ public class FrequentPatternMiner implements Serializable {
                                 DiscreteItem item = new DiscreteItem((DiscreteAttribute) data.getAttribute(i),
                                         ((DiscreteAttribute) (data.getAttribute(i))).getValue(j));
 
+                                //System.out.println(item);
+
                                 FrequentPattern newFP = refineFrequentPattern(fp, item); // generate refinement
                                 newFP.setSupport(newFP.computeSupport(data));
 
