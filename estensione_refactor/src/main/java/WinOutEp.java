@@ -140,11 +140,11 @@ class WinOutEp extends JDialog {
 
         fpLabel.setFont(new Font("Arial", 0, 18));
         fpLabel.setForeground(new Color(30, 0, 255));
-        fpLabel.setText("FPMiner:");
+        fpLabel.setText("Frequent patterns :");
 
         epLabel.setFont(new Font("Arial", 0, 18));
         epLabel.setForeground(new Color(30, 0, 255));
-        epLabel.setText("EPMiner:");
+        epLabel.setText("Emerging patterns :");
 
         fpOut.setFont(new Font("Arial", 0, 12));
         fpScroll.setViewportView(fpOut);
