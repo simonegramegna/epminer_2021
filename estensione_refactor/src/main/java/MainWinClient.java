@@ -4,8 +4,6 @@ import java.io.ObjectOutputStream;
 import java.net.InetAddress;
 import java.net.Socket;
 import java.net.ConnectException;
-
-// swing
 import javax.swing.JOptionPane;
 import javax.swing.GroupLayout;
 import javax.swing.JButton;
@@ -21,9 +19,10 @@ import java.awt.EventQueue;
 import java.awt.event.ActionListener;
 import java.awt.Font;
 import java.awt.Color;
-import java.util.logging.Logger;
-import java.util.logging.Level;
 
+/**
+ *  Classe per creare la finestra principale
+ */
 public class MainWinClient extends JFrame {
 
     private JLabel connectLabel;
@@ -45,7 +44,11 @@ public class MainWinClient extends JFrame {
     private final static int fileChoose = 2;
     private final static int defaultPort = 5000;
 
-    private MainWinClient() throws IOException {
+    /**
+     * Crea la finestra principale
+     * @throws IOException
+     */
+    public MainWinClient() throws IOException {
 
         initComponents();
         this.setResizable(false);
@@ -169,7 +172,12 @@ public class MainWinClient extends JFrame {
         setLocationRelativeTo(null);
     }
 
-    private void fileEpBtnActionPerformed(ActionEvent evt) {
+    /**
+     * Definisce il comportamento del bottone per richiedere 
+     * una computazione già esistente in archivvio
+     * @param evt
+     */
+    protected void fileEpBtnActionPerformed(ActionEvent evt) {
 
         try {
             out.writeObject(fileChoose);
@@ -180,7 +188,12 @@ public class MainWinClient extends JFrame {
         this.setTitle("EpMiner2021 - EP da file");
     }
 
-    private void newEpBtnActionPerformed(ActionEvent evt) {
+    /**
+     * Definisce il comportamento del bottone per richiedere 
+     * una nuova computazione
+     * @param evt
+     */
+    protected void newEpBtnActionPerformed(ActionEvent evt) {
 
         try {
             out.writeObject(newEpChoose);
@@ -190,8 +203,11 @@ public class MainWinClient extends JFrame {
         changePanel();
         this.setTitle("EpMiner2021 - Nuovo EP");
     }
-
-    private void quitBtnActionPerformed(ActionEvent evt) {
+    /**
+     * Definisce il comportamento del bottone per uscire dal programma
+     * @param evt
+     */
+    protected void quitBtnActionPerformed(ActionEvent evt) {
 
         if (JOptionPane.showConfirmDialog(rootPane, "Uscire dal programma?", "Epminer2021", JOptionPane.YES_NO_OPTION,
                 JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION) {
@@ -216,7 +232,10 @@ public class MainWinClient extends JFrame {
         mainInputPanel.setVisible(true);
     }
 
-    void resetMainPanel() {
+    /**
+     * Metodo per resettare il pannello principale
+     */
+    protected void resetMainPanel() {
 
         mainPanel.setVisible(true);
         this.setContentPane(mainPanel);
@@ -233,16 +252,16 @@ public class MainWinClient extends JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(MainWinClient.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "ClassNotFoundException", "Errore", JOptionPane.ERROR_MESSAGE);
 
         } catch (InstantiationException ex) {
-            Logger.getLogger(MainWinClient.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "InstantiationException", "Errore", JOptionPane.ERROR_MESSAGE);
 
         } catch (IllegalAccessException ex) {
-            Logger.getLogger(MainWinClient.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "IllegalAccessException", "Errore", JOptionPane.ERROR_MESSAGE);
 
         } catch (UnsupportedLookAndFeelException ex) {
-            Logger.getLogger(MainWinClient.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "UnsupportedLookAndFeelException", "Errore", JOptionPane.ERROR_MESSAGE);
         }
 
         EventQueue.invokeLater(new Runnable() {

@@ -2,8 +2,6 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.Arrays;
 import java.io.ObjectOutputStream;
-
-// swing
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import java.awt.Frame;
@@ -23,11 +21,13 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.UIManager.*;
 import javax.swing.UnsupportedLookAndFeelException;
-import java.util.logging.Logger;
-import java.util.logging.Level;
 import javax.swing.WindowConstants;
 
-class WinOutEp extends JDialog {
+/**
+ *  Classe che rappresenta la finestra di dialogo per mostrare i pattern frequenti e 
+ *  i pattern emergenti
+ */
+public class WinOutEp extends JDialog {
 
     private JLabel epLabel;
     private JList<String> epOut;
@@ -51,7 +51,23 @@ class WinOutEp extends JDialog {
     private DefaultListModel<String> modelFP;
     private ObjectOutputStream winOutStream;
 
-    WinOutEp(Frame parent, boolean modal, String epMiner, String fpMiner, float minsup, float mingr, String target,
+    /**
+     * 
+     *  Crea la finestra di dialogo
+     * 
+     * @param parent
+     * @param modal
+     * @param epMiner
+     * @param fpMiner
+     * @param minsup
+     * @param mingr
+     * @param target
+     * @param background
+     * @param fp
+     * @param ep
+     * @param out
+     */
+    public WinOutEp(Frame parent, boolean modal, String epMiner, String fpMiner, float minsup, float mingr, String target,
             String background, String fp, String ep, ObjectOutputStream out) {
 
         super(parent, modal);
@@ -69,7 +85,14 @@ class WinOutEp extends JDialog {
         winOutStream = out;
     }
 
-    private void setDisplayedInput(float minsup, float mingr, String target, String background) {
+    /**
+     *  Imposta l'output mostrato
+     * @param minsup
+     * @param mingr
+     * @param target
+     * @param background
+     */
+    protected void setDisplayedInput(float minsup, float mingr, String target, String background) {
 
         minsoutLabel.setText(Float.toString(minsup));
         mingroutLabel.setText(Float.toString(mingr));
@@ -77,7 +100,13 @@ class WinOutEp extends JDialog {
         backgroundoutLabel.setText(background);
     }
 
-    private void setDisplayedFpEp(DefaultListModel<String> model, String FpEp) {
+    /**
+     * Rende visibili nell'interfaccia i pattern frequenti 
+     * e i pattern emergenti nel pannello
+     * @param model
+     * @param FpEp
+     */
+    protected void setDisplayedFpEp(DefaultListModel<String> model, String FpEp) {
 
         LinkedList<String> outputList = new LinkedList<String>(Arrays.asList(FpEp.split("\n")));
 
@@ -244,8 +273,12 @@ class WinOutEp extends JDialog {
         pack();
         setLocationRelativeTo(null);
     }
-
-    private void newEPbtnActionPerformed(ActionEvent evt) {
+    
+    /**
+     * Definisce il comportamento del bottone per la nuova computazione
+     * @param evt
+     */
+    protected void newEPbtnActionPerformed(ActionEvent evt) {
 
         try {
             winOutStream.writeObject('s');
@@ -256,6 +289,10 @@ class WinOutEp extends JDialog {
         dispose();
     }
 
+    /**
+     * Metodo main per eseguire la finestra
+     * @param args
+     */
     public static void main(String args[]) {
         try {
             for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
@@ -265,16 +302,16 @@ class WinOutEp extends JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(WinOutEp.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showMessageDialog(null, "ClassNotFoundException", "Errore", JOptionPane.ERROR_MESSAGE);
 
         } catch (InstantiationException ex) {
-            Logger.getLogger(WinOutEp.class.getName()).log(Level.SEVERE, null, ex);
-
+                JOptionPane.showMessageDialog(null, "InstantiationException", "Errore", JOptionPane.ERROR_MESSAGE);
+        
         } catch (IllegalAccessException ex) {
-            Logger.getLogger(WinOutEp.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showMessageDialog(null, "IllegalAccessException", "Errore", JOptionPane.ERROR_MESSAGE);
 
         } catch (UnsupportedLookAndFeelException ex) {
-            Logger.getLogger(WinOutEp.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showMessageDialog(null, "UnsupportedLookAndFeelException", "Errore", JOptionPane.ERROR_MESSAGE);
         }
     }
 }

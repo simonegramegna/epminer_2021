@@ -1,4 +1,7 @@
-class InputUtils {
+/**
+ *  Classe che contiene 
+ */
+public class InputUtils {
 
     static boolean isNumber(String str) {
         try {

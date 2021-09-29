@@ -1,8 +1,6 @@
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-
-// swing components
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -24,7 +22,11 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 
-class WinInput extends JPanel {
+/**
+ * Classe che rappresenta il pannello per 
+ * l'inserimento degli input
+ */
+public class WinInput extends JPanel {
 
     private JComboBox<String> backgroundChoose;
     private JLabel backgroundLabel;
@@ -40,7 +42,12 @@ class WinInput extends JPanel {
     private ObjectInputStream panelIn;
     private ObjectOutputStream panelOut;
 
-    WinInput(ObjectInputStream in, ObjectOutputStream out) {
+    /**
+     * Crea il pannello 
+     * @param in
+     * @param out
+     */
+    public WinInput(ObjectInputStream in, ObjectOutputStream out) {
 
         initComponents();
         panelIn = in;
@@ -154,7 +161,11 @@ class WinInput extends JPanel {
                         .addGap(160, 160, 160)));
     }
 
-    private void btnInputActionPerformed(ActionEvent evt) {
+    /**
+     *  Definisce il comportamento del bottone per inviare gli input
+     * @param evt
+     */
+    protected void btnInputActionPerformed(ActionEvent evt) {
 
         float sentMinSup = -1;
         float sentMinGrow = -1;
@@ -170,15 +181,15 @@ class WinInput extends JPanel {
                     JOptionPane.ERROR_MESSAGE);
         } else {
 
-            if (InputUtils.isNumber(minSup)) {
+            if (isNumber(minSup)) {
 
-                if (InputUtils.getNumber(minSup) <= 0 || InputUtils.getNumber(minSup) > 1) {
+                if (getNumber(minSup) <= 0 || getNumber(minSup) > 1) {
 
                     JOptionPane.showMessageDialog(null, "Inserire un valore compreso tra 0 e 1", "Errore",
                             JOptionPane.ERROR_MESSAGE);
                     inputMinSup.setText("");
                 } else {
-                    sentMinSup = InputUtils.getNumber(minSup);
+                    sentMinSup = getNumber(minSup);
                 }
             }
         }
@@ -186,15 +197,15 @@ class WinInput extends JPanel {
 
             JOptionPane.showMessageDialog(null, "Inserire un valore di grow rate", "Errore", JOptionPane.ERROR_MESSAGE);
         } else {
-            if (InputUtils.isNumber(minGrow)) {
+            if (isNumber(minGrow)) {
 
-                if (InputUtils.getNumber(minGrow) <= 0) {
+                if (getNumber(minGrow) <= 0) {
 
                     JOptionPane.showMessageDialog(null, "Inserire un valore strettamente maggiore di 0", "Errore",
                             JOptionPane.ERROR_MESSAGE);
                     inputGrowRate.setText("");
                 } else {
-                    sentMinGrow = InputUtils.getNumber(minGrow);
+                    sentMinGrow = getNumber(minGrow);
                 }
             }
         }
@@ -244,5 +255,19 @@ class WinInput extends JPanel {
 
         inputGrowRate.setText("");
         inputMinSup.setText("");
+    }
+
+    private boolean isNumber(String str) {
+        try {
+            Float.parseFloat(str);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
+
+    private float getNumber(String str) {
+
+        return Float.parseFloat(str);
     }
 }
