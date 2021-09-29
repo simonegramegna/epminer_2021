@@ -16,7 +16,7 @@ public class ContinuousAttributeIterator implements Iterator<Float> {
     private int numValues;
 
     /**
-     * 
+     * avvalora i membri attributo della classe con i parametri del costruttore
      * @param min
      * @param max
      * @param numValues
@@ -29,6 +29,7 @@ public class ContinuousAttributeIterator implements Iterator<Float> {
     }
 
     /**
+     * restituisce true se j<=numValues, false altrimenti
      * @return boolean
      */
     @Override
@@ -38,6 +39,9 @@ public class ContinuousAttributeIterator implements Iterator<Float> {
     }
     
     /**
+     * stanzia e restituisce un riferimento ad oggetto di classe
+     * ContinuousAttributeIterator con numero di 
+     * intervalli di discretizzazione pari a 5.
      * @return Float
      */
     public Float next() {

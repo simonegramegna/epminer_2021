@@ -2,9 +2,6 @@ package mining;
 
 import data.ContinuousAttribute;
 
-/**
- * 
- */
 public class ContinuousItem extends Item {
     
     private static final long serialVersionUID = 7893147173498448187L;
@@ -14,6 +11,11 @@ public class ContinuousItem extends Item {
         super(attribute, value);
     }
 
+    /**
+     * 
+     * @param value
+     * @return boolean
+     */
     boolean checkItemCondition(Object value) {
 
         Interval interval = (Interval) this.getValue();
@@ -22,6 +24,7 @@ public class ContinuousItem extends Item {
     }
 
     public String toString() {
+
         String value = "";
         value += this.getAttribute().getName() + " in " + this.getValue().toString();
         return value;

@@ -14,6 +14,9 @@ import java.util.LinkedList;
 import data.*;
 import utility.ComparatorGrowRate;
 
+/**
+ * 
+ */
 public class EmergingPatternMiner implements Iterable<EmergingPattern>, Serializable {
 
     private LinkedList<EmergingPattern> epList;

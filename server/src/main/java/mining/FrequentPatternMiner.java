@@ -14,10 +14,22 @@ import java.util.LinkedList;
 
 import data.*;
 
+/**
+ * Classe che che include i metodi per ù
+ * la scoperta di pattern frequenti con Algoritmo APRIORI
+ */
 public class FrequentPatternMiner implements Serializable {
     
     private LinkedList<FrequentPattern> outputFP = new LinkedList<FrequentPattern>();
 
+    /**
+     * Costruttore che genera tutti i pattern k=1 frequenti e per ognuno di
+     * questi genera quelli con k>1 richiamand expandFrequentPatterns()
+     * @param data
+     * @param minSup
+     * @throws EmptySetException
+     * @throws EmptyQueueException
+     */
     public FrequentPatternMiner(Data data, float minSup) throws EmptySetException, EmptyQueueException {
 
         if (data.getNumberOfAttributes() == 0) {
@@ -50,6 +62,18 @@ public class FrequentPatternMiner implements Serializable {
         this.sort();
     }
 
+    /**
+     * Finché fpQueue contiene elementi, si estrae un elemento dalla coda fpQueue, 
+     * si generano i raffinamenti per questo (aggiungendo un nuovo item non incluso). 
+     * Per ogni raffinamento si verifica se è frequente e, in caso affermativo, 
+     * lo si aggiunge sia ad fpQueue sia ad outputFP
+     * @param data
+     * @param minSup
+     * @param fpQueue
+     * @param outputFP
+     * @return LinkedList<FrequentPattern>
+     * @throws EmptyQueueException
+     */
     private LinkedList<FrequentPattern> expandFrequentPatterns(Data data, float minSup, Queue<FrequentPattern> fpQueue,
             LinkedList<FrequentPattern> outputFP) throws EmptyQueueException {
 
@@ -59,23 +83,20 @@ public class FrequentPatternMiner implements Serializable {
 
             if (first_element instanceof FrequentPattern) {
 
-                FrequentPattern fp = (FrequentPattern) fpQueue.first(); // fp to be refined
+                FrequentPattern fp = (FrequentPattern) fpQueue.first(); 
                 fpQueue.dequeue();
 
                 for (int i = 0; i < data.getNumberOfAttributes(); i++) {
 
                     boolean found = false;
                     for (int j = 0; j < fp.getPatternLength(); j++) {
-                        /* the new item should involve an attribute different
-                         * form attributes already involved into the items of fp
-                         */
+                        
                         if (fp.getItem(j).getAttribute().equals(data.getAttribute(i))) {
                             found = true;
                             break;
                         }
                     }
-                    if (!found) // data.getAttribute(i) is not involve into an item of fp
-                    {
+                    if (!found) {
                         if (data.getAttribute(i) instanceof DiscreteAttribute) {
                             for (int j = 0; j < ((DiscreteAttribute) data.getAttribute(i))
                                     .getNumberOfDistinctValues(); j++) {
@@ -83,7 +104,7 @@ public class FrequentPatternMiner implements Serializable {
                                 DiscreteItem item = new DiscreteItem((DiscreteAttribute) data.getAttribute(i),
                                         ((DiscreteAttribute) (data.getAttribute(i))).getValue(j));
 
-                                FrequentPattern newFP = refineFrequentPattern(fp, item); // generate refinement
+                                FrequentPattern newFP = refineFrequentPattern(fp, item); 
                                 newFP.setSupport(newFP.computeSupport(data));
 
                                 if (newFP.getSupport() >= minSup) {
@@ -100,12 +121,25 @@ public class FrequentPatternMiner implements Serializable {
         return outputFP;
     }
 
+    /**
+     * Crea un nuovo pattern a cui aggiunge tutti 
+     * gli item di FP e il parametro item
+     * @param FP
+     * @param item
+     * @return FrequentPattern
+     */
     public FrequentPattern refineFrequentPattern(FrequentPattern FP, Item item) {
+
         FrequentPattern newfp = new FrequentPattern(FP);
         newfp.addItem(item);
         return newfp;
     }
 
+    /**
+     * Scandisce OutputFp al fine di concatenare in 
+     * un'unica stringa i pattern frequenti letti
+     * @return String
+     */
     public String toString() {
         String value = "";
 
@@ -116,7 +150,10 @@ public class FrequentPatternMiner implements Serializable {
         return value;
     }
 
-    // getter che non sta nel pdf;
+    /**
+     * Restituisce il membro outputFP
+     * @return LinkedList<FrequentPattern>
+     */
     public LinkedList<FrequentPattern> getOutputFP() {
 
         return outputFP;

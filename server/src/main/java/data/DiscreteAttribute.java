@@ -3,7 +3,7 @@ package data;
 import java.io.IOException;
 /**
  * Definisce la classe DiscreteAttribute che estende la classe Attribute e modella un 
-attributo discreto rappresentando l’insieme di valori distinti del relativo dominio.
+attributo discreto rappresentando lï¿½insieme di valori distinti del relativo dominio.
  *
  */
 public class DiscreteAttribute extends Attribute {
@@ -12,7 +12,7 @@ public class DiscreteAttribute extends Attribute {
 	
 	private String values[];
 /**
- * : Invoca il costruttore della classe madre e 
+ * Invoca il costruttore della classe madre e 
 avvalora l'array values[ ] con i valori discreti in input. 
  * @param name
  * @param index
@@ -23,7 +23,7 @@ avvalora l'array values[ ] con i valori discreti in input.
         this.values = values;
     }
 /**
- *  Restituisce la cardinalità del membro values
+ *  Restituisce la cardinalitï¿½ del membro values
  * @return int
  */
     public int getNumberOfDistinctValues() {
