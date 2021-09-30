@@ -20,7 +20,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.ActionListener;
-import java.awt.event.WindowAdapter;
 
 /**
  * Classe che rappresenta il pannello per 
@@ -92,7 +91,7 @@ public class WinInput extends JPanel {
         });
 
         targetChoose.setFont(new Font("Arial", 0, 14)); // NOI18N
-        targetChoose.setModel(new DefaultComboBoxModel<>(new String[] { "playtennistarget" }));
+        targetChoose.setModel(new DefaultComboBoxModel<>(new String[] { "playtennisTarget" }));
 
         backgroundChoose.setFont(new Font("Arial", 0, 14)); // NOI18N
         backgroundChoose.setModel(new DefaultComboBoxModel<>(new String[] { "playtennisBackground" }));
