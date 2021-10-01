@@ -10,7 +10,7 @@ public class ComparatorGrowRate implements Comparator<EmergingPattern> {
 
         if (o1.getGrowrate() < o2.getGrowrate()) {
             return -1;
-            
+
         } else if (o1.getGrowrate() > o2.getGrowrate()) {
             return 1;
 

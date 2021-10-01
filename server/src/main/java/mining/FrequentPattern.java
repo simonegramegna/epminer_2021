@@ -68,7 +68,7 @@ public class FrequentPattern implements Iterable<Item>, Comparable<FrequentPatte
         for (int i = 0; i < data.getNumberOfExamples(); i++) {
             // indice item
             boolean isSupporting = true;
-            
+
             for (int j = 0; j < this.getPatternLength(); j++) {
                 // DiscreteItem
                 DiscreteItem item = (DiscreteItem) this.getItem(j);
@@ -110,7 +110,7 @@ public class FrequentPattern implements Iterable<Item>, Comparable<FrequentPatte
 
     @Override
     public Iterator<Item> iterator() {
-        
+
         return fp.iterator();
     }
 

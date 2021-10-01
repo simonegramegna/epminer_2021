@@ -102,7 +102,7 @@ public class Data {
     }
 
     public String toString() {
-        
+
         String value = "";
 
         for (int i = 0; i < numberOfExamples; i++) {

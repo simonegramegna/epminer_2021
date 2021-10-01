@@ -4,17 +4,18 @@ import java.io.Serializable;
 import data.Attribute;
 
 /**
- * Classe astratta che modella un generico item (coppia
- * attributo-valore, per esempio Outlook=”Sunny”)
+ * Classe astratta che modella un generico item (coppia attributo-valore, per
+ * esempio Outlook=”Sunny”)
  */
-public abstract class Item implements Serializable{
+public abstract class Item implements Serializable {
 
     private Attribute attribute;
     private Object value;
 
     /**
-     * Inizializza i valori dei membri attributi con i 
-     * parametri passati come argomento al costruttore
+     * Inizializza i valori dei membri attributi con i parametri passati come
+     * argomento al costruttore
+     * 
      * @param attribute
      * @param value
      */
@@ -26,6 +27,7 @@ public abstract class Item implements Serializable{
 
     /**
      * Restituisce il membro attribute
+     * 
      * @return Attribute
      */
     public Attribute getAttribute() {
@@ -35,6 +37,7 @@ public abstract class Item implements Serializable{
 
     /**
      * Restituisce il membro value
+     * 
      * @return Object
      */
     public Object getValue() {
@@ -50,6 +53,7 @@ public abstract class Item implements Serializable{
 
     /**
      * Restituisce una stringa nella forma <attribute>=<value>
+     * 
      * @return String
      */
     public String toString() {

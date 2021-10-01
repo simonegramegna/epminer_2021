@@ -43,7 +43,7 @@ public class EmergingPatternMiner implements Iterable<EmergingPattern>, Serializ
             }
 
             if (ep != null) {
-                
+
                 epList.add(ep);
             }
         }

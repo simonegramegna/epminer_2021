@@ -43,17 +43,20 @@ public class DbAccess {
         }
 
     }
-/**
- * ritorna l'oggetto Connection
- * @return Connection
- */
+
+    /**
+     * ritorna l'oggetto Connection
+     * 
+     * @return Connection
+     */
     public Connection getConnection() {
 
         return conn;
     }
-/**
- * chiude la connessione conn
- */
+
+    /**
+     * chiude la connessione conn
+     */
     public void closeConnection() {
         try {
             conn.close();

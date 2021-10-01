@@ -3,10 +3,10 @@ package data;
 import java.util.Iterator;
 
 /**
- * classe realizza l’iteratore che itera sugli elementi della sequenza 
- * composta da numValues valori reali equidistanti tra di loro (cut points) 
- * compresi tra min e max ottenuti per mezzo di discretizzazione. 
- * La classe implementa i metodi della interfaccia generica Iterator<T> tipizzata con Float
+ * classe realizza l’iteratore che itera sugli elementi della sequenza composta
+ * da numValues valori reali equidistanti tra di loro (cut points) compresi tra
+ * min e max ottenuti per mezzo di discretizzazione. La classe implementa i
+ * metodi della interfaccia generica Iterator<T> tipizzata con Float
  */
 public class ContinuousAttributeIterator implements Iterator<Float> {
 
@@ -17,6 +17,7 @@ public class ContinuousAttributeIterator implements Iterator<Float> {
 
     /**
      * avvalora i membri attributo della classe con i parametri del costruttore
+     * 
      * @param min
      * @param max
      * @param numValues
@@ -30,6 +31,7 @@ public class ContinuousAttributeIterator implements Iterator<Float> {
 
     /**
      * restituisce true se j<=numValues, false altrimenti
+     * 
      * @return boolean
      */
     @Override
@@ -37,11 +39,12 @@ public class ContinuousAttributeIterator implements Iterator<Float> {
 
         return (j <= numValues);
     }
-    
+
     /**
      * stanzia e restituisce un riferimento ad oggetto di classe
-     * ContinuousAttributeIterator con numero di 
-     * intervalli di discretizzazione pari a 5.
+     * ContinuousAttributeIterator con numero di intervalli di discretizzazione pari
+     * a 5.
+     * 
      * @return Float
      */
     public Float next() {

@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+
 /**
  * modella lo schema di una tabella nel database relazionale
  *
@@ -16,17 +17,19 @@ import java.util.List;
 public class TableSchema {
 
     private Connection connection;
-/**
- * costruttore che modella lo schema di una tabella nel database relazionale
- * @param tableName
- * @param connection
- * @throws SQLException
- */
+
+    /**
+     * costruttore che modella lo schema di una tabella nel database relazionale
+     * 
+     * @param tableName
+     * @param connection
+     * @throws SQLException
+     */
     public TableSchema(String tableName, Connection connection) throws SQLException {
 
         this.connection = connection;
         HashMap<String, String> mapSQL_JAVATypes = new HashMap<String, String>();
-        
+
         // http://java.sun.com/j2se/1.3/docs/guide/jdbc/getstart/mapping.html
         mapSQL_JAVATypes.put("CHAR", "string");
         mapSQL_JAVATypes.put("VARCHAR", "string");
@@ -51,58 +54,70 @@ public class TableSchema {
         res.close();
 
     }
-/**
- * classe Column formata da due stringhe
- */
+
+    /**
+     * classe Column formata da due stringhe
+     */
     public class Column {
 
         private String name;
         private String type;
-/**
- * @param name
- * @param type
- */
+
+        /**
+         * @param name
+         * @param type
+         */
         Column(String name, String type) {
             this.name = name;
             this.type = type;
         }
-/**
- * ritorna il nome in colonna
- * @return String
- */
+
+        /**
+         * ritorna il nome in colonna
+         * 
+         * @return String
+         */
         public String getColumnName() {
             return name;
         }
-/**
- * ritorna vero se type=number, falso altrimenti
- * @return boolean
- */
+
+        /**
+         * ritorna vero se type=number, falso altrimenti
+         * 
+         * @return boolean
+         */
         public boolean isNumber() {
             return type.equals("number");
         }
-/**
- * ritorna una stringa
- * @return String
- */
+
+        /**
+         * ritorna una stringa
+         * 
+         * @return String
+         */
         public String toString() {
             return name + ":" + type;
         }
     }
 
     List<Column> tableSchema = new ArrayList<Column>();
-/**
- * ritorna la dimensione di tableSchema
- * @return int
- */
+
+    /**
+     * ritorna la dimensione di tableSchema
+     * 
+     * @return int
+     */
     public int getNumberOfAttributes() {
 
         return tableSchema.size();
     }
-/**
- * ritorna il valore di tableSchema in posizione index
- * @param index
- * @return String
- */
+
+    /**
+     * ritorna il valore di tableSchema in posizione index
+     * 
+     * @param index
+     * @return String
+     */
     public Column getColumn(int index) {
 
         return tableSchema.get(index);
