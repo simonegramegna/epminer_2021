@@ -11,11 +11,19 @@ import java.util.LinkedList;
 import java.util.List;
 
 import database.TableSchema.Column;
-
+/**
+ * modella ll’insieme di tuple collezionate in una tabella.
+ * La singola tupla è modellata dalla classe Tuple_Data inner class di Table_Data.
+ *
+ *
+ */
 public class TableData {
 
     private Connection connection;
-
+/**
+ * costruttore che inizializza la connessione
+ * @param connection
+ */
     public TableData(Connection connection) {
         this.connection = connection;
     }
@@ -32,7 +40,16 @@ public class TableData {
             return value;
         }
     }
-
+/**
+ * Ricava lo schema della tabella con nome table. Esegue una interrogazione 
+ * per estrarre le tuple da tale tabella. Per ogni tupla del resultset, si crea un oggetto, istanza della 
+ * classe Tupla, il cui riferimento va incluso nella lista da restituire. In particolare, per la tupla 
+ * corrente nel resultset, si estraggono i valori dei singoli campi (usando getFloat() o getString()), 
+ * e li si aggiungono all’oggetto istanza della classe Tupla che si sta costruendo.
+ * @param table
+ * @return LinkedList<TupleData>
+ * @throws SQLException
+ */
     public List<TupleData> getTransazioni(String table) throws SQLException {
         LinkedList<TupleData> transSet = new LinkedList<TupleData>();
         Statement statement;
@@ -67,7 +84,14 @@ public class TableData {
         return transSet;
 
     }
-
+/**
+ * Formula ed esegue una interrogazione SQL per estrarre i valori distinti 
+ * ordinati di column e popolare una lista da restituire. 
+ * @param table
+ * @param column
+ * @return LinkedList<Object>
+ * @throws SQLException
+ */
     public List<Object> getDistinctColumnValues(String table, Column column) throws SQLException {
         LinkedList<Object> valueSet = new LinkedList<Object>();
         Statement statement;
@@ -96,7 +120,18 @@ public class TableData {
         return valueSet;
 
     }
-
+/**
+ * Formula ed esegue una interrogazione SQL per estrarre il valore aggregato (valore minimo o valore massimo) 
+ * cercato nella colonna di nome column della tabella di nome table. 
+ * Il metodo solleva e propaga una NoValueException se il resultset è vuoto o il valore 
+ * calcolato è pari a null
+ * @param table
+ * @param column
+ * @param aggregate
+ * @return Object
+ * @throws SQLException
+ * @throws NoValueException
+ */
     public Object getAggregateColumnValue(String table, Column column, QUERY_TYPE aggregate)
             throws SQLException, NoValueException {
         Statement statement;
