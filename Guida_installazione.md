@@ -57,7 +57,7 @@
     <li> Eseguire nella cartella /server il comando da terminale <code> mvn clean compile assembly:single </code> </li>
     <li>Il file jar eseguibile si trova nella cartella /target </li>
     <li>Avviare il server eseguendo il comando da terminale <code>java -jar epServer-1.0-jar-with-dependencies.jar</code></li>
-    <li>Il server sarà automaticamente in ascolto sulla porta 5000</li>
+    <li>Il server sarà automaticamente in ascolto sulla porta 8080</li>
 </ol>
 
 <h3> Compilazione e avvio del client </h3>
@@ -65,7 +65,7 @@
 <ol>
     <li>Eseguire nella cartella /client il comando da terminale <code>mvn package</code></li>
     <li>Il file jar eseguibile si trova nella cartella /target </li>
-    <li>Avviare il client tramite il comando <code>java -jar epClient-1.0.jar</code> specificando l'host (localhost) e la porta (porta di defuallt del server: 5000) </li></ol>
+    <li>Avviare il client tramite il comando <code>java -jar epClient-1.0.jar</code> specificando l'host (localhost) e la porta (porta di defuallt del server: 8080) </li></ol>
 
 <h3> Compilazione e avvio dell'estensione </h3>
 
@@ -73,4 +73,4 @@
     <li>Eseguire nella cartella /estensione il comando da terminale <code>mvn package</code></li>
     <li>Il file jar eseguibile si trova nella cartella /target </li>
     <li>Avviare il programma tramite il comando <code>java -jar epGui-1.0.jar</code></li></ol>
-
+<h3> Guida utilizzo client </h3>

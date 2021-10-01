@@ -21,7 +21,7 @@ import java.awt.Font;
 import java.awt.Color;
 
 /**
- *  Classe per creare la finestra principale
+ * Classe per creare la finestra principale
  */
 public class MainWinClient extends JFrame {
 
@@ -42,10 +42,11 @@ public class MainWinClient extends JFrame {
     private static int mainHeight = 400;
     private final static int newEpChoose = 1;
     private final static int fileChoose = 2;
-    private final static int defaultPort = 5000;
+    private final static int defaultPort = 8080;
 
     /**
      * Crea la finestra principale
+     * 
      * @throws IOException
      */
     public MainWinClient() throws IOException {
@@ -87,14 +88,14 @@ public class MainWinClient extends JFrame {
 
         mainPanel.setPreferredSize(new java.awt.Dimension(500, 400));
 
-        mainTitle.setFont(new Font("Arial", 0, 36)); 
+        mainTitle.setFont(new Font("Arial", 0, 36));
         mainTitle.setForeground(new Color(30, 0, 255));
         mainTitle.setText("Benvenuto in EpMiner!");
 
-        startLabel.setFont(new Font("Arial", 0, 18)); 
+        startLabel.setFont(new Font("Arial", 0, 18));
         startLabel.setText("   Inizia!");
 
-        newEpBtn.setFont(new Font("Arial", 1, 14)); 
+        newEpBtn.setFont(new Font("Arial", 1, 14));
         newEpBtn.setForeground(new Color(191, 14, 14));
         newEpBtn.setText("Nuova Scoperta");
         newEpBtn.addActionListener(new ActionListener() {
@@ -105,7 +106,7 @@ public class MainWinClient extends JFrame {
             }
         });
 
-        fileEpBtn.setFont(new Font("Arial", 1, 14)); 
+        fileEpBtn.setFont(new Font("Arial", 1, 14));
         fileEpBtn.setForeground(new Color(0, 141, 14));
         fileEpBtn.setText("Risultati in archivio");
         fileEpBtn.addActionListener(new ActionListener() {
@@ -116,7 +117,7 @@ public class MainWinClient extends JFrame {
             }
         });
 
-        quitBtn.setFont(new Font("Arial", 1, 14)); 
+        quitBtn.setFont(new Font("Arial", 1, 14));
         quitBtn.setText("Esci");
         quitBtn.addActionListener(new ActionListener() {
 
@@ -126,7 +127,7 @@ public class MainWinClient extends JFrame {
             }
         });
 
-        connectLabel.setFont(new Font("Arial", 0, 14)); 
+        connectLabel.setFont(new Font("Arial", 0, 14));
         connectLabel.setForeground(new Color(0, 141, 14));
 
         GroupLayout mainPanelLayout = new GroupLayout(mainPanel);
@@ -173,8 +174,9 @@ public class MainWinClient extends JFrame {
     }
 
     /**
-     * Definisce il comportamento del bottone per richiedere 
-     * una computazione già esistente in archivvio
+     * Definisce il comportamento del bottone per richiedere una computazione già
+     * esistente in archivvio
+     * 
      * @param evt
      */
     protected void fileEpBtnActionPerformed(ActionEvent evt) {
@@ -189,8 +191,8 @@ public class MainWinClient extends JFrame {
     }
 
     /**
-     * Definisce il comportamento del bottone per richiedere 
-     * una nuova computazione
+     * Definisce il comportamento del bottone per richiedere una nuova computazione
+     * 
      * @param evt
      */
     protected void newEpBtnActionPerformed(ActionEvent evt) {
@@ -203,8 +205,10 @@ public class MainWinClient extends JFrame {
         changePanel();
         this.setTitle("EpMiner2021 - Nuovo EP");
     }
+
     /**
      * Definisce il comportamento del bottone per uscire dal programma
+     * 
      * @param evt
      */
     protected void quitBtnActionPerformed(ActionEvent evt) {
