@@ -1,63 +1,83 @@
 package utility;
-
+/**
+ * a classe Queue che modella una struttura coda che è poi 
+ * usata come contenitore a modalità FIFO per i pattern frequenti 
+ * scoperti a livello k da usare per generare i pattern candidati a livello k+1
+ * @author Ferdo
+ *
+ * @param <T>
+ */
 public class Queue<T> {
 
-    private Record begin = null;
-    private Record end = null;
+	private Record begin = null;
+	private Record end = null;
 
-    private class Record {
+	private class Record {
 
-        T elem;
-        Record next;
+		T elem;
+		Record next;
 
-        Record(T e) {
-            this.elem = e;
-            this.next = null;
-        }
-    }
+		Record(T e) {
+			this.elem = e;
+			this.next = null;
+		}
+	}
+	/**
+	 * controlla se la coda è vuota
+	 * @return boolean
+	 */
+	public boolean isEmpty() {
 
-    public boolean isEmpty() {
+		return this.begin == null;
+	}
+	/**
+	 * inserisce un elemento dalla coda
+	 * @param e
+	 */
+	public void enqueue(T e) {
 
-        return this.begin == null;
-    }
+		if (this.isEmpty()) {
 
-    public void enqueue(T e) {
+			this.begin = this.end = new Record(e);
+		} else {
 
-        if (this.isEmpty()) {
+			this.end.next = new Record(e);
+			this.end = this.end.next;
+		}
+	}
+	/**
+	 * ritorna il primo elemento della coda, se è vuoto si genere un eccezzione
+	 * @return Record
+	 * @throws EmptyQueueException
+	 */
+	public T first() throws EmptyQueueException {
 
-            this.begin = this.end = new Record(e);
-        } else {
+		if (isEmpty()) {
+			throw new EmptyQueueException();
+		}
+		return this.begin.elem;
+	}
+	/**
+	 * toglie un elemento dalla coda, se è vuota si genera un eccezzione
+	 * @throws EmptyQueueException
+	 */
+	public void dequeue() throws EmptyQueueException {
 
-            this.end.next = new Record(e);
-            this.end = this.end.next;
-        }
-    }
+		if (isEmpty()) {
 
-    public T first() throws EmptyQueueException {
+			throw new EmptyQueueException();
+		}
+		if (this.begin == this.end) {
 
-        if (isEmpty()) {
-            throw new EmptyQueueException();
-        }
-        return this.begin.elem;
-    }
+			if (this.begin == null) {
 
-    public void dequeue() throws EmptyQueueException {
+				System.out.println("The queue is empty!");
+			} else {
 
-        if (isEmpty()) {
-
-            throw new EmptyQueueException();
-        }
-        if (this.begin == this.end) {
-
-            if (this.begin == null) {
-
-                System.out.println("The queue is empty!");
-            } else {
-
-                this.begin = this.end = null;
-            }
-        } else {
-            begin = begin.next;
-        }
-    }
+				this.begin = this.end = null;
+			}
+		} else {
+			begin = begin.next;
+		}
+	}
 }
