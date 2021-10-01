@@ -66,6 +66,8 @@
     <li>Eseguire nella cartella /client il comando da terminale <code>mvn package</code></li>
     <li>Il file jar eseguibile si trova nella cartella /target </li>
     <li>Avviare il client tramite il comando <code>java -jar epClient-1.0.jar</code> specificando l'host (localhost) e la porta (porta di defuallt del server: 8080) </li></ol>
+![](/home/simone/Scrivania/epminer_2021/screenshots/server_1.png)
+
 
 <h3> Compilazione e avvio dell'estensione </h3>
 
