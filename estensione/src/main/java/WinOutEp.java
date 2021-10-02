@@ -76,9 +76,9 @@ public class WinOutEp extends javax.swing.JDialog {
         fpLabel = new javax.swing.JLabel();
         EPLabel = new javax.swing.JLabel();
         FPScroll = new javax.swing.JScrollPane();
-        FPOut = new javax.swing.JList<>(modelFP);
+        FPOut = new javax.swing.JList<>();
         EPScroll = new javax.swing.JScrollPane();
-        EPOut = new javax.swing.JList<>(modelEP);
+        EPOut = new javax.swing.JList<>();
         targetoutLabel = new javax.swing.JLabel();
         backgroundoutLabel = new javax.swing.JLabel();
 
@@ -86,15 +86,15 @@ public class WinOutEp extends javax.swing.JDialog {
 
         minsLabel.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         minsLabel.setForeground(new java.awt.Color(30, 0, 255));
-        minsLabel.setText("minSup:");
+        minsLabel.setText("min Supporto:");
 
         backgroundLabel.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         backgroundLabel.setForeground(new java.awt.Color(30, 0, 255));
-        backgroundLabel.setText("backgroundTable:");
+        backgroundLabel.setText("Tabella Background:");
 
         mingrLabel.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         mingrLabel.setForeground(new java.awt.Color(30, 0, 255));
-        mingrLabel.setText("minGr:");
+        mingrLabel.setText("min Grow rate:");
 
         minsoutLabel.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
 
@@ -102,7 +102,7 @@ public class WinOutEp extends javax.swing.JDialog {
 
         targetLabel.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         targetLabel.setForeground(new java.awt.Color(30, 0, 255));
-        targetLabel.setText("targetTable:");
+        targetLabel.setText("Tabella Target:");
 
         newEPbtn.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         newEPbtn.setForeground(new java.awt.Color(0, 141, 14));
@@ -115,11 +115,11 @@ public class WinOutEp extends javax.swing.JDialog {
 
         fpLabel.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         fpLabel.setForeground(new java.awt.Color(30, 0, 255));
-        fpLabel.setText("FPMiner:");
+        fpLabel.setText("Pattern Frequenti:");
 
         EPLabel.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         EPLabel.setForeground(new java.awt.Color(30, 0, 255));
-        EPLabel.setText("EPMiner:");
+        EPLabel.setText("Pattern Emergenti:");
 
         FPOut.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         FPScroll.setViewportView(FPOut);
@@ -143,11 +143,12 @@ public class WinOutEp extends javax.swing.JDialog {
                 .addContainerGap()
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(FPScroll)
+                    .addComponent(EPScroll)
                     .addGroup(mainPanelLayout.createSequentialGroup()
-                        .addComponent(EPLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 736, Short.MAX_VALUE))
-                    .addComponent(EPScroll))
+                        .addComponent(EPLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(mainPanelLayout.createSequentialGroup()
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(mainPanelLayout.createSequentialGroup()
@@ -155,26 +156,25 @@ public class WinOutEp extends javax.swing.JDialog {
                         .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(mainPanelLayout.createSequentialGroup()
                                 .addGap(4, 4, 4)
-                                .addComponent(backgroundLabel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(backgroundLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(backgroundoutLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(mainPanelLayout.createSequentialGroup()
-                                .addComponent(targetLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(targetLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(targetoutLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 509, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(mainPanelLayout.createSequentialGroup()
-                                .addComponent(minsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(minsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(minsoutLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(mingrLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(26, 26, 26)
+                                .addGap(28, 28, 28)
+                                .addComponent(mingrLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(mingroutLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(mainPanelLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(fpLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(fpLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(140, Short.MAX_VALUE))
         );
         mainPanelLayout.setVerticalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

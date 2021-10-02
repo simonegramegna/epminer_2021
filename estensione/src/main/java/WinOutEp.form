@@ -47,14 +47,15 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="FPScroll" max="32767" attributes="0"/>
-                      <Group type="102" attributes="0">
-                          <Component id="EPLabel" min="-2" pref="74" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="736" max="32767" attributes="0"/>
-                      </Group>
                       <Component id="EPScroll" alignment="0" max="32767" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="EPLabel" min="-2" pref="157" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
+              <Component id="jSeparator1" alignment="1" max="32767" attributes="0"/>
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
@@ -62,34 +63,33 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-                                  <Component id="backgroundLabel" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="backgroundLabel" min="-2" pref="170" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
                                   <Component id="backgroundoutLabel" min="-2" pref="470" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="targetLabel" min="-2" pref="110" max="-2" attributes="0"/>
+                                  <Component id="targetLabel" min="-2" pref="136" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="targetoutLabel" min="-2" pref="509" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
-                                  <Component id="minsLabel" min="-2" pref="76" max="-2" attributes="0"/>
+                                  <Component id="minsLabel" min="-2" pref="120" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="minsoutLabel" min="-2" pref="100" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="mingrLabel" min="-2" pref="67" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                                  <Component id="mingrLabel" min="-2" pref="127" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
                                   <Component id="mingroutLabel" min="-2" pref="166" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="fpLabel" min="-2" pref="119" max="-2" attributes="0"/>
+                          <Component id="fpLabel" min="-2" pref="156" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="140" max="32767" attributes="0"/>
               </Group>
-              <Component id="jSeparator1" alignment="1" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -140,7 +140,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="0" red="1e" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="minSup:"/>
+            <Property name="text" type="java.lang.String" value="min Supporto:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="backgroundLabel">
@@ -151,7 +151,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="0" red="1e" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="backgroundTable:"/>
+            <Property name="text" type="java.lang.String" value="Tabella Background:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="mingrLabel">
@@ -162,7 +162,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="0" red="1e" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="minGr:"/>
+            <Property name="text" type="java.lang.String" value="min Grow rate:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="minsoutLabel">
@@ -187,7 +187,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="0" red="1e" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="targetTable:"/>
+            <Property name="text" type="java.lang.String" value="Tabella Target:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JSeparator" name="jSeparator1">
@@ -214,7 +214,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="0" red="1e" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="FPMiner:"/>
+            <Property name="text" type="java.lang.String" value="Pattern Frequenti:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="EPLabel">
@@ -225,7 +225,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="0" red="1e" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="EPMiner:"/>
+            <Property name="text" type="java.lang.String" value="Pattern Emergenti:"/>
           </Properties>
         </Component>
         <Container class="javax.swing.JScrollPane" name="FPScroll">

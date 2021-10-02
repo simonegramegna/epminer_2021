@@ -139,15 +139,15 @@ public class WinOutEp extends JDialog {
 
         minsLabel.setFont(new Font("Arial", 0, 18));
         minsLabel.setForeground(new Color(30, 0, 255));
-        minsLabel.setText("minSup:");
+        minsLabel.setText("min Supporto:");
 
         backgroundLabel.setFont(new Font("Arial", 0, 18));
         backgroundLabel.setForeground(new Color(30, 0, 255));
-        backgroundLabel.setText("backgroundTable:");
+        backgroundLabel.setText("Tabella Background:");
 
         mingrLabel.setFont(new Font("Arial", 0, 18));
         mingrLabel.setForeground(new Color(30, 0, 255));
-        mingrLabel.setText("minGr:");
+       mingrLabel.setText("min Grow rate:");
 
         minsoutLabel.setFont(new Font("Arial", 0, 18));
 
@@ -155,7 +155,7 @@ public class WinOutEp extends JDialog {
 
         targetLabel.setFont(new Font("Arial", 0, 18));
         targetLabel.setForeground(new Color(30, 0, 255));
-        targetLabel.setText("targetTable:");
+        targetLabel.setText("Tabella Target:");
 
         newEPbtn.setFont(new Font("Arial", 1, 14));
         newEPbtn.setForeground(new Color(0, 141, 14));
@@ -169,11 +169,11 @@ public class WinOutEp extends JDialog {
 
         fpLabel.setFont(new Font("Arial", 0, 18));
         fpLabel.setForeground(new Color(30, 0, 255));
-        fpLabel.setText("Frequent patterns :");
+        fpLabel.setText("Pattern Frequenti:");
 
         epLabel.setFont(new Font("Arial", 0, 18));
         epLabel.setForeground(new Color(30, 0, 255));
-        epLabel.setText("Emerging patterns :");
+        epLabel.setText("Pattern Emergenti:");
 
         fpOut.setFont(new Font("Arial", 0, 12));
         fpScroll.setViewportView(fpOut);
@@ -187,50 +187,51 @@ public class WinOutEp extends JDialog {
 
         GroupLayout mainPanelLayout = new GroupLayout(mainPanel);
         mainPanel.setLayout(mainPanelLayout);
-        mainPanelLayout.setHorizontalGroup(mainPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING).addGroup(
-                GroupLayout.Alignment.TRAILING,
-                mainPanelLayout.createSequentialGroup().addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(newEPbtn).addGap(340, 340, 340))
-                .addGroup(mainPanelLayout.createSequentialGroup().addContainerGap()
-                        .addGroup(mainPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                                .addComponent(fpScroll)
-                                .addGroup(mainPanelLayout.createSequentialGroup()
-                                        .addComponent(epLabel, GroupLayout.PREFERRED_SIZE, 74,
-                                                GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 736, Short.MAX_VALUE))
-                                .addComponent(epScroll))
-                        .addContainerGap())
-                .addGroup(mainPanelLayout.createSequentialGroup()
-                        .addGroup(mainPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                                .addGroup(mainPanelLayout.createSequentialGroup().addGap(39, 39, 39)
-                                        .addGroup(mainPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                                                .addGroup(mainPanelLayout.createSequentialGroup().addGap(4, 4, 4)
-                                                        .addComponent(backgroundLabel)
-                                                        .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                                        .addComponent(backgroundoutLabel, GroupLayout.PREFERRED_SIZE,
-                                                                470, GroupLayout.PREFERRED_SIZE))
-                                                .addGroup(mainPanelLayout.createSequentialGroup()
-                                                        .addComponent(targetLabel, GroupLayout.PREFERRED_SIZE, 110,
-                                                                GroupLayout.PREFERRED_SIZE)
-                                                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                                        .addComponent(targetoutLabel, GroupLayout.PREFERRED_SIZE, 509,
-                                                                GroupLayout.PREFERRED_SIZE))
-                                                .addGroup(mainPanelLayout.createSequentialGroup()
-                                                        .addComponent(minsLabel, GroupLayout.PREFERRED_SIZE, 76,
-                                                                GroupLayout.PREFERRED_SIZE)
-                                                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                                        .addComponent(minsoutLabel, GroupLayout.PREFERRED_SIZE, 100,
-                                                                GroupLayout.PREFERRED_SIZE)
-                                                        .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                                        .addComponent(mingrLabel, GroupLayout.PREFERRED_SIZE, 67,
-                                                                GroupLayout.PREFERRED_SIZE)
-                                                        .addGap(26, 26, 26).addComponent(mingroutLabel,
-                                                                GroupLayout.PREFERRED_SIZE, 166,
-                                                                GroupLayout.PREFERRED_SIZE))))
-                                .addGroup(mainPanelLayout.createSequentialGroup().addContainerGap().addComponent(
-                                        fpLabel, GroupLayout.PREFERRED_SIZE, 119, GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addComponent(mainSeparator, GroupLayout.Alignment.TRAILING));
+
+        mainPanelLayout.setHorizontalGroup(
+            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(newEPbtn)
+                .addGap(340, 340, 340))
+            .addGroup(mainPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(fpScroll)
+                    .addComponent(epScroll)
+                    .addGroup(mainPanelLayout.createSequentialGroup()
+                        .addComponent(epLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addComponent(mainSeparator, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(mainPanelLayout.createSequentialGroup()
+                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(mainPanelLayout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(mainPanelLayout.createSequentialGroup()
+                                .addGap(4, 4, 4)
+                                .addComponent(backgroundLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(backgroundoutLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(mainPanelLayout.createSequentialGroup()
+                                .addComponent(targetLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(targetoutLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 509, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(mainPanelLayout.createSequentialGroup()
+                                .addComponent(minsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(minsoutLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(28, 28, 28)
+                                .addComponent(mingrLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(mingroutLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(mainPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(fpLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(140, Short.MAX_VALUE))
+        );
+
         mainPanelLayout.setVerticalGroup(mainPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                 .addGroup(mainPanelLayout.createSequentialGroup().addGap(22, 22, 22)
                         .addGroup(mainPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
@@ -266,10 +267,13 @@ public class WinOutEp extends JDialog {
 
         GroupLayout layout = new GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
+        
         layout.setHorizontalGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING).addComponent(mainPanel,
                 GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
+
         layout.setVerticalGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING).addComponent(mainPanel,
                 GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
+
         pack();
         setLocationRelativeTo(null);
     }
