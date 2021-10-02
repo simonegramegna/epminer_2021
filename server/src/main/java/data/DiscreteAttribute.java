@@ -1,5 +1,5 @@
 /**
- * Modella i dati del programma
+ * data Modella i dati del programma
  */
 package data;
 
