@@ -1,3 +1,6 @@
+/**
+ * Modella i dati del programma
+ */
 package data;
 
 import java.io.IOException;

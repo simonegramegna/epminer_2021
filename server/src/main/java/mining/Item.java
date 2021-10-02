@@ -5,7 +5,7 @@ import data.Attribute;
 
 /**
  * Classe astratta che modella un generico item (coppia attributo-valore, per
- * esempio Outlook=”Sunny”)
+ * esempio Outlook="Sunny")
  */
 public abstract class Item implements Serializable {
 
