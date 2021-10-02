@@ -10,6 +10,7 @@ class Interval {
 
     /**
      * Avvalora i due attributi inf e sup con i parametri del costruttore
+     * 
      * @param inf
      * @param sup
      */
@@ -21,6 +22,7 @@ class Interval {
 
     /**
      * Restituisce inf
+     * 
      * @return float
      */
     float getInf() {
@@ -30,6 +32,7 @@ class Interval {
 
     /**
      * Avvalora inf con il parametro passato
+     * 
      * @param inf
      */
     void setInf(float inf) {
@@ -39,6 +42,7 @@ class Interval {
 
     /**
      * Restituisce sup
+     * 
      * @return float
      */
     float getSup() {
@@ -48,6 +52,7 @@ class Interval {
 
     /**
      * Avvalora sup con il paramtero passato
+     * 
      * @param sup
      */
     void setSup(float sup) {
@@ -57,6 +62,7 @@ class Interval {
 
     /**
      * Verifica se il valore passato come parametro e' contenuto nell'intervallo
+     * 
      * @param value
      * @return boolean
      */
@@ -66,8 +72,9 @@ class Interval {
     }
 
     /**
-     * rappresenta in una stringa gli estremi dell’intervallo e restituisce tale
+     * rappresenta in una stringa gli estremi dell'intervallo e restituisce tale
      * stringa
+     * 
      * @return String
      */
     public String toString() {

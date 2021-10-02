@@ -9,6 +9,9 @@ import java.sql.SQLException;
 
 import keyboardinput.Keyboard;
 
+/**
+ * Classe principale del client
+ */
 public class MainTest {
 
 	/**
@@ -22,8 +25,8 @@ public class MainTest {
 		System.out.println(socket);
 
 		ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
-		ObjectInputStream in = new ObjectInputStream(socket.getInputStream());
-		; // stream con richieste del client
+        ObjectInputStream in = new ObjectInputStream(socket.getInputStream());
+        // stream con richieste del client
 
 		char risp = 's';
 		do {

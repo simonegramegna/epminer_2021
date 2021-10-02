@@ -6,7 +6,7 @@ package data;
 import java.util.Iterator;
 
 /**
- * classe realizza l’iteratore che itera sugli elementi della sequenza composta
+ * classe realizza l'iteratore che itera sugli elementi della sequenza composta
  * da numValues valori reali equidistanti tra di loro (cut points) compresi tra
  * min e max ottenuti per mezzo di discretizzazione. La classe implementa i
  * metodi della interfaccia generica Iterator<T> tipizzata con Float

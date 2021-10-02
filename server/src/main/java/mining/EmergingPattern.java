@@ -11,7 +11,7 @@ public class EmergingPattern extends FrequentPattern implements Serializable {
 
     /**
      * Chiama il costruttore della superclasse passandogli fp e inizializza il
-     * membro growrate con l’argomento del costruttore
+     * membro growrate con l'argomento del costruttore
      * 
      * @param fp
      * @param growrate

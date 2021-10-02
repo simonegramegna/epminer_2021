@@ -11,6 +11,10 @@ import java.util.List;
 import database.*;
 import database.TableData.TupleData;
 
+/**
+ * Classe che modella un insieme di transazioni
+ * vettori (attributo-valore)
+ */
 public class Data {
 
     /**
@@ -77,7 +81,6 @@ public class Data {
         finally {
             db.closeConnection();
         }
-
     }
 
     /**
