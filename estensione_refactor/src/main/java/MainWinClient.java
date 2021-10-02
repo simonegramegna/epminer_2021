@@ -132,6 +132,7 @@ public class MainWinClient extends JFrame {
 
         GroupLayout mainPanelLayout = new GroupLayout(mainPanel);
         mainPanel.setLayout(mainPanelLayout);
+        
         mainPanelLayout.setHorizontalGroup(mainPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                 .addGroup(mainPanelLayout.createSequentialGroup().addGroup(mainPanelLayout
                         .createParallelGroup(GroupLayout.Alignment.LEADING)
@@ -148,6 +149,7 @@ public class MainWinClient extends JFrame {
                         .addGroup(mainPanelLayout.createSequentialGroup().addContainerGap().addComponent(connectLabel,
                                 GroupLayout.PREFERRED_SIZE, 217, GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap(135, Short.MAX_VALUE)));
+
         mainPanelLayout.setVerticalGroup(mainPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                 .addGroup(mainPanelLayout.createSequentialGroup().addGap(27, 27, 27)
                         .addComponent(mainTitle, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE)
@@ -165,10 +167,12 @@ public class MainWinClient extends JFrame {
 
         GroupLayout layout = new GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
+
         layout.setHorizontalGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING).addComponent(mainPanel,
                 GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE));
         layout.setVerticalGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING).addComponent(mainPanel,
                 GroupLayout.DEFAULT_SIZE, 430, Short.MAX_VALUE));
+
         pack();
         setLocationRelativeTo(null);
     }
