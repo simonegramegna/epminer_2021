@@ -1,7 +1,7 @@
 package database;
 
 /**
- * classe che estende Exception per controllare l�assenza di una connessione
+ * classe che estende Exception per controllare l'assenza di una connessione
  *
  *
  */

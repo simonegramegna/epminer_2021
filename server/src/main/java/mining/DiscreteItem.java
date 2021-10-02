@@ -3,7 +3,7 @@ package mining;
 import data.DiscreteAttribute;
 
 /**
- *DiscreteItem che estende la classe Item e rappresenta la coppia <Attributo discreto - valore discreto> (Outlook=”Sunny”)
+ *DiscreteItem che estende la classe Item e rappresenta la coppia <Attributo discreto - valore discreto> (Outlook=[Sunny])
  */
 public class DiscreteItem extends Item {
 

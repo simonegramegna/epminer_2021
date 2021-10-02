@@ -15,142 +15,157 @@ import data.*;
 import utility.ComparatorGrowRate;
 
 /**
- *modella la scoperta di emerging pattern a partire dalla lista di frequent pattern
+ * modella la scoperta di emerging pattern a partire dalla lista di frequent
+ * pattern
  */
 public class EmergingPatternMiner implements Iterable<EmergingPattern>, Serializable {
 
-	private LinkedList<EmergingPattern> epList;
-	/**
-	 * Si scandiscono tutti i frequent pattern in fpList , per 
-	   ognuno di essi si calcola il grow rate usando dataBackground e se tale 
-	   valore è maggiore uguale di minG allora il pattern è aggiunto ad epList
-	 * @param dataBackGround
-	 * @param fpList
-	 * @param minG
-	 * @throws EmptySetException
-	 */
-	public EmergingPatternMiner(Data dataBackGround, FrequentPatternMiner fpList, float minG) throws EmptySetException {
+    private LinkedList<EmergingPattern> epList;
 
-		super();
-		if (fpList.getOutputFP().isEmpty()) {
+    /**
+     * Si scandiscono tutti i frequent pattern in fpList , per ognuno di essi si
+     * calcola il grow rate usando dataBackground e se tale valore e' maggiore
+     * uguale di minG allora il pattern e' aggiunto ad epList
+     * 
+     * @param dataBackGround
+     * @param fpList
+     * @param minG
+     * @throws EmptySetException
+     */
+    public EmergingPatternMiner(Data dataBackGround, FrequentPatternMiner fpList, float minG) throws EmptySetException {
 
-			throw new EmptySetException();
-		}
+        super();
+        if (fpList.getOutputFP().isEmpty()) {
 
-		this.epList = new LinkedList<EmergingPattern>();
-		LinkedList<FrequentPattern> list = fpList.getOutputFP();
+            throw new EmptySetException();
+        }
 
-		for (FrequentPattern fp : list) {
+        this.epList = new LinkedList<EmergingPattern>();
+        LinkedList<FrequentPattern> list = fpList.getOutputFP();
 
-			EmergingPattern ep = null;
+        for (FrequentPattern fp : list) {
 
-			try {
-				ep = this.computeEmergingPattern(dataBackGround, fp, minG);
-			} catch (EmergingPatternException e) {
-				;
-			}
+            EmergingPattern ep = null;
 
-			if (ep != null) {
+            try {
+                ep = this.computeEmergingPattern(dataBackGround, fp, minG);
+            } catch (EmergingPatternException e) {
+                ;
+            }
 
-				epList.add(ep);
-			}
-		}
-		this.sort();
-	}
-	/**
-	 * Si ottiene da fp il suo supporto relativo al dataset target. 
-	 * Si calcola il supporto di fp relativo al dataset di background.
-	 * Si calcola il grow rate come rapporto dei due supporti.
-	 * @param dataBackground
-	 * @param fp
-	 * @return float
-	 */
-	private float computeGrowRate(Data dataBackground, FrequentPattern fp) {
+            if (ep != null) {
 
-		float growrate;
-		float suppbackground = fp.computeSupport(dataBackground);
-		float suppdataset = fp.getSupport();
-		growrate = suppdataset / suppbackground;
-		return growrate;
-	}
-	/**
-	 * Verifica che il gorw rate di fp sia maggiore di minGR.In caso affermativo crea un oggetto EmemrgingPattern da fp.
-	 * @param dataBackground
-	 * @param fp
-	 * @param minGR
-	 * @return
-	 * @throws EmergingPatternException
-	 */
-	private EmergingPattern computeEmergingPattern(Data dataBackground, FrequentPattern fp, float minGR)
-			throws EmergingPatternException {
+                epList.add(ep);
+            }
+        }
+        this.sort();
+    }
 
-		float growrate = this.computeGrowRate(dataBackground, fp);
+    /**
+     * Si ottiene da fp il suo supporto relativo al dataset target. Si calcola il
+     * supporto di fp relativo al dataset di background. Si calcola il grow rate
+     * come rapporto dei due supporti.
+     * @param dataBackground
+     * @param fp
+     * @return float
+     */
+    private float computeGrowRate(Data dataBackground, FrequentPattern fp) {
 
-		if (growrate > minGR) {
+        float growrate;
+        float suppbackground = fp.computeSupport(dataBackground);
+        float suppdataset = fp.getSupport();
+        growrate = suppdataset / suppbackground;
+        return growrate;
+    }
 
-			EmergingPattern ep = new EmergingPattern(fp, growrate);
-			return ep;
+    /**
+     * Verifica che il gorw rate di fp sia maggiore di minGR.In caso affermativo
+     * crea un oggetto EmemrgingPattern da fp.
+     * @param dataBackground
+     * @param fp
+     * @param minGR
+     * @return
+     * @throws EmergingPatternException
+     */
+    private EmergingPattern computeEmergingPattern(Data dataBackground, FrequentPattern fp, float minGR)
+            throws EmergingPatternException {
 
-		} else {
+        float growrate = this.computeGrowRate(dataBackground, fp);
 
-			throw new EmergingPatternException();
-		}
-	}
-	/**
-	 * Scandisce epList al fine di concatenare in un'unica stringa le stringhe rappresentati i pattern emergenti letti
-	 */
-	public String toString() {
+        if (growrate > minGR) {
 
-		String value = "";
+            EmergingPattern ep = new EmergingPattern(fp, growrate);
+            return ep;
 
-		for (EmergingPattern ep : epList) {
-			value += ep.toString() + "\n";
-		}
-		return value;
-	}
-	/**
-	 * iteratore di EmergingPattern
-	 * @return Iterator
-	 */
-	@Override
-	public Iterator<EmergingPattern> iterator() {
+        } else {
 
-		return epList.iterator();
-	}
-	/**
-	 * sort mette in ordine la lista
-	 */
-	private void sort() {
+            throw new EmergingPatternException();
+        }
+    }
 
-		Collections.sort(epList, new ComparatorGrowRate());
-	}
-	/**
-	 * salva l'EmergingPatternMiner
-	 * @param nomeFile
-	 * @throws FileNotFoundException
-	 * @throws IOException
-	 */
-	public void salva(String nomeFile) throws FileNotFoundException, IOException {
+    /**
+     * Scandisce epList al fine di concatenare in un'unica stringa le stringhe
+     * rappresentati i pattern emergenti letti
+     */
+    public String toString() {
 
-		FileOutputStream out = new FileOutputStream(nomeFile);
-		ObjectOutputStream s = new ObjectOutputStream(out);
-		s.writeObject(this);
-	}
-	/**
-	 * carica l'EmergingPatternMiner
-	 * @param nomeFile
-	 * @return
-	 * @throws FileNotFoundException
-	 * @throws IOException
-	 * @throws ClassNotFoundException
-	 */
-	public static EmergingPatternMiner carica(String nomeFile)
-			throws FileNotFoundException, IOException, ClassNotFoundException {
+        String value = "";
 
-		FileInputStream in = new FileInputStream(nomeFile);
-		ObjectInputStream o = new ObjectInputStream(in);
-		EmergingPatternMiner miner = (EmergingPatternMiner) o.readObject();
+        for (EmergingPattern ep : epList) {
+            value += ep.toString() + "\n";
+        }
+        return value;
+    }
 
-		return miner;
-	}
+    /**
+     * iteratore di EmergingPattern
+     * 
+     * @return Iterator
+     */
+    @Override
+    public Iterator<EmergingPattern> iterator() {
+
+        return epList.iterator();
+    }
+
+    /**
+     * sort mette in ordine la lista
+     */
+    private void sort() {
+
+        Collections.sort(epList, new ComparatorGrowRate());
+    }
+
+    /**
+     * salva l'EmergingPatternMiner
+     * 
+     * @param nomeFile
+     * @throws FileNotFoundException
+     * @throws IOException
+     */
+    public void salva(String nomeFile) throws FileNotFoundException, IOException {
+
+        FileOutputStream out = new FileOutputStream(nomeFile);
+        ObjectOutputStream s = new ObjectOutputStream(out);
+        s.writeObject(this);
+    }
+
+    /**
+     * carica l'EmergingPatternMiner
+     * 
+     * @param nomeFile
+     * @return
+     * @throws FileNotFoundException
+     * @throws IOException
+     * @throws ClassNotFoundException
+     */
+    public static EmergingPatternMiner carica(String nomeFile)
+            throws FileNotFoundException, IOException, ClassNotFoundException {
+
+        FileInputStream in = new FileInputStream(nomeFile);
+        ObjectInputStream o = new ObjectInputStream(in);
+        EmergingPatternMiner miner = (EmergingPatternMiner) o.readObject();
+
+        return miner;
+    }
 }

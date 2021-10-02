@@ -13,134 +13,140 @@ import database.NoValueException;
 import mining.EmergingPatternMiner;
 import mining.FrequentPatternMiner;
 import utility.EmptyQueueException;
+
 /**
- * la classe ServerOneClient che estende la classe Thread che modella la comunicazione con un unico client.
+ * la classe ServerOneClient che estende la classe Thread che modella la
+ * comunicazione con un unico client.
  *
  */
 public class ServerOneClient extends Thread {
 
-	private Socket socket;
-	private ObjectInputStream in;
-	private ObjectOutputStream out;
+    private Socket socket;
+    private ObjectInputStream in;
+    private ObjectOutputStream out;
 
-	/**
-	 * Inizia il membro this.socket con il parametro in input al costruttore. Inizializza in e out, avvia il 
-	 * thread invocando il metodo start() (ereditato da Thread).
-	 * @param s
-	 * @throws IOException
-	 */
-	protected ServerOneClient(Socket s) throws IOException {
-		socket = s;
-		in = new ObjectInputStream(s.getInputStream());
-		out = new ObjectOutputStream(socket.getOutputStream());
-		this.start();
-	}
-	/**
-	 * Ridefinisce il metodo run della classe Thread (variazione funzionale).
-	 * Gestisce le richieste del client (apprendere pattern/regole e popolare con queste archive;
-	 * salvare archive in un file, avvalorare archive con oggetto serializzato nel file)
-	 */
-	@Override
-	public void run() {
+    /**
+     * Inizia il membro this.socket con il parametro in input al costruttore.
+     * Inizializza in e out, avvia il thread invocando il metodo start() (ereditato
+     * da Thread).
+     * 
+     * @param s
+     * @throws IOException
+     */
+    protected ServerOneClient(Socket s) throws IOException {
+        socket = s;
+        in = new ObjectInputStream(s.getInputStream());
+        out = new ObjectOutputStream(socket.getOutputStream());
+        this.start();
+    }
 
-		int opzione;
-		float minsup;
-		float mingr;
-		String targetName;
-		String backgroundName;
+    /**
+     * Ridefinisce il metodo run della classe Thread (variazione funzionale).
+     * Gestisce le richieste del client (apprendere pattern/regole e popolare con
+     * queste archive; salvare archive in un file, avvalorare archive con oggetto
+     * serializzato nel file)
+     */
+    @Override
+    public void run() {
 
-		try {
-			char continuareEp = (char) in.readObject();
+        int opzione;
+        float minsup;
+        float mingr;
+        String targetName;
+        String backgroundName;
 
-			while (continuareEp == 's') {
+        try {
+            char continuareEp = (char) in.readObject();
 
-				opzione = (int) in.readObject();
-				minsup = (float) in.readObject();
-				mingr = (float) in.readObject();
-				targetName = (String) in.readObject();
-				backgroundName = (String) in.readObject();
+            while (continuareEp == 's') {
 
-				if (opzione == 1) {
+                opzione = (int) in.readObject();
+                minsup = (float) in.readObject();
+                mingr = (float) in.readObject();
+                targetName = (String) in.readObject();
+                backgroundName = (String) in.readObject();
 
-					Data dataTarget = new Data(targetName);
-					Data dataBackground = new Data(backgroundName);
+                if (opzione == 1) {
 
-					try {
-						FrequentPatternMiner fpMiner = new FrequentPatternMiner(dataTarget, minsup);
+                    Data dataTarget = new Data(targetName);
+                    Data dataBackground = new Data(backgroundName);
 
-						try {
-							fpMiner.salva("FP_playtennis_minSup" + minsup + ".dat");
+                    try {
+                        FrequentPatternMiner fpMiner = new FrequentPatternMiner(dataTarget, minsup);
 
-						} catch (IOException e1) {
+                        try {
+                            fpMiner.salva("FP_playtennis_minSup" + minsup + ".dat");
 
-							e1.printStackTrace();
-						}
-						out.writeObject(fpMiner.toString());
+                        } catch (IOException e1) {
 
-						try {
-							EmergingPatternMiner epMiner = new EmergingPatternMiner(dataBackground, fpMiner, mingr);
+                            e1.printStackTrace();
+                        }
+                        out.writeObject(fpMiner.toString());
 
-							try {
-								epMiner.salva("EP_playtennis_minSup" + minsup + "_minGr" + mingr + ".dat");
+                        try {
+                            EmergingPatternMiner epMiner = new EmergingPatternMiner(dataBackground, fpMiner, mingr);
 
-							} catch (IOException e1) {
+                            try {
+                                epMiner.salva("EP_playtennis_minSup" + minsup + "_minGr" + mingr + ".dat");
 
-								out.writeObject(e1.toString());
-							}
-							out.writeObject(epMiner.toString());
+                            } catch (IOException e1) {
 
-						} catch (EmptySetException e) {
+                                out.writeObject(e1.toString());
+                            }
+                            out.writeObject(epMiner.toString());
 
-							out.writeObject(e.toString());
-						}
-					} catch (EmptySetException e) {
+                        } catch (EmptySetException e) {
 
-						out.writeObject(e.toString());
-					}
-				} else {
-					try {
-						FrequentPatternMiner fpMiner = FrequentPatternMiner
-								.carica("FP_playtennis_minSup" + minsup + ".dat");
+                            out.writeObject(e.toString());
+                        }
+                    } catch (EmptySetException e) {
 
-						out.writeObject(fpMiner.toString());
+                        out.writeObject(e.toString());
+                    }
+                } else {
+                    try {
+                        FrequentPatternMiner fpMiner = FrequentPatternMiner
+                                .carica("FP_playtennis_minSup" + minsup + ".dat");
 
-						EmergingPatternMiner epMiner = EmergingPatternMiner
-								.carica("EP_playtennis_minSup" + minsup + "_minGr" + mingr + ".dat");
-						out.writeObject(epMiner.toString());
+                        out.writeObject(fpMiner.toString());
 
-					} catch (ClassNotFoundException | IOException e) {
+                        EmergingPatternMiner epMiner = EmergingPatternMiner
+                                .carica("EP_playtennis_minSup" + minsup + "_minGr" + mingr + ".dat");
+                        out.writeObject(epMiner.toString());
 
-						out.writeObject(e.toString());
-					}
-				}
-				continuareEp = (char) in.readObject();
-			}
-			socket.close();
-		} catch (NumberFormatException e) {
+                    } catch (ClassNotFoundException | IOException e) {
 
-			e.printStackTrace();
-		} catch (ClassNotFoundException | IOException e) {
+                        out.writeObject(e.toString());
+                    }
+                }
+                continuareEp = (char) in.readObject();
+            }
+            socket.close();
+        } catch (NumberFormatException e) {
 
-			e.printStackTrace();
-			try {
+            e.printStackTrace();
+        } catch (ClassNotFoundException | IOException e) {
 
-				socket.close();
-				System.exit(0);
-			} catch (IOException e1) {
-				e1.printStackTrace();
-			}
-		} catch (DatabaseConnectionException e) {
+            e.printStackTrace();
+            try {
 
-			e.printStackTrace();
-		} catch (SQLException e) {
+                socket.close();
+                System.exit(0);
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+        } catch (DatabaseConnectionException e) {
 
-			e.printStackTrace();
-		} catch (NoValueException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
 
-			e.printStackTrace();
-		} catch (EmptyQueueException e) {
+            e.printStackTrace();
+        } catch (NoValueException e) {
 
-			e.printStackTrace();
-		}
-	}
+            e.printStackTrace();
+        } catch (EmptyQueueException e) {
+
+            e.printStackTrace();
+        }
+    }
 }

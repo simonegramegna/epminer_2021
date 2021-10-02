@@ -4,7 +4,7 @@ import java.io.IOException;
 
 /**
  * Definisce la classe DiscreteAttribute che estende la classe Attribute e
- * modella un attributo discreto rappresentando l�insieme di valori distinti del
+ * modella un attributo discreto rappresentando l'insieme di valori distinti del
  * relativo dominio.
  *
  */
@@ -28,7 +28,7 @@ public class DiscreteAttribute extends Attribute {
     }
 
     /**
-     * Restituisce la cardinalit� del membro values
+     * Restituisce la cardinalita' del membro values
      * 
      * @return int
      */

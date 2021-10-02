@@ -13,7 +13,7 @@ import java.util.List;
 import database.TableSchema.Column;
 
 /**
- * modella ll�insieme di tuple collezionate in una tabella. La singola tupla �
+ * modella l'insieme di tuple collezionate in una tabella. La singola tupla e'
  * modellata dalla classe Tuple_Data inner class di Table_Data.
  *
  *
@@ -50,7 +50,7 @@ public class TableData {
      * oggetto, istanza della classe Tupla, il cui riferimento va incluso nella
      * lista da restituire. In particolare, per la tupla corrente nel resultset, si
      * estraggono i valori dei singoli campi (usando getFloat() o getString()), e li
-     * si aggiungono all�oggetto istanza della classe Tupla che si sta costruendo.
+     * si aggiungono all'oggetto istanza della classe Tupla che si sta costruendo.
      * 
      * @param table
      * @return LinkedList<TupleData>
@@ -133,7 +133,7 @@ public class TableData {
      * Formula ed esegue una interrogazione SQL per estrarre il valore aggregato
      * (valore minimo o valore massimo) cercato nella colonna di nome column della
      * tabella di nome table. Il metodo solleva e propaga una NoValueException se il
-     * resultset � vuoto o il valore calcolato � pari a null
+     * resultset e' vuoto o il valore calcolato e' pari a null
      * 
      * @param table
      * @param column
@@ -171,7 +171,5 @@ public class TableData {
             throw new NoValueException("No " + aggregateOp + " on " + column.getColumnName());
 
         return value;
-
     }
-
 }

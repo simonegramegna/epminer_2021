@@ -6,9 +6,7 @@ import java.sql.SQLException;
 
 /**
  * Gestisce l'accesso al DB per la lettura dei dati di training
- * 
  * @author Map Tutor
- *
  */
 public class DbAccess {
 
@@ -46,7 +44,6 @@ public class DbAccess {
 
     /**
      * ritorna l'oggetto Connection
-     * 
      * @return Connection
      */
     public Connection getConnection() {

@@ -11,8 +11,6 @@ import java.util.List;
 
 /**
  * modella lo schema di una tabella nel database relazionale
- *
- *
  */
 public class TableSchema {
 
@@ -30,7 +28,6 @@ public class TableSchema {
         this.connection = connection;
         HashMap<String, String> mapSQL_JAVATypes = new HashMap<String, String>();
 
-        // http://java.sun.com/j2se/1.3/docs/guide/jdbc/getstart/mapping.html
         mapSQL_JAVATypes.put("CHAR", "string");
         mapSQL_JAVATypes.put("VARCHAR", "string");
         mapSQL_JAVATypes.put("LONGVARCHAR", "string");
@@ -49,10 +46,8 @@ public class TableSchema {
             if (mapSQL_JAVATypes.containsKey(res.getString("TYPE_NAME")))
                 tableSchema.add(
                         new Column(res.getString("COLUMN_NAME"), mapSQL_JAVATypes.get(res.getString("TYPE_NAME"))));
-
         }
         res.close();
-
     }
 
     /**
@@ -83,7 +78,6 @@ public class TableSchema {
 
         /**
          * ritorna vero se type=number, falso altrimenti
-         * 
          * @return boolean
          */
         public boolean isNumber() {
@@ -92,7 +86,6 @@ public class TableSchema {
 
         /**
          * ritorna una stringa
-         * 
          * @return String
          */
         public String toString() {
@@ -104,7 +97,6 @@ public class TableSchema {
 
     /**
      * ritorna la dimensione di tableSchema
-     * 
      * @return int
      */
     public int getNumberOfAttributes() {
@@ -114,7 +106,6 @@ public class TableSchema {
 
     /**
      * ritorna il valore di tableSchema in posizione index
-     * 
      * @param index
      * @return String
      */

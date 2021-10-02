@@ -167,26 +167,30 @@ public class FrequentPatternMiner implements Serializable {
 
         Collections.sort(outputFP);
     }
-/**
- * salva un istanza del FrequentPatternMiner
- * @param nomeFile
- * @throws FileNotFoundException
- * @throws IOException
- */
+
+    /**
+     * salva un istanza del FrequentPatternMiner
+     * 
+     * @param nomeFile
+     * @throws FileNotFoundException
+     * @throws IOException
+     */
     public void salva(String nomeFile) throws FileNotFoundException, IOException {
 
         FileOutputStream out = new FileOutputStream(nomeFile);
         ObjectOutputStream s = new ObjectOutputStream(out);
         s.writeObject(this);
     }
-/**
- * carica un istanza del FrequentPatternMiner
- * @param nomeFile
- * @return FrequentPatternMiner
- * @throws FileNotFoundException
- * @throws IOException
- * @throws ClassNotFoundException
- */
+
+    /**
+     * carica un istanza del FrequentPatternMiner
+     * 
+     * @param nomeFile
+     * @return FrequentPatternMiner
+     * @throws FileNotFoundException
+     * @throws IOException
+     * @throws ClassNotFoundException
+     */
     public static FrequentPatternMiner carica(String nomeFile)
             throws FileNotFoundException, IOException, ClassNotFoundException {
 

@@ -1,7 +1,7 @@
 package database;
 
 /**
- * classe che estende Exception per modellare l�assenza di un valore all�interno
+ * classe che estende Exception per modellare l'assenza di un valore all'interno
  * di un resultset
  */
 public class NoValueException extends Exception {

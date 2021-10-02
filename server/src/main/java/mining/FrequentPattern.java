@@ -7,163 +7,183 @@ import java.util.LinkedList;
 
 import data.Data;
 import data.DiscreteAttribute;
+
 /**
- * rappresenta un itemset (o pattern) frequente 
- *
- *
+ * rappresenta un itemset (o pattern) frequente
  */
 public class FrequentPattern implements Iterable<Item>, Comparable<FrequentPattern>, Serializable {
 
-	private static final long serialVersionUID = -3212928836144066570L;
-	/**
-	 * @uml.property name="fp"
-	 * @uml.associationEnd multiplicity="(0 -1)"
-	 */
-	private LinkedList<Item> fp;
-	/**
-	 * @uml.property name="support"
-	 */
-	private float support;
-	/**
-	 * costruttore che alloca fp come array di dimensione 0
-	 */
-	public FrequentPattern() {
-		fp = new LinkedList<Item>();
-	}
+    private static final long serialVersionUID = -3212928836144066570L;
+    /**
+     * @uml.property name="fp"
+     * @uml.associationEnd multiplicity="(0 -1)"
+     */
+    private LinkedList<Item> fp;
+    /**
+     * @uml.property name="support"
+     */
+    private float support;
 
-	/**
-	 * costruttore che alloca fp e support come copia del frequent pattern FP passato
-	 * @param FP
-	 */
-	public FrequentPattern(FrequentPattern FP) {
+    /**
+     * costruttore che alloca fp come array di dimensione 0
+     */
+    public FrequentPattern() {
+        fp = new LinkedList<Item>();
+    }
 
-		int length = FP.getPatternLength();
-		fp = new LinkedList<Item>();
+    /**
+     * costruttore che alloca fp e support come copia del frequent pattern FP
+     * passato
+     * 
+     * @param FP
+     */
+    public FrequentPattern(FrequentPattern FP) {
 
-		for (int i = 0; i < length; i++) {
+        int length = FP.getPatternLength();
+        fp = new LinkedList<Item>();
 
-			fp.add(FP.getItem(i));
-		}
-		support = FP.getSupport();
-	}
+        for (int i = 0; i < length; i++) {
 
-	/**
-	 * si estende la dimensione di fp di 1 e si inserisce in ultima posizione l’argomento della procedura
-	 * @param item
-	 */
-	public void addItem(Item item) {
+            fp.add(FP.getItem(i));
+        }
+        support = FP.getSupport();
+    }
 
-		fp.add(item);
-	}
-	/**
-	 * si scandisce fp al fine di concatenare in una stringa la rappresentazione degli item; alla fine si concatena il supporto
-	 */
-	public String toString() {
+    /**
+     * si estende la dimensione di fp di 1 e si inserisce in ultima posizione
+     * l'argomento della procedura
+     * 
+     * @param item
+     */
+    public void addItem(Item item) {
 
-		String value = "";
+        fp.add(item);
+    }
 
-		for (int i = 0; i < fp.size() - 1; i++) {
+    /**
+     * si scandisce fp al fine di concatenare in una stringa la rappresentazione
+     * degli item; alla fine si concatena il supporto
+     */
+    public String toString() {
 
-			value += fp.get(i) + " AND ";
-		}
-		if (fp.size() > 0) {
+        String value = "";
 
-			value += fp.getLast();
-			value += "[" + support + "]";
-		}
-		return value;
-	}
+        for (int i = 0; i < fp.size() - 1; i++) {
 
-	// Aggiorna il supporto
-	/**
-	 * calcola il supporto del pattern rappresentato dall'oggetto this rispetto al dataset data passato come argomento
-	 * @param data
-	 * @return float
-	 */
-	public float computeSupport(Data data) {
+            value += fp.get(i) + " AND ";
+        }
+        if (fp.size() > 0) {
 
-		int suppCount = 0;
-		// indice esempio
-		for (int i = 0; i < data.getNumberOfExamples(); i++) {
-			// indice item
-			boolean isSupporting = true;
+            value += fp.getLast();
+            value += "[" + support + "]";
+        }
+        return value;
+    }
 
-			for (int j = 0; j < this.getPatternLength(); j++) {
-				// DiscreteItem
-				DiscreteItem item = (DiscreteItem) this.getItem(j);
-				DiscreteAttribute attribute = (DiscreteAttribute) item.getAttribute();
-				// Extract the example value
-				Object valueInExample = data.getAttributeValue(i, attribute.getIndex());
+    // Aggiorna il supporto
 
-				if (!item.checkItemCondition(valueInExample)) {
+    /**
+     * calcola il supporto del pattern rappresentato dall'oggetto this rispetto al
+     * dataset data passato come argomento
+     * 
+     * @param data
+     * @return float
+     */
+    public float computeSupport(Data data) {
 
-					isSupporting = false;
-					break; // the ith example does not satisfy fp
-				}
-			}
-			if (isSupporting) {
-				suppCount++;
-			}
-		}
-		return ((float) suppCount) / (data.getNumberOfExamples());
-	}
-	/**
-	 * restituisce l'item in posizione index di fp
-	 * @param posizione
-	 * @return Item
-	 */
-	public Item getItem(int posizione) {
+        int suppCount = 0;
+        // indice esempio
+        for (int i = 0; i < data.getNumberOfExamples(); i++) {
+            // indice item
+            boolean isSupporting = true;
 
-		return this.fp.get(posizione);
-	}
-	/**
-	 * restituisce il membro support
-	 * @return float
-	 */
-	public float getSupport() {
+            for (int j = 0; j < this.getPatternLength(); j++) {
+                // DiscreteItem
+                DiscreteItem item = (DiscreteItem) this.getItem(j);
+                DiscreteAttribute attribute = (DiscreteAttribute) item.getAttribute();
+                // Extract the example value
+                Object valueInExample = data.getAttributeValue(i, attribute.getIndex());
 
-		return this.support;
-	}
-	/**
-	 * restituisce la dimensione (lunghezza) di fp
-	 * @return int
-	 */
-	public int getPatternLength() {
+                if (!item.checkItemCondition(valueInExample)) {
 
-		return this.fp.size();
-	}
-	/**
-	 * assegna al membro support il parametro della procedura
-	 * @param support
-	 */
-	void setSupport(float support) {
-		this.support = support;
-	}
-	/**
-	 * iteraore per gli item
-	 */
-	@Override
-	public Iterator<Item> iterator() {
+                    isSupporting = false;
+                    break; // the ith example does not satisfy fp
+                }
+            }
+            if (isSupporting) {
+                suppCount++;
+            }
+        }
+        return ((float) suppCount) / (data.getNumberOfExamples());
+    }
 
-		return fp.iterator();
-	}
-	/**
-	 * ritorna 1 se il supporto corrente è maggiore del supporto passato in input,
-	 * ritorna -1 se il supporto corrente è minore del supporto passato in input,
-	 * altrimenti 0
-	 * @return int
-	 */
-	@Override
-	public int compareTo(FrequentPattern o) {
+    /**
+     * restituisce l'item in posizione index di fp
+     * 
+     * @param posizione
+     * @return Item
+     */
+    public Item getItem(int posizione) {
 
-		if (this.support > o.support) {
-			return 1;
+        return this.fp.get(posizione);
+    }
 
-		} else if (this.support < o.support) {
-			return -1;
+    /**
+     * restituisce il membro support
+     * 
+     * @return float
+     */
+    public float getSupport() {
 
-		} else {
-			return 0;
-		}
-	}
+        return this.support;
+    }
+
+    /**
+     * restituisce la dimensione (lunghezza) di fp
+     * 
+     * @return int
+     */
+    public int getPatternLength() {
+
+        return this.fp.size();
+    }
+
+    /**
+     * assegna al membro support il parametro della procedura
+     * 
+     * @param support
+     */
+    void setSupport(float support) {
+        this.support = support;
+    }
+
+    /**
+     * iteraore per gli item
+     */
+    @Override
+    public Iterator<Item> iterator() {
+
+        return fp.iterator();
+    }
+
+    /**
+     * ritorna 1 se il supporto corrente e' maggiore del supporto passato in input,
+     * ritorna -1 se il supporto corrente e' minore del supporto passato in input,
+     * altrimenti 0
+     * 
+     * @return int
+     */
+    @Override
+    public int compareTo(FrequentPattern o) {
+
+        if (this.support > o.support) {
+            return 1;
+
+        } else if (this.support < o.support) {
+            return -1;
+
+        } else {
+            return 0;
+        }
+    }
 }

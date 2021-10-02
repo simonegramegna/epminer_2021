@@ -9,51 +9,47 @@ import java.io.Serializable;
  */
 public abstract class Attribute implements Serializable {
 
-	private static final long serialVersionUID = -1011201825379454272L;
-	private String name;
-	private int index;
+    private static final long serialVersionUID = -1011201825379454272L;
+    private String name;
+    private int index;
 
-	/**
-	 * inizializza i valori per nome simbolico dell'attributo e identificativo
-	 * numerico dell'attributo
-	 * 
-	 * @param name
-	 * @param index
-	 */
-	public Attribute(String name, int index) {
+    /**
+     * inizializza i valori per nome simbolico dell'attributo e identificativo
+     * numerico dell'attributo 
+     * @param name
+     * @param index
+     */
+    public Attribute(String name, int index) {
 
-		this.name = name;
-		this.index = index;
-	}
+        this.name = name;
+        this.index = index;
+    }
 
-	/**
-	 * restitisce il nome dell'attributo
-	 * 
-	 * @return String
-	 */
-	public String getName() {
+    /**
+     * restitisce il nome dell'attributo
+     * @return String
+     */
+    public String getName() {
 
-		return name;
-	}
+        return name;
+    }
 
-	/**
-	 * restituisce l'index corrente
-	 * 
-	 * @return int
-	 */
-	public int getIndex() {
+    /**
+     * restituisce l'index corrente
+     * @return int
+     */
+    public int getIndex() {
 
-		return index;
-	}
+        return index;
+    }
 
-	/**
-	 * restituisce una rappresentazione in stringa dell'oggetto
-	 * 
-	 * @return String
-	 */
-	@Override
-	public String toString() {
+    /**
+     * restituisce una rappresentazione in stringa dell'oggetto
+     * @return String
+     */
+    @Override
+    public String toString() {
 
-		return name;
-	}
+        return name;
+    }
 }

@@ -1,7 +1,8 @@
 package utility;
+
 /**
- * a classe Queue che modella una struttura coda che è poi 
- * usata come contenitore a modalità FIFO per i pattern frequenti 
+ * a classe Queue che modella una struttura coda che e' poi 
+ * usata come contenitore a modalita' FIFO per i pattern frequenti 
  * scoperti a livello k da usare per generare i pattern candidati a livello k+1
  * @author Ferdo
  *
@@ -23,7 +24,7 @@ public class Queue<T> {
 		}
 	}
 	/**
-	 * controlla se la coda è vuota
+	 * controlla se la coda e' vuota
 	 * @return boolean
 	 */
 	public boolean isEmpty() {
@@ -46,7 +47,7 @@ public class Queue<T> {
 		}
 	}
 	/**
-	 * ritorna il primo elemento della coda, se è vuoto si genere un eccezzione
+	 * ritorna il primo elemento della coda, se e' vuoto si genere un eccezzione
 	 * @return Record
 	 * @throws EmptyQueueException
 	 */
@@ -58,7 +59,7 @@ public class Queue<T> {
 		return this.begin.elem;
 	}
 	/**
-	 * toglie un elemento dalla coda, se è vuota si genera un eccezzione
+	 * toglie un elemento dalla coda, se e' vuota si genera un eccezzione
 	 * @throws EmptyQueueException
 	 */
 	public void dequeue() throws EmptyQueueException {
