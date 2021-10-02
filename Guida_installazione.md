@@ -28,6 +28,12 @@
     <li>Prende in input la tabella Target e la tabella </li>
 </ol>
 
+
+
+
+
+
+
 <h2> Guida di Installazione </h2>
 
 <h3> Requisiti server </h3>
@@ -35,11 +41,13 @@
 <p> Per utilizzare il server è necessario: </p>
 
 <ul>
-    <li>Installare MYSql sul proprio computer</li>
+    <li>Installare MySql sul proprio computer</li>
     <li>Eseguire lo script sql (mysqlScript.sql) presetne nel percorso "../server/sql"</li>
     <li>Installare JRE 8</li>
     <li>Installare Maven  <a href="https://maven.apache.org/download.cgi"> (Download di Maven)</a> </li>
+    <li> <i>Nota: La porta 3306 è preimpostata nel programma per accedere al database </i></li>
 </ul>
+
 
 <h3> Requisiti client ed estensione </h3>
 
@@ -59,6 +67,8 @@
     <li>Avviare il server eseguendo il comando da terminale <code>java -jar epServer-1.0-jar-with-dependencies.jar</code></li>
     <li>Il server sarà automaticamente in ascolto sulla porta 8080</li>
 </ol>
+![]()
+
 
 <h3> Compilazione e avvio del client </h3>
 
@@ -66,7 +76,7 @@
     <li>Eseguire nella cartella /client il comando da terminale <code>mvn package</code></li>
     <li>Il file jar eseguibile si trova nella cartella /target </li>
     <li>Avviare il client tramite il comando <code>java -jar epClient-1.0.jar</code> specificando l'host (localhost) e la porta (porta di defuallt del server: 8080) </li></ol>
-![](/home/simone/Scrivania/epminer_2021/screenshots/server_1.png)
+![]()
 
 
 <h3> Compilazione e avvio dell'estensione </h3>
@@ -75,4 +85,62 @@
     <li>Eseguire nella cartella /estensione il comando da terminale <code>mvn package</code></li>
     <li>Il file jar eseguibile si trova nella cartella /target </li>
     <li>Avviare il programma tramite il comando <code>java -jar epGui-1.0.jar</code></li></ol>
+![]()
+
 <h3> Guida utilizzo client </h3>
+
+<p> Appena avviato il client, il programma cheide se eseguire una nuova (1) scoperta oppure prendere delle computazioni già presenti in archivio (2)</p>
+
+![]()
+
+<p> Digitando 1 e selezionando una nuova scoperta sulle tabelle, il programma chiede di inserire un valore di minimo supporto (maggiore di zero e minore o uguale a uno), per poi chiedere in input un valore minimo di grow rate (maggiore di zero) </p>
+
+![]()
+
+<p>
+    Dopodiché viene richiesto in input il nome della tabella target (playtennisTarget) ed il nome della tabella di background (playtennisBackground)</p>
+
+![]()
+
+<p> In output avrò i prima i Pattern Emergenti e poi i Pattern Frequenti </p>
+
+![]()
+
+<p> Selezionando l'opzione 2 (risultati in archivio), i passi del programma sono gli stessi precredenti ma stavolta i risultati dati in output sono caricati da file presenti nella memoria secondaria</p>
+
+![]()
+
+<p> In entrambi i casi il programma chiede all'utente se vuole continuare per altre computazioni </p>
+
+![]()
+
+<p> Selezionando n (no) , il client termina l'esecuzione e viene chiuso </p>
+
+![]()
+
+<h3>
+    Guida utilizzo estensione
+</h3>
+
+<p> La finestra principale presenta tre bottoni: uno per avviare una nuova scoperta, uno per prendere dei risultati in archivio e l'ultimo per uscire dal programma. Il client stavolta si connette in automatico alla porta di default del server </p>
+
+![]()
+
+<p> Cliccando sia su <i> Nuova scoperta </i> che su <i> Risultati in archivio </i> la finestra mostra una nuova schermata in cui è possibile inserire i valori di minimo supporto e di grow rate. Se i valori sono errati e non soddisfano l'intervallo richiesto, una serie di alert compaiono a video inoltre i due input sono resettati. 
+Tramite due spinner è possibile selezionare le tabelle target e background già presenti
+</p>
+
+![]()
+
+<p> Tramite il bottone in basso, i dati inseriti, se sono corretti, sono inviati al server </p>
+
+![]()
+
+<p> Appena la computazione termina, si apre una finestra di dialogo che mostra i pattern frequenti, i pattern emeergenti inoltre i dati inseriti dall'utente e inviati al server </p>
+
+![]()
+
+<p> Tramite il bottone in basso è possibile avviare una nuova computazione, ritornando alla finestra principale </p>
+
+<h3> Esempi di test </h3>
+
