@@ -64,8 +64,6 @@ $$
 <p> I pattern frequenti sono calcolati subito dopo i pattern emergenti, calcolando il grow rate in Target rispetto a Background.
     Infine sono selezionati solo i pattern con grow rate superiore alla soglia fissata.
 </p>
-
-
 <h2> Guida di Installazione </h2>
 
 <h3> Requisiti server </h3>
