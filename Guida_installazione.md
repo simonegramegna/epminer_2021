@@ -23,15 +23,47 @@
 
 <p> L'algoritmo ha applicazione nella market basket analysis per scoprire ad esempio i prodotti che compaiono spesso in uno stesso scontrino </p>
 
-<p> I passi dall'algoritmo sono i seguenti: <p>
+<h4>
+     Scoperta di pattern frequenti
+</h4>
+
+<p> I dati che ho in input sono i seguenti </p>
+
 <ol>
-    <li>Prende in input la tabella Target e la tabella </li>
+    <li>Tabella che contiene transazioni <i>target</i></li>
+    <li>Tabella che contiene transazioni di <i>background</i></li>
+    <li>Un valore minimo di supporto <code>0 < supporto <= 1 </code> </li>
+    <li>Un valore minimo di grow rate <code> grow rate >= 1 </code></li></ol>
+
+<p>- Il valore di suppporto in una tabella è cosi calcolato : </p>
+
+$$
+\begin{align*}
+s(x1,x2..xh) = \frac{p(x1,x2..xk)}{D}
+\end{align*}
+$$
+
+<p> In cui il valore del numeratore è pari al numero di osservazioni in cui si osserva x1,x2..xk mentre D è il numero totale di transazioni </p><p> - Il grow rate sulle tabelle target e beackground è cosi calcolato : </p>
+
+
+$$
+\begin{align*}
+gr(x1,x2..xh) = \frac{sTarget(x1,x2..xh)}{sBackground(x1,x2..xh)} 
+\end{align*}
+$$
+
+<p> Una volta calcolati questi valori dalle due tabelle <i> target </i> e <i> background </i> il programma esegue due passi per la scopertaa di pattern frequenti:  </p>
+
+<ol>
+    <li>Scoprire pattern di lunghezza k a partire da <i>pattern frequenti</i> di lunghezza k-1</li>
+    <li>Testare i pattern candidati in <i>Target</i></li>
 </ol>
 
+<h4> Scoperta di pattern emergenti </h4>
 
-
-
-
+<p> I pattern frequenti sono calcolati subito dopo i pattern emergenti, calcolando il grow rate in Target rispetto a Background.
+    Infine sono selezionati solo i pattern con grow rate superiore alla soglia fissata.
+</p>
 
 
 <h2> Guida di Installazione </h2>
@@ -47,8 +79,6 @@
     <li>Installare Maven  <a href="https://maven.apache.org/download.cgi"> (Download di Maven)</a> </li>
     <li> <i>Nota: La porta 3306 è preimpostata nel programma per accedere al database </i></li>
 </ul>
-
-
 <h3> Requisiti client ed estensione </h3>
 
 <ul>
