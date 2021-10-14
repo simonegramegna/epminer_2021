@@ -68,7 +68,7 @@ class Interval {
      */
     boolean checkValueInclusion(float value) {
 
-        return value >= inf && value <= sup;
+        return (value >= inf) && (value < sup);
     }
 
     /**
