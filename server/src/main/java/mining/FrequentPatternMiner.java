@@ -42,11 +42,18 @@ public class FrequentPatternMiner implements Serializable {
         for (int i = 0; i < data.getNumberOfAttributes(); i++) {
 
             Attribute currentAttribute = data.getAttribute(i);
+
+            System.out.println(currentAttribute);
+
+
             if (currentAttribute instanceof DiscreteAttribute) {
                 for (int j = 0; j < ((DiscreteAttribute) currentAttribute).getNumberOfDistinctValues(); j++) {
 
                     DiscreteItem item = new DiscreteItem((DiscreteAttribute) currentAttribute,
                             ((DiscreteAttribute) currentAttribute).getValue(j));
+
+                    System.out.println("valore: " + ((DiscreteAttribute) currentAttribute).getValue(j));
+                    
                     FrequentPattern fp = new FrequentPattern();
                     fp.addItem(item);
                     fp.setSupport(fp.computeSupport(data));

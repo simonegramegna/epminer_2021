@@ -71,6 +71,9 @@ public class ServerOneClient extends Thread {
                     Data dataTarget = new Data(targetName);
                     Data dataBackground = new Data(backgroundName);
 
+                    System.out.println(dataTarget);
+                    System.out.println(dataBackground);
+
                     try {
                         FrequentPatternMiner fpMiner = new FrequentPatternMiner(dataTarget, minsup);
 
