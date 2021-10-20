@@ -81,8 +81,6 @@ public class FrequentPattern implements Iterable<Item>, Comparable<FrequentPatte
         return value;
     }
 
-    // Aggiorna il supporto
-
     /**
      * calcola il supporto del pattern rappresentato dall'oggetto this rispetto al
      * dataset data passato come argomento
@@ -99,28 +97,13 @@ public class FrequentPattern implements Iterable<Item>, Comparable<FrequentPatte
             boolean isSupporting = true;
 
             for (int j = 0; j < this.getPatternLength(); j++) {
+
                 // DiscreteItem
                 DiscreteItem item = (DiscreteItem) this.getItem(j);
                 DiscreteAttribute attribute = (DiscreteAttribute) item.getAttribute();
-
-                ContinuousItem itemC = (ContinuousItem) this.getItem(j);
-                ContinuousAttribute attributeC = (ContinuousAttribute) itemC.getAttribute(); 
-
-                System.out.println("discrete item - " + item);
-
-                System.out.println("attribute - name " + attribute.getName());
-                System.out.println("attribute - n " + attribute.getNumberOfDistinctValues());
-                System.out.println("attribute - i " + attribute.getIndex());
-
-                for (int z = 0; z < attribute.getNumberOfDistinctValues(); z++) {
-                    System.out.println("attribute - val" + attribute.getValue(z));
-
-                }
-
+                
                 // Extract the example value
                 Object valueInExample = data.getAttributeValue(i, attribute.getIndex());
-
-                Object continuousValueInExample =  data.getAttributeValue(i, attributec.getIndex());
 
                 if (!item.checkItemCondition(valueInExample)) {
 
@@ -129,15 +112,10 @@ public class FrequentPattern implements Iterable<Item>, Comparable<FrequentPatte
                 }
             }
 
-            System.out.println(isSupporting);
-
-
             if (isSupporting) {
                 suppCount++;
             }
         }
-        
-        System.out.println("support " + ((float) suppCount) / (data.getNumberOfExamples()));
         return ((float) suppCount) / (data.getNumberOfExamples());
     }
 
