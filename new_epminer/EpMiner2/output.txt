@@ -1,0 +1,76 @@
+Target data
+1:sunny,hot,high,weak,no
+2:sunny,hot,high,strong,no
+3:overcast,hot,high,weak,yes
+4:rain,mild,high,weak,yes
+5:rain,cool,normal,weak,yes
+6:rain,cool,normal,strong,no
+7:overcast,cool,normal,strong,yes
+8:sunny,mild,high,weak,no
+
+Background data
+1:sunny,cool,normal,weak,yes
+2:rain,mild,normal,weak,yes
+3:sunny,mild,normal,strong,yes
+4:overcast,mild,high,strong,yes
+5:overcast,hot,normal,weak,yes
+6:rain,mild,high,strong,no
+
+Frequent patterns
+1:(PlayTennis=no) AND (Umidity=high) AND (Outlook=sunny)[0.375]
+2:(PlayTennis=no) AND (Outlook=sunny) AND (Umidity=high)[0.375]
+3:(Umidity=high) AND (PlayTennis=no) AND (Outlook=sunny)[0.375]
+4:(Umidity=high) AND (Outlook=sunny) AND (PlayTennis=no)[0.375]
+5:(Outlook=sunny) AND (PlayTennis=no) AND (Umidity=high)[0.375]
+6:(Outlook=sunny) AND (Umidity=high) AND (PlayTennis=no)[0.375]
+7:(PlayTennis=yes) AND (Wind=weak)[0.375]
+8:(PlayTennis=no) AND (Umidity=high)[0.375]
+9:(PlayTennis=no) AND (Outlook=sunny)[0.375]
+10:(Wind=weak) AND (PlayTennis=yes)[0.375]
+11:(Wind=weak) AND (Umidity=high)[0.5]
+12:(Umidity=normal) AND (Temperature=cool)[0.375]
+13:(Umidity=high) AND (PlayTennis=no)[0.375]
+14:(Umidity=high) AND (Wind=weak)[0.5]
+15:(Umidity=high) AND (Temperature=hot)[0.375]
+16:(Umidity=high) AND (Outlook=sunny)[0.375]
+17:(Temperature=hot) AND (Umidity=high)[0.375]
+18:(Temperature=cool) AND (Umidity=normal)[0.375]
+19:(Outlook=sunny) AND (PlayTennis=no)[0.375]
+20:(Outlook=sunny) AND (Umidity=high)[0.375]
+21:(PlayTennis=yes)[0.5]
+22:(PlayTennis=no)[0.5]
+23:(Wind=weak)[0.625]
+24:(Wind=strong)[0.375]
+25:(Umidity=normal)[0.375]
+26:(Umidity=high)[0.625]
+27:(Temperature=hot)[0.375]
+28:(Temperature=cool)[0.375]
+29:(Outlook=sunny)[0.375]
+30:(Outlook=rain)[0.375]
+
+Emerging patterns
+1:(Outlook=rain)[0.375][1.125]
+2:(Outlook=sunny)[0.375][1.125]
+3:(Temperature=cool)[0.375][2.25]
+4:(Temperature=hot)[0.375][2.25]
+5:(Umidity=high)[0.625][1.875]
+6:(Wind=weak)[0.625][1.25]
+7:(PlayTennis=no)[0.5][3.0]
+8:(Outlook=sunny) AND (Umidity=high)[0.375][Infinity]
+9:(Outlook=sunny) AND (PlayTennis=no)[0.375][Infinity]
+10:(Temperature=cool) AND (Umidity=normal)[0.375][2.25]
+11:(Temperature=hot) AND (Umidity=high)[0.375][Infinity]
+12:(Umidity=high) AND (Outlook=sunny)[0.375][Infinity]
+13:(Umidity=high) AND (Temperature=hot)[0.375][Infinity]
+14:(Umidity=high) AND (Wind=weak)[0.5][Infinity]
+15:(Umidity=high) AND (PlayTennis=no)[0.375][2.25]
+16:(Umidity=normal) AND (Temperature=cool)[0.375][2.25]
+17:(Wind=weak) AND (Umidity=high)[0.5][Infinity]
+18:(PlayTennis=no) AND (Outlook=sunny)[0.375][Infinity]
+19:(PlayTennis=no) AND (Umidity=high)[0.375][2.25]
+20:(Outlook=sunny) AND (Umidity=high) AND (PlayTennis=no)[0.375][Infinity]
+21:(Outlook=sunny) AND (PlayTennis=no) AND (Umidity=high)[0.375][Infinity]
+22:(Umidity=high) AND (Outlook=sunny) AND (PlayTennis=no)[0.375][Infinity]
+23:(Umidity=high) AND (PlayTennis=no) AND (Outlook=sunny)[0.375][Infinity]
+24:(PlayTennis=no) AND (Outlook=sunny) AND (Umidity=high)[0.375][Infinity]
+25:(PlayTennis=no) AND (Umidity=high) AND (Outlook=sunny)[0.375][Infinity]
