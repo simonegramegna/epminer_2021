@@ -93,18 +93,32 @@ class Data {
 
 		attributeSet = new Attribute[5];
 
-		// TO DO : avvalorare ciascune elemento di attributeSet con un oggetto della
-		// classe DiscreteAttribute che modella il corrispondente attributo (e.g.
-		// outlook, temperature,etc)
-		// nel seguito si fornisce l'esempio per outlook
-
 		String outLookValues[] = new String[3];
 		outLookValues[0] = "overcast";
 		outLookValues[1] = "rain";
 		outLookValues[2] = "sunny";
 		attributeSet[0] = new DiscreteAttribute("Outlook", 0, outLookValues);
 
-		// similmente per gli altri attributi
+		String temperatureValues[] = new String[3];
+		temperatureValues[0] = "cool";
+		temperatureValues[1] = "hot";
+		temperatureValues[2] = "mild";
+		attributeSet[1] = new DiscreteAttribute("Temperature", 1, temperatureValues);
+
+		String umidityValues[] = new String[2];
+		umidityValues[0] = "high";
+		umidityValues[1] = "normal";
+		attributeSet[2] = new DiscreteAttribute("Umidity", 2, umidityValues);
+
+		String windValues[] = new String[2];
+		windValues[0] = "strong";
+		windValues[1] = "weak";
+		attributeSet[3] = new DiscreteAttribute("Wind", 3, windValues);
+
+		String playValues[] = new String[2];
+		playValues[0] = "no";
+		playValues[1] = "yes";
+		attributeSet[4] = new DiscreteAttribute("PlayTennis", 4, playValues);
 
 	}
 
@@ -136,7 +150,7 @@ class Data {
 			value += (i + 1) + ":";
 
 			for (int j = 0; j < attributeSet.length - 1; j++) {
-				
+
 				value += data[i][j] + ",";
 			}
 			value += data[i][attributeSet.length - 1] + "\n";
