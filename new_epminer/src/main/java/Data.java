@@ -128,8 +128,20 @@ class Data {
 	}
 
 	public String toString() {
-		
-		
+
+		String value = "";
+
+		for (int i = 0; i < numberOfExamples; i++) {
+
+			value += (i + 1) + ":";
+
+			for (int j = 0; j < attributeSet.length - 1; j++) {
+				
+				value += data[i][j] + ",";
+			}
+			value += data[i][attributeSet.length - 1] + "\n";
+		}
+		return value;
 	}
 
 	public static void main(String args[]) {
