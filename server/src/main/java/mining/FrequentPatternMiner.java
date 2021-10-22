@@ -11,6 +11,7 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.Collections;
 import java.util.LinkedList;
+import java.util.Iterator;
 
 import data.*;
 
@@ -33,6 +34,9 @@ public class FrequentPatternMiner implements Serializable {
      */
     public FrequentPatternMiner(Data data, float minSup) throws EmptySetException, EmptyQueueException {
 
+
+        System.out.println("data in fp: " + data);
+
         if (data.getNumberOfAttributes() == 0) {
 
             throw new EmptySetException();
@@ -42,9 +46,6 @@ public class FrequentPatternMiner implements Serializable {
         for (int i = 0; i < data.getNumberOfAttributes(); i++) {
 
             Attribute currentAttribute = data.getAttribute(i);
-
-            System.out.println(currentAttribute);
-
 
             if (currentAttribute instanceof DiscreteAttribute) {
                 for (int j = 0; j < ((DiscreteAttribute) currentAttribute).getNumberOfDistinctValues(); j++) {
@@ -62,6 +63,37 @@ public class FrequentPatternMiner implements Serializable {
                         fpQueue.enqueue(fp);
                         // System.out.println(fp);
                         outputFP.add(fp);
+                    }
+                }
+            }else if(currentAttribute instanceof  ContinuousAttribute){
+
+                ContinuousAttribute continuousCurrentAttribute = (ContinuousAttribute) currentAttribute;
+                Iterator<Float> contIterator = continuousCurrentAttribute.iterator();
+
+                if(contIterator.hasNext()){
+
+                    float a = contIterator.next();
+
+                    while(contIterator.hasNext()){
+
+                        float b = contIterator.next();
+
+                        if(b == continuousCurrentAttribute.getMax()){
+
+                            b = continuousCurrentAttribute.getMax() + 0.0001f;
+                        }
+                        ContinuousItem item = new ContinuousItem(continuousCurrentAttribute, new Interval(a,b));
+                        FrequentPattern fp = new FrequentPattern();
+
+                        fp.addItem(item);
+                        fp.setSupport(fp.computeSupport(data));
+
+                        if(fp.getSupport() >= minSup){
+
+                            fpQueue.enqueue(fp);
+                            outputFP.add(fp);
+                        }
+                        a = b;
                     }
                 }
             }
@@ -117,9 +149,37 @@ public class FrequentPatternMiner implements Serializable {
                                 newFP.setSupport(newFP.computeSupport(data));
 
                                 if (newFP.getSupport() >= minSup) {
+
                                     fpQueue.enqueue(newFP);
-                                    // System.out.println(newFP);
                                     outputFP.add(newFP);
+                                }
+                            }
+                        }else if(data.getAttribute(i) instanceof  ContinuousAttribute){
+
+                            ContinuousAttribute currentAttribute = (ContinuousAttribute) data.getAttribute(i);
+                            Iterator<Float> continuousIterator =  currentAttribute.iterator();
+
+                            if(continuousIterator.hasNext()){
+
+                                float a = continuousIterator.next();
+
+                                while(continuousIterator.hasNext()){
+
+                                    float b = continuousIterator.next();
+
+                                    if(b == currentAttribute.getMax()){
+
+                                        b = currentAttribute.getMax() + 0.0001f;
+                                    }
+                                    ContinuousItem item = new ContinuousItem(currentAttribute, new Interval(a, b));
+                                    FrequentPattern newFP = refineFrequentPattern(fp, item); //generate refinement
+                                    newFP.setSupport(newFP.computeSupport(data));
+                                    if (newFP.getSupport() >= minSup) {
+                                        fpQueue.enqueue(newFP);
+                                        outputFP.add(newFP);
+                                    }
+                                    a = b;
+
                                 }
                             }
                         }
@@ -187,6 +247,9 @@ public class FrequentPatternMiner implements Serializable {
         FileOutputStream out = new FileOutputStream(nomeFile);
         ObjectOutputStream s = new ObjectOutputStream(out);
         s.writeObject(this);
+
+        s.close();
+        out.close();
     }
 
     /**
@@ -204,6 +267,10 @@ public class FrequentPatternMiner implements Serializable {
         FileInputStream in = new FileInputStream(nomeFile);
         ObjectInputStream o = new ObjectInputStream(in);
         FrequentPatternMiner miner = (FrequentPatternMiner) o.readObject();
+
+        o.close();
+        in.close();
+
         return miner;
     }
 }

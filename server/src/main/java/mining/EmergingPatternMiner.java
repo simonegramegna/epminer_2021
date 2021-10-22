@@ -92,7 +92,7 @@ public class EmergingPatternMiner implements Iterable<EmergingPattern>, Serializ
 
         float growrate = this.computeGrowRate(dataBackground, fp);
 
-        if (growrate > minGR) {
+        if (growrate >= minGR) {
 
             EmergingPattern ep = new EmergingPattern(fp, growrate);
             return ep;
@@ -148,6 +148,9 @@ public class EmergingPatternMiner implements Iterable<EmergingPattern>, Serializ
         FileOutputStream out = new FileOutputStream(nomeFile);
         ObjectOutputStream s = new ObjectOutputStream(out);
         s.writeObject(this);
+
+        s.close();
+        out.close();
     }
 
     /**
@@ -165,6 +168,9 @@ public class EmergingPatternMiner implements Iterable<EmergingPattern>, Serializ
         FileInputStream in = new FileInputStream(nomeFile);
         ObjectInputStream o = new ObjectInputStream(in);
         EmergingPatternMiner miner = (EmergingPatternMiner) o.readObject();
+
+        o.close();
+        in.close();
 
         return miner;
     }

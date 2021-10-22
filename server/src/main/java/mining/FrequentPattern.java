@@ -29,6 +29,7 @@ public class FrequentPattern implements Iterable<Item>, Comparable<FrequentPatte
      * costruttore che alloca fp come array di dimensione 0
      */
     public FrequentPattern() {
+
         fp = new LinkedList<Item>();
     }
 
@@ -98,20 +99,34 @@ public class FrequentPattern implements Iterable<Item>, Comparable<FrequentPatte
 
             for (int j = 0; j < this.getPatternLength(); j++) {
 
-                // DiscreteItem
-                DiscreteItem item = (DiscreteItem) this.getItem(j);
-                DiscreteAttribute attribute = (DiscreteAttribute) item.getAttribute();
-                
-                // Extract the example value
-                Object valueInExample = data.getAttributeValue(i, attribute.getIndex());
+                if(this.getItem(j) instanceof DiscreteItem){
 
-                if (!item.checkItemCondition(valueInExample)) {
+                    // DiscreteItem
+                    DiscreteItem item = (DiscreteItem) this.getItem(j);
+                    DiscreteAttribute attribute = (DiscreteAttribute) item.getAttribute();
 
-                    isSupporting = false;
-                    break; // the ith example does not satisfy fp
+                    // Extract the example value
+                    Object valueInExample = data.getAttributeValue(i, attribute.getIndex());
+
+                    if (!item.checkItemCondition(valueInExample)) {
+
+                        isSupporting = false;
+                        break; // the ith example does not satisfy fp
+                    }
+                }else if(this.getItem(j) instanceof ContinuousItem){
+
+                    ContinuousItem item = (ContinuousItem) this.getItem(j);
+                    ContinuousAttribute attribute = (ContinuousAttribute) item.getAttribute();
+
+                    Object valueInExample = data.getAttributeValue(i, attribute.getIndex());
+
+                    if (!item.checkItemCondition(valueInExample)) {
+
+                        isSupporting = false;
+                        break; //the ith example does not satisfy fp
+                    }
                 }
             }
-
             if (isSupporting) {
                 suppCount++;
             }
@@ -156,6 +171,7 @@ public class FrequentPattern implements Iterable<Item>, Comparable<FrequentPatte
      * @param support
      */
     void setSupport(float support) {
+
         this.support = support;
     }
 

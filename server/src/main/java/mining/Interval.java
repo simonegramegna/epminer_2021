@@ -1,9 +1,11 @@
 package mining;
 
+import java.io.Serializable;
+
 /**
  * Classe interval che definisce un intervallo reale
  */
-class Interval {
+class Interval implements Serializable {
 
     private float inf;
     private float sup;
