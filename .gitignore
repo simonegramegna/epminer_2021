@@ -1,5 +1,5 @@
 /.metadata/
-*.classpath
-*.iml
-*.project
+/*.classpath
+/*.iml
+/*.project
 /.idea/
