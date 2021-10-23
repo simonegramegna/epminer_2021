@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
+import java.net.SocketException;
 import java.sql.SQLException;
 import data.Data;
 import data.EmptySetException;
@@ -33,7 +34,8 @@ public class ServerOneClient extends Thread {
      * @param s
      * @throws IOException
      */
-    protected ServerOneClient(Socket s) throws IOException {
+    protected ServerOneClient(Socket s) throws IOException, SocketException {
+
         socket = s;
         in = new ObjectInputStream(s.getInputStream());
         out = new ObjectOutputStream(socket.getOutputStream());
@@ -48,31 +50,29 @@ public class ServerOneClient extends Thread {
      */
     @Override
     public void run() {
-
-        int opzione;
-        float minsup;
-        float mingr;
-        String targetName;
-        String backgroundName;
-
         try {
-            char continuareEp = (char) in.readObject();
+            int option;
+            float minsup;
+            float mingr;
+            String targetName;
+            String backgroundName;
+            char continueEP;
 
-            while (continuareEp == 's') {
+            continueEP = (char) in.readObject();
 
-                opzione = (int) in.readObject();
+            while (continueEP == 's') {
+
+                option = (int) in.readObject();
                 minsup = (float) in.readObject();
                 mingr = (float) in.readObject();
+
                 targetName = (String) in.readObject();
                 backgroundName = (String) in.readObject();
 
-                if (opzione == 1) {
+                if (option == 1) {
 
                     Data dataTarget = new Data(targetName);
                     Data dataBackground = new Data(backgroundName);
-
-                    System.out.println(dataTarget);
-                    System.out.println(dataBackground);
 
                     try {
                         FrequentPatternMiner fpMiner = new FrequentPatternMiner(dataTarget, minsup);
@@ -107,22 +107,24 @@ public class ServerOneClient extends Thread {
                         out.writeObject(e.toString());
                     }
                 } else {
-                    try {
-                        FrequentPatternMiner fpMiner = FrequentPatternMiner
-                                .carica("FP_playtennis_minSup" + minsup + ".dat");
+                    if (option == 2) {
+                        try {
+                            FrequentPatternMiner fpMiner = FrequentPatternMiner
+                                    .carica("FP_playtennis_minSup" + minsup + ".dat");
 
-                        out.writeObject(fpMiner.toString());
+                            out.writeObject(fpMiner.toString());
 
-                        EmergingPatternMiner epMiner = EmergingPatternMiner
-                                .carica("EP_playtennis_minSup" + minsup + "_minGr" + mingr + ".dat");
-                        out.writeObject(epMiner.toString());
+                            EmergingPatternMiner epMiner = EmergingPatternMiner
+                                    .carica("EP_playtennis_minSup" + minsup + "_minGr" + mingr + ".dat");
+                            out.writeObject(epMiner.toString());
 
-                    } catch (ClassNotFoundException | IOException e) {
+                        } catch (ClassNotFoundException | IOException e) {
 
-                        out.writeObject(e.toString());
+                            out.writeObject(e.toString());
+                        }
                     }
+                    continueEP = (char) in.readObject();
                 }
-                continuareEp = (char) in.readObject();
             }
             socket.close();
         } catch (NumberFormatException e) {
@@ -134,7 +136,6 @@ public class ServerOneClient extends Thread {
             try {
 
                 socket.close();
-                System.exit(0);
             } catch (IOException e1) {
                 e1.printStackTrace();
             }

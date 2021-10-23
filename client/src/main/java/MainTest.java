@@ -26,7 +26,6 @@ public class MainTest {
 
 		ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
         ObjectInputStream in = new ObjectInputStream(socket.getInputStream());
-        // stream con richieste del client
 
 		char risp = 's';
 		do {
@@ -56,18 +55,23 @@ public class MainTest {
 			System.out.println("Tabella background:");
 			String backgroundName = Keyboard.readString();
 			String nameFile = targetName + "_" + backgroundName;
+
 			try {
+                
 				out.writeObject(opzione);
 				out.writeObject(minsup);
 				out.writeObject(minGr);
 				out.writeObject(targetName);
 				out.writeObject(backgroundName);
+
 				String fpMiner = (String) (in.readObject());
-
-				System.out.println(fpMiner);
+                System.out.println("\nFrequent patterns");
+                System.out.println(fpMiner);
+                
 				String epMiner = (String) (in.readObject());
-
+                System.out.println("Emerging patterns");
 				System.out.println(epMiner);
+
 			} catch (IOException | ClassNotFoundException e) {
 				e.printStackTrace();
 			}

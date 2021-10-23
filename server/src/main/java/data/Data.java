@@ -47,7 +47,6 @@ public class Data {
             for (int i = 0; i < transSet.size(); i++) {
                 for (int j = 0; j < tSchema.getNumberOfAttributes(); j++) {
 
-                    System.out.println("data: " + transSet.get(i));
                     data[i][j] = transSet.get(i).tuple.get(j);
                 }
             }

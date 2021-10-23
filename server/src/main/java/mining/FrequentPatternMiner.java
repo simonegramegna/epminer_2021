@@ -34,9 +34,6 @@ public class FrequentPatternMiner implements Serializable {
      */
     public FrequentPatternMiner(Data data, float minSup) throws EmptySetException, EmptyQueueException {
 
-
-        System.out.println("data in fp: " + data);
-
         if (data.getNumberOfAttributes() == 0) {
 
             throw new EmptySetException();
@@ -53,15 +50,13 @@ public class FrequentPatternMiner implements Serializable {
                     DiscreteItem item = new DiscreteItem((DiscreteAttribute) currentAttribute,
                             ((DiscreteAttribute) currentAttribute).getValue(j));
 
-                    System.out.println("valore: " + ((DiscreteAttribute) currentAttribute).getValue(j));
-                    
                     FrequentPattern fp = new FrequentPattern();
                     fp.addItem(item);
                     fp.setSupport(fp.computeSupport(data));
 
-                    if (fp.getSupport() >= minSup) { // 1-FP CANDIDATE
+                    if (fp.getSupport() >= minSup) { 
+
                         fpQueue.enqueue(fp);
-                        // System.out.println(fp);
                         outputFP.add(fp);
                     }
                 }
