@@ -123,8 +123,8 @@ public class ServerOneClient extends Thread {
                             out.writeObject(e.toString());
                         }
                     }
-                    continueEP = (char) in.readObject();
                 }
+                continueEP = (char) in.readObject();
             }
             socket.close();
         } catch (NumberFormatException e) {
