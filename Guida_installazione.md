@@ -72,7 +72,7 @@ $$
 
 <ul>
     <li>Installare MySql sul proprio computer</li>
-    <li>Eseguire lo script sql (mysqlScript.sql) presetne nel percorso "../server/sql"</li>
+    <li>Eseguire lo script sql (mysqlScript.sql) presente nel percorso "../server/sql"</li>
     <li>Installare JRE 8</li>
     <li>Installare Maven  <a href="https://maven.apache.org/download.cgi"> (Download di Maven)</a> </li>
     <li> <i>Nota: La porta 3306 è preimpostata nel programma per accedere al database </i></li>
@@ -95,7 +95,9 @@ $$
     <li>Avviare il server eseguendo il comando da terminale <code>java -jar epServer-1.0-jar-with-dependencies.jar</code></li>
     <li>Il server sarà automaticamente in ascolto sulla porta 8080</li>
 </ol>
-![]()
+![](C:\Users\Ferdo\Desktop\sg\WhatsApp Image 2021-10-23 at 19.27.10 (1).jpeg)
+
+![](C:\Users\Ferdo\Desktop\sg\WhatsApp Image 2021-10-23 at 19.27.11 (1).jpeg)
 
 
 <h3> Compilazione e avvio del client </h3>
@@ -104,7 +106,13 @@ $$
     <li>Eseguire nella cartella /client il comando da terminale <code>mvn package</code></li>
     <li>Il file jar eseguibile si trova nella cartella /target </li>
     <li>Avviare il client tramite il comando <code>java -jar epClient-1.0.jar</code> specificando l'host (localhost) e la porta (porta di defuallt del server: 8080) </li></ol>
-![]()
+![](C:\Users\Ferdo\Desktop\sg\WhatsApp Image 2021-10-23 at 19.27.10.jpeg)
+
+![](C:\Users\Ferdo\Desktop\sg\WhatsApp Image 2021-10-23 at 19.27.11 (2).jpeg)
+
+Appena un client si connette, il server accetta la richiesta:
+
+![](C:\Users\Ferdo\Desktop\sg\WhatsApp Image 2021-10-23 at 19.27.11 (3).jpeg)
 
 
 <h3> Compilazione e avvio dell'estensione </h3>
@@ -113,38 +121,38 @@ $$
     <li>Eseguire nella cartella /estensione il comando da terminale <code>mvn package</code></li>
     <li>Il file jar eseguibile si trova nella cartella /target </li>
     <li>Avviare il programma tramite il comando <code>java -jar epGui-1.0.jar</code></li></ol>
-![]()
+![](C:\Users\Ferdo\Desktop\sg\WhatsApp Image 2021-10-23 at 19.27.11.jpeg)
+
+dato che il file jar è un file eseguibile, basta fare doppio click.
 
 <h3> Guida utilizzo client </h3>
 
 <p> Appena avviato il client, il programma cheide se eseguire una nuova (1) scoperta oppure prendere delle computazioni già presenti in archivio (2)</p>
 
-![]()
+![](C:\Users\Ferdo\Desktop\sg\WhatsApp Image 2021-10-23 at 19.27.11 (2).jpeg)
 
 <p> Digitando 1 e selezionando una nuova scoperta sulle tabelle, il programma chiede di inserire un valore di minimo supporto (maggiore di zero e minore o uguale a uno), per poi chiedere in input un valore minimo di grow rate (maggiore di zero) </p>
 
-![]()
+![](C:\Users\Ferdo\Desktop\sg\WhatsApp Image 2021-10-23 at 19.27.11 (4).jpeg)
 
 <p>
     Dopodiché viene richiesto in input il nome della tabella target (playtennisTarget) ed il nome della tabella di background (playtennisBackground)</p>
 
-![]()
+![](C:\Users\Ferdo\Desktop\sg\WhatsApp Image 2021-10-23 at 19.27.12 (3).jpeg)
 
 <p> In output avrò i prima i Pattern Emergenti e poi i Pattern Frequenti </p>
 
-![]()
+![](C:\Users\Ferdo\Desktop\sg\WhatsApp Image 2021-10-23 at 19.27.12 (4).jpeg)
+
+![](C:\Users\Ferdo\Desktop\sg\WhatsApp Image 2021-10-23 at 19.27.12 (5).jpeg)
 
 <p> Selezionando l'opzione 2 (risultati in archivio), i passi del programma sono gli stessi precredenti ma stavolta i risultati dati in output sono caricati da file presenti nella memoria secondaria</p>
 
-![]()
+![](C:\Users\Ferdo\Desktop\sg\WhatsApp Image 2021-10-23 at 19.27.12 (6).jpeg)
 
 <p> In entrambi i casi il programma chiede all'utente se vuole continuare per altre computazioni </p>
 
-![]()
-
 <p> Selezionando n (no) , il client termina l'esecuzione e viene chiuso </p>
-
-![]()
 
 <h3>
     Guida utilizzo estensione
@@ -152,23 +160,413 @@ $$
 
 <p> La finestra principale presenta tre bottoni: uno per avviare una nuova scoperta, uno per prendere dei risultati in archivio e l'ultimo per uscire dal programma. Il client stavolta si connette in automatico alla porta di default del server </p>
 
-![]()
+![](C:\Users\Ferdo\Desktop\sg\WhatsApp Image 2021-10-23 at 19.27.11 (5).jpeg)
 
 <p> Cliccando sia su <i> Nuova scoperta </i> che su <i> Risultati in archivio </i> la finestra mostra una nuova schermata in cui è possibile inserire i valori di minimo supporto e di grow rate. Se i valori sono errati e non soddisfano l'intervallo richiesto, una serie di alert compaiono a video inoltre i due input sono resettati. 
 Tramite due spinner è possibile selezionare le tabelle target e background già presenti
 </p>
 
-![]()
+![](C:\Users\Ferdo\Desktop\sg\WhatsApp Image 2021-10-23 at 19.27.11 (6).jpeg)
 
-<p> Tramite il bottone in basso, i dati inseriti, se sono corretti, sono inviati al server </p>
+<p> Tramite il bottone in basso, i dati inseriti, se sono corretti, sono inviati al server, altrimenti compare un messaggio di errore</p>
 
-![]()
+![](C:\Users\Ferdo\Desktop\sg\WhatsApp Image 2021-10-23 at 19.27.12 (2).jpeg)
 
 <p> Appena la computazione termina, si apre una finestra di dialogo che mostra i pattern frequenti, i pattern emeergenti inoltre i dati inseriti dall'utente e inviati al server </p>
 
-![]()
+![](C:\Users\Ferdo\Desktop\sg\WhatsApp Image 2021-10-23 at 19.27.12 (1).jpeg)
 
 <p> Tramite il bottone in basso è possibile avviare una nuova computazione, ritornando alla finestra principale </p>
 
 <h3> Esempi di test </h3>
 
+Caso Test 1:
+
+Opzione:Nuova scoperta
+
+Valore di minimo supporto:0.2
+
+Valore minimo di Grow Rate:4
+
+Tabella Target:playtennisTarget
+
+Tabella Background:playtennisBackground
+
+Risultati:
+
+Frequent patterns
+(outlook=overcast)[0.25]
+temperature in [12.12,18.18[[0.25]
+(outlook=overcast) AND (play=yes)[0.25]
+(outlook=rain) AND temperature in [0.0,6.06[[0.25]
+(outlook=rain) AND (umidity=normal)[0.25]
+(outlook=rain) AND (wind=weak)[0.25]
+(outlook=rain) AND (play=yes)[0.25]
+(outlook=sunny) AND temperature in [24.24,30.300098[[0.25]
+(outlook=sunny) AND (wind=weak)[0.25]
+temperature in [0.0,6.06[ AND (outlook=rain)[0.25]
+temperature in [0.0,6.06[ AND (wind=strong)[0.25]
+temperature in [0.0,6.06[ AND (play=yes)[0.25]
+temperature in [12.12,18.18[ AND (umidity=high)[0.25]
+temperature in [12.12,18.18[ AND (wind=weak)[0.25]
+temperature in [24.24,30.300098[ AND (outlook=sunny)[0.25]
+temperature in [24.24,30.300098[ AND (wind=weak)[0.25]
+temperature in [24.24,30.300098[ AND (play=no)[0.25]
+(umidity=high) AND temperature in [12.12,18.18[[0.25]
+(umidity=high) AND (play=yes)[0.25]
+(umidity=normal) AND (outlook=rain)[0.25]
+(umidity=normal) AND (wind=strong)[0.25]
+(umidity=normal) AND (play=yes)[0.25]
+(wind=strong) AND temperature in [0.0,6.06[[0.25]
+(wind=strong) AND (umidity=normal)[0.25]
+(wind=strong) AND (play=no)[0.25]
+(wind=weak) AND (outlook=rain)[0.25]
+(wind=weak) AND (outlook=sunny)[0.25]
+(wind=weak) AND temperature in [12.12,18.18[[0.25]
+(wind=weak) AND temperature in [24.24,30.300098[[0.25]
+(wind=weak) AND (play=no)[0.25]
+(play=no) AND temperature in [24.24,30.300098[[0.25]
+(play=no) AND (wind=strong)[0.25]
+(play=no) AND (wind=weak)[0.25]
+(play=yes) AND (outlook=overcast)[0.25]
+(play=yes) AND (outlook=rain)[0.25]
+(play=yes) AND temperature in [0.0,6.06[[0.25]
+(play=yes) AND (umidity=high)[0.25]
+(play=yes) AND (umidity=normal)[0.25]
+(outlook=rain) AND temperature in [0.0,6.06[ AND (umidity=normal)[0.25]
+(outlook=rain) AND (umidity=normal) AND temperature in [0.0,6.06[[0.25]
+(outlook=rain) AND (wind=weak) AND (play=yes)[0.25]
+(outlook=rain) AND (play=yes) AND (wind=weak)[0.25]
+(outlook=sunny) AND temperature in [24.24,30.300098[ AND (umidity=high)[0.25]
+(outlook=sunny) AND temperature in [24.24,30.300098[ AND (play=no)[0.25]
+(outlook=sunny) AND (umidity=high) AND temperature in [24.24,30.300098[[0.25]
+(outlook=sunny) AND (umidity=high) AND (wind=weak)[0.25]
+(outlook=sunny) AND (wind=weak) AND (umidity=high)[0.25]
+(outlook=sunny) AND (wind=weak) AND (play=no)[0.25]
+(outlook=sunny) AND (play=no) AND temperature in [24.24,30.300098[[0.25]
+(outlook=sunny) AND (play=no) AND (wind=weak)[0.25]
+temperature in [0.0,6.06[ AND (outlook=rain) AND (umidity=normal)[0.25]
+temperature in [0.0,6.06[ AND (umidity=normal) AND (outlook=rain)[0.25]
+temperature in [0.0,6.06[ AND (umidity=normal) AND (wind=strong)[0.25]
+temperature in [0.0,6.06[ AND (umidity=normal) AND (play=yes)[0.25]
+temperature in [0.0,6.06[ AND (wind=strong) AND (umidity=normal)[0.25]
+temperature in [0.0,6.06[ AND (play=yes) AND (umidity=normal)[0.25]
+temperature in [12.12,18.18[ AND (umidity=high) AND (wind=weak)[0.25]
+temperature in [12.12,18.18[ AND (wind=weak) AND (umidity=high)[0.25]
+temperature in [24.24,30.300098[ AND (outlook=sunny) AND (umidity=high)[0.25]
+temperature in [24.24,30.300098[ AND (outlook=sunny) AND (play=no)[0.25]
+temperature in [24.24,30.300098[ AND (umidity=high) AND (outlook=sunny)[0.25]
+temperature in [24.24,30.300098[ AND (umidity=high) AND (wind=weak)[0.25]
+temperature in [24.24,30.300098[ AND (umidity=high) AND (play=no)[0.25]
+temperature in [24.24,30.300098[ AND (wind=weak) AND (umidity=high)[0.25]
+temperature in [24.24,30.300098[ AND (play=no) AND (outlook=sunny)[0.25]
+temperature in [24.24,30.300098[ AND (play=no) AND (umidity=high)[0.25]
+(umidity=high) AND (outlook=sunny) AND temperature in [24.24,30.300098[[0.25]
+(umidity=high) AND (outlook=sunny) AND (wind=weak)[0.25]
+(umidity=high) AND temperature in [12.12,18.18[ AND (wind=weak)[0.25]
+(umidity=high) AND temperature in [24.24,30.300098[ AND (outlook=sunny)[0.25]
+(umidity=high) AND temperature in [24.24,30.300098[ AND (wind=weak)[0.25]
+(umidity=high) AND temperature in [24.24,30.300098[ AND (play=no)[0.25]
+(umidity=high) AND (wind=weak) AND (outlook=sunny)[0.25]
+(umidity=high) AND (wind=weak) AND temperature in [12.12,18.18[[0.25]
+(umidity=high) AND (wind=weak) AND temperature in [24.24,30.300098[[0.25]
+(umidity=high) AND (wind=weak) AND (play=no)[0.25]
+(umidity=high) AND (wind=weak) AND (play=yes)[0.25]
+(umidity=high) AND (play=no) AND temperature in [24.24,30.300098[[0.25]
+(umidity=high) AND (play=no) AND (wind=weak)[0.25]
+(umidity=high) AND (play=yes) AND (wind=weak)[0.25]
+(umidity=normal) AND (outlook=rain) AND temperature in [0.0,6.06[[0.25]
+(umidity=normal) AND temperature in [0.0,6.06[ AND (outlook=rain)[0.25]
+(umidity=normal) AND temperature in [0.0,6.06[ AND (wind=strong)[0.25]
+(umidity=normal) AND temperature in [0.0,6.06[ AND (play=yes)[0.25]
+(umidity=normal) AND (wind=strong) AND temperature in [0.0,6.06[[0.25]
+(umidity=normal) AND (play=yes) AND temperature in [0.0,6.06[[0.25]
+(wind=strong) AND temperature in [0.0,6.06[ AND (umidity=normal)[0.25]
+(wind=strong) AND (umidity=normal) AND temperature in [0.0,6.06[[0.25]
+(wind=weak) AND (outlook=rain) AND (play=yes)[0.25]
+(wind=weak) AND (outlook=sunny) AND (umidity=high)[0.25]
+(wind=weak) AND (outlook=sunny) AND (play=no)[0.25]
+(wind=weak) AND temperature in [12.12,18.18[ AND (umidity=high)[0.25]
+(wind=weak) AND temperature in [24.24,30.300098[ AND (umidity=high)[0.25]
+(wind=weak) AND (umidity=high) AND (outlook=sunny)[0.25]
+(wind=weak) AND (umidity=high) AND temperature in [12.12,18.18[[0.25]
+(wind=weak) AND (umidity=high) AND temperature in [24.24,30.300098[[0.25]
+(wind=weak) AND (umidity=high) AND (play=no)[0.25]
+(wind=weak) AND (umidity=high) AND (play=yes)[0.25]
+(wind=weak) AND (play=no) AND (outlook=sunny)[0.25]
+(wind=weak) AND (play=no) AND (umidity=high)[0.25]
+(wind=weak) AND (play=yes) AND (outlook=rain)[0.25]
+(wind=weak) AND (play=yes) AND (umidity=high)[0.25]
+(play=no) AND (outlook=sunny) AND temperature in [24.24,30.300098[[0.25]
+(play=no) AND (outlook=sunny) AND (wind=weak)[0.25]
+(play=no) AND temperature in [24.24,30.300098[ AND (outlook=sunny)[0.25]
+(play=no) AND temperature in [24.24,30.300098[ AND (umidity=high)[0.25]
+(play=no) AND (umidity=high) AND temperature in [24.24,30.300098[[0.25]
+(play=no) AND (umidity=high) AND (wind=weak)[0.25]
+(play=no) AND (wind=weak) AND (outlook=sunny)[0.25]
+(play=no) AND (wind=weak) AND (umidity=high)[0.25]
+(play=yes) AND (outlook=rain) AND (wind=weak)[0.25]
+(play=yes) AND temperature in [0.0,6.06[ AND (umidity=normal)[0.25]
+(play=yes) AND (umidity=high) AND (wind=weak)[0.25]
+(play=yes) AND (umidity=normal) AND temperature in [0.0,6.06[[0.25]
+(play=yes) AND (wind=weak) AND (outlook=rain)[0.25]
+(play=yes) AND (wind=weak) AND (umidity=high)[0.25]
+(outlook=sunny) AND temperature in [24.24,30.300098[ AND (umidity=high) AND (play=no)[0.25]
+(outlook=sunny) AND temperature in [24.24,30.300098[ AND (play=no) AND (umidity=high)[0.25]
+(outlook=sunny) AND (umidity=high) AND temperature in [24.24,30.300098[ AND (play=no)[0.25]
+(outlook=sunny) AND (umidity=high) AND (wind=weak) AND (play=no)[0.25]
+(outlook=sunny) AND (umidity=high) AND (play=no) AND temperature in [24.24,30.300098[[0.25]
+(outlook=sunny) AND (umidity=high) AND (play=no) AND (wind=weak)[0.25]
+(outlook=sunny) AND (wind=weak) AND (umidity=high) AND (play=no)[0.25]
+(outlook=sunny) AND (wind=weak) AND (play=no) AND (umidity=high)[0.25]
+(outlook=sunny) AND (play=no) AND temperature in [24.24,30.300098[ AND (umidity=high)[0.25]
+(outlook=sunny) AND (play=no) AND (umidity=high) AND temperature in [24.24,30.300098[[0.25]
+(outlook=sunny) AND (play=no) AND (umidity=high) AND (wind=weak)[0.25]
+(outlook=sunny) AND (play=no) AND (wind=weak) AND (umidity=high)[0.25]
+temperature in [24.24,30.300098[ AND (outlook=sunny) AND (umidity=high) AND (play=no)[0.25]
+temperature in [24.24,30.300098[ AND (outlook=sunny) AND (play=no) AND (umidity=high)[0.25]
+temperature in [24.24,30.300098[ AND (umidity=high) AND (outlook=sunny) AND (play=no)[0.25]
+temperature in [24.24,30.300098[ AND (umidity=high) AND (play=no) AND (outlook=sunny)[0.25]
+temperature in [24.24,30.300098[ AND (play=no) AND (outlook=sunny) AND (umidity=high)[0.25]
+temperature in [24.24,30.300098[ AND (play=no) AND (umidity=high) AND (outlook=sunny)[0.25]
+(umidity=high) AND (outlook=sunny) AND temperature in [24.24,30.300098[ AND (play=no)[0.25]
+(umidity=high) AND (outlook=sunny) AND (wind=weak) AND (play=no)[0.25]
+(umidity=high) AND (outlook=sunny) AND (play=no) AND temperature in [24.24,30.300098[[0.25]
+(umidity=high) AND (outlook=sunny) AND (play=no) AND (wind=weak)[0.25]
+(umidity=high) AND temperature in [24.24,30.300098[ AND (outlook=sunny) AND (play=no)[0.25]
+(umidity=high) AND temperature in [24.24,30.300098[ AND (play=no) AND (outlook=sunny)[0.25]
+(umidity=high) AND (wind=weak) AND (outlook=sunny) AND (play=no)[0.25]
+(umidity=high) AND (wind=weak) AND (play=no) AND (outlook=sunny)[0.25]
+(umidity=high) AND (play=no) AND (outlook=sunny) AND temperature in [24.24,30.300098[[0.25]
+(umidity=high) AND (play=no) AND (outlook=sunny) AND (wind=weak)[0.25]
+(umidity=high) AND (play=no) AND temperature in [24.24,30.300098[ AND (outlook=sunny)[0.25]
+(umidity=high) AND (play=no) AND (wind=weak) AND (outlook=sunny)[0.25]
+(wind=weak) AND (outlook=sunny) AND (umidity=high) AND (play=no)[0.25]
+(wind=weak) AND (outlook=sunny) AND (play=no) AND (umidity=high)[0.25]
+(wind=weak) AND (umidity=high) AND (outlook=sunny) AND (play=no)[0.25]
+(wind=weak) AND (umidity=high) AND (play=no) AND (outlook=sunny)[0.25]
+(wind=weak) AND (play=no) AND (outlook=sunny) AND (umidity=high)[0.25]
+(wind=weak) AND (play=no) AND (umidity=high) AND (outlook=sunny)[0.25]
+(play=no) AND (outlook=sunny) AND temperature in [24.24,30.300098[ AND (umidity=high)[0.25]
+(play=no) AND (outlook=sunny) AND (umidity=high) AND temperature in [24.24,30.300098[[0.25]
+(play=no) AND (outlook=sunny) AND (umidity=high) AND (wind=weak)[0.25]
+(play=no) AND (outlook=sunny) AND (wind=weak) AND (umidity=high)[0.25]
+(play=no) AND temperature in [24.24,30.300098[ AND (outlook=sunny) AND (umidity=high)[0.25]
+(play=no) AND temperature in [24.24,30.300098[ AND (umidity=high) AND (outlook=sunny)[0.25]
+(play=no) AND (umidity=high) AND (outlook=sunny) AND temperature in [24.24,30.300098[[0.25]
+(play=no) AND (umidity=high) AND (outlook=sunny) AND (wind=weak)[0.25]
+(play=no) AND (umidity=high) AND temperature in [24.24,30.300098[ AND (outlook=sunny)[0.25]
+(play=no) AND (umidity=high) AND (wind=weak) AND (outlook=sunny)[0.25]
+(play=no) AND (wind=weak) AND (outlook=sunny) AND (umidity=high)[0.25]
+(play=no) AND (wind=weak) AND (umidity=high) AND (outlook=sunny)[0.25]
+(outlook=rain)[0.375]
+(outlook=sunny)[0.375]
+temperature in [0.0,6.06[[0.375]
+temperature in [24.24,30.300098[[0.375]
+(umidity=normal)[0.375]
+(wind=strong)[0.375]
+(outlook=sunny) AND (umidity=high)[0.375]
+(outlook=sunny) AND (play=no)[0.375]
+temperature in [0.0,6.06[ AND (umidity=normal)[0.375]
+temperature in [24.24,30.300098[ AND (umidity=high)[0.375]
+(umidity=high) AND (outlook=sunny)[0.375]
+(umidity=high) AND temperature in [24.24,30.300098[[0.375]
+(umidity=high) AND (play=no)[0.375]
+(umidity=normal) AND temperature in [0.0,6.06[[0.375]
+(wind=weak) AND (play=yes)[0.375]
+(play=no) AND (outlook=sunny)[0.375]
+(play=no) AND (umidity=high)[0.375]
+(play=yes) AND (wind=weak)[0.375]
+(outlook=sunny) AND (umidity=high) AND (play=no)[0.375]
+(outlook=sunny) AND (play=no) AND (umidity=high)[0.375]
+(umidity=high) AND (outlook=sunny) AND (play=no)[0.375]
+(umidity=high) AND (play=no) AND (outlook=sunny)[0.375]
+(play=no) AND (outlook=sunny) AND (umidity=high)[0.375]
+(play=no) AND (umidity=high) AND (outlook=sunny)[0.375]
+(play=no)[0.5]
+(play=yes)[0.5]
+(umidity=high) AND (wind=weak)[0.5]
+(wind=weak) AND (umidity=high)[0.5]
+(umidity=high)[0.625]
+(wind=weak)[0.625]
+
+Emerging patterns
+
+(outlook=rain) AND temperature in [0.0,6.06[[0.25] [Infinity]
+(outlook=sunny) AND temperature in [24.24,30.300098[[0.25] [Infinity]
+temperature in [0.0,6.06[ AND (outlook=rain)[0.25] [Infinity]
+temperature in [0.0,6.06[ AND (wind=strong)[0.25] [Infinity]
+temperature in [12.12,18.18[ AND (wind=weak)[0.25] [Infinity]
+temperature in [24.24,30.300098[ AND (outlook=sunny)[0.25] [Infinity]
+temperature in [24.24,30.300098[ AND (play=no)[0.25] [Infinity]
+(wind=strong) AND temperature in [0.0,6.06[[0.25] [Infinity]
+(wind=weak) AND temperature in [12.12,18.18[[0.25] [Infinity]
+(wind=weak) AND (play=no)[0.25] [Infinity]
+(play=no) AND temperature in [24.24,30.300098[[0.25] [Infinity]
+(play=no) AND (wind=weak)[0.25] [Infinity]
+(outlook=rain) AND temperature in [0.0,6.06[ AND (umidity=normal)[0.25] [Infinity]
+(outlook=rain) AND (umidity=normal) AND temperature in [0.0,6.06[[0.25] [Infinity]
+(outlook=sunny) AND temperature in [24.24,30.300098[ AND (umidity=high)[0.25] [Infinity]
+(outlook=sunny) AND temperature in [24.24,30.300098[ AND (play=no)[0.25] [Infinity]
+(outlook=sunny) AND (umidity=high) AND temperature in [24.24,30.300098[[0.25] [Infinity]
+(outlook=sunny) AND (umidity=high) AND (wind=weak)[0.25] [Infinity]
+(outlook=sunny) AND (wind=weak) AND (umidity=high)[0.25] [Infinity]
+(outlook=sunny) AND (wind=weak) AND (play=no)[0.25] [Infinity]
+(outlook=sunny) AND (play=no) AND temperature in [24.24,30.300098[[0.25] [Infinity]
+(outlook=sunny) AND (play=no) AND (wind=weak)[0.25] [Infinity]
+temperature in [0.0,6.06[ AND (outlook=rain) AND (umidity=normal)[0.25] [Infinity]
+temperature in [0.0,6.06[ AND (umidity=normal) AND (outlook=rain)[0.25] [Infinity]
+temperature in [0.0,6.06[ AND (umidity=normal) AND (wind=strong)[0.25] [Infinity]
+temperature in [0.0,6.06[ AND (wind=strong) AND (umidity=normal)[0.25] [Infinity]
+temperature in [12.12,18.18[ AND (umidity=high) AND (wind=weak)[0.25] [Infinity]
+temperature in [12.12,18.18[ AND (wind=weak) AND (umidity=high)[0.25] [Infinity]
+temperature in [24.24,30.300098[ AND (outlook=sunny) AND (umidity=high)[0.25] [Infinity]
+temperature in [24.24,30.300098[ AND (outlook=sunny) AND (play=no)[0.25] [Infinity]
+temperature in [24.24,30.300098[ AND (umidity=high) AND (outlook=sunny)[0.25] [Infinity]
+temperature in [24.24,30.300098[ AND (umidity=high) AND (wind=weak)[0.25] [Infinity]
+temperature in [24.24,30.300098[ AND (umidity=high) AND (play=no)[0.25] [Infinity]
+temperature in [24.24,30.300098[ AND (wind=weak) AND (umidity=high)[0.25] [Infinity]
+temperature in [24.24,30.300098[ AND (play=no) AND (outlook=sunny)[0.25] [Infinity]
+temperature in [24.24,30.300098[ AND (play=no) AND (umidity=high)[0.25] [Infinity]
+(umidity=high) AND (outlook=sunny) AND temperature in [24.24,30.300098[[0.25] [Infinity]
+(umidity=high) AND (outlook=sunny) AND (wind=weak)[0.25] [Infinity]
+(umidity=high) AND temperature in [12.12,18.18[ AND (wind=weak)[0.25] [Infinity]
+(umidity=high) AND temperature in [24.24,30.300098[ AND (outlook=sunny)[0.25] [Infinity]
+(umidity=high) AND temperature in [24.24,30.300098[ AND (wind=weak)[0.25] [Infinity]
+(umidity=high) AND temperature in [24.24,30.300098[ AND (play=no)[0.25] [Infinity]
+(umidity=high) AND (wind=weak) AND (outlook=sunny)[0.25] [Infinity]
+(umidity=high) AND (wind=weak) AND temperature in [12.12,18.18[[0.25] [Infinity]
+(umidity=high) AND (wind=weak) AND temperature in [24.24,30.300098[[0.25] [Infinity]
+(umidity=high) AND (wind=weak) AND (play=no)[0.25] [Infinity]
+(umidity=high) AND (wind=weak) AND (play=yes)[0.25] [Infinity]
+(umidity=high) AND (play=no) AND temperature in [24.24,30.300098[[0.25] [Infinity]
+(umidity=high) AND (play=no) AND (wind=weak)[0.25] [Infinity]
+(umidity=high) AND (play=yes) AND (wind=weak)[0.25] [Infinity]
+(umidity=normal) AND (outlook=rain) AND temperature in [0.0,6.06[[0.25] [Infinity]
+(umidity=normal) AND temperature in [0.0,6.06[ AND (outlook=rain)[0.25] [Infinity]
+(umidity=normal) AND temperature in [0.0,6.06[ AND (wind=strong)[0.25] [Infinity]
+(umidity=normal) AND (wind=strong) AND temperature in [0.0,6.06[[0.25] [Infinity]
+(wind=strong) AND temperature in [0.0,6.06[ AND (umidity=normal)[0.25] [Infinity]
+(wind=strong) AND (umidity=normal) AND temperature in [0.0,6.06[[0.25] [Infinity]
+(wind=weak) AND (outlook=sunny) AND (umidity=high)[0.25] [Infinity]
+(wind=weak) AND (outlook=sunny) AND (play=no)[0.25] [Infinity]
+(wind=weak) AND temperature in [12.12,18.18[ AND (umidity=high)[0.25] [Infinity]
+(wind=weak) AND temperature in [24.24,30.300098[ AND (umidity=high)[0.25] [Infinity]
+(wind=weak) AND (umidity=high) AND (outlook=sunny)[0.25] [Infinity]
+(wind=weak) AND (umidity=high) AND temperature in [12.12,18.18[[0.25] [Infinity]
+(wind=weak) AND (umidity=high) AND temperature in [24.24,30.300098[[0.25] [Infinity]
+(wind=weak) AND (umidity=high) AND (play=no)[0.25] [Infinity]
+(wind=weak) AND (umidity=high) AND (play=yes)[0.25] [Infinity]
+(wind=weak) AND (play=no) AND (outlook=sunny)[0.25] [Infinity]
+(wind=weak) AND (play=no) AND (umidity=high)[0.25] [Infinity]
+(wind=weak) AND (play=yes) AND (umidity=high)[0.25] [Infinity]
+(play=no) AND (outlook=sunny) AND temperature in [24.24,30.300098[[0.25] [Infinity]
+(play=no) AND (outlook=sunny) AND (wind=weak)[0.25] [Infinity]
+(play=no) AND temperature in [24.24,30.300098[ AND (outlook=sunny)[0.25] [Infinity]
+(play=no) AND temperature in [24.24,30.300098[ AND (umidity=high)[0.25] [Infinity]
+(play=no) AND (umidity=high) AND temperature in [24.24,30.300098[[0.25] [Infinity]
+(play=no) AND (umidity=high) AND (wind=weak)[0.25] [Infinity]
+(play=no) AND (wind=weak) AND (outlook=sunny)[0.25] [Infinity]
+(play=no) AND (wind=weak) AND (umidity=high)[0.25] [Infinity]
+(play=yes) AND (umidity=high) AND (wind=weak)[0.25] [Infinity]
+(play=yes) AND (wind=weak) AND (umidity=high)[0.25] [Infinity]
+(outlook=sunny) AND temperature in [24.24,30.300098[ AND (umidity=high) AND (play=no)[0.25] [Infinity]
+(outlook=sunny) AND temperature in [24.24,30.300098[ AND (play=no) AND (umidity=high)[0.25] [Infinity]
+(outlook=sunny) AND (umidity=high) AND temperature in [24.24,30.300098[ AND (play=no)[0.25] [Infinity]
+(outlook=sunny) AND (umidity=high) AND (wind=weak) AND (play=no)[0.25] [Infinity]
+(outlook=sunny) AND (umidity=high) AND (play=no) AND temperature in [24.24,30.300098[[0.25] [Infinity]
+(outlook=sunny) AND (umidity=high) AND (play=no) AND (wind=weak)[0.25] [Infinity]
+(outlook=sunny) AND (wind=weak) AND (umidity=high) AND (play=no)[0.25] [Infinity]
+(outlook=sunny) AND (wind=weak) AND (play=no) AND (umidity=high)[0.25] [Infinity]
+(outlook=sunny) AND (play=no) AND temperature in [24.24,30.300098[ AND (umidity=high)[0.25] [Infinity]
+(outlook=sunny) AND (play=no) AND (umidity=high) AND temperature in [24.24,30.300098[[0.25] [Infinity]
+(outlook=sunny) AND (play=no) AND (umidity=high) AND (wind=weak)[0.25] [Infinity]
+(outlook=sunny) AND (play=no) AND (wind=weak) AND (umidity=high)[0.25] [Infinity]
+temperature in [24.24,30.300098[ AND (outlook=sunny) AND (umidity=high) AND (play=no)[0.25] [Infinity]
+temperature in [24.24,30.300098[ AND (outlook=sunny) AND (play=no) AND (umidity=high)[0.25] [Infinity]
+temperature in [24.24,30.300098[ AND (umidity=high) AND (outlook=sunny) AND (play=no)[0.25] [Infinity]
+temperature in [24.24,30.300098[ AND (umidity=high) AND (play=no) AND (outlook=sunny)[0.25] [Infinity]
+temperature in [24.24,30.300098[ AND (play=no) AND (outlook=sunny) AND (umidity=high)[0.25] [Infinity]
+temperature in [24.24,30.300098[ AND (play=no) AND (umidity=high) AND (outlook=sunny)[0.25] [Infinity]
+(umidity=high) AND (outlook=sunny) AND temperature in [24.24,30.300098[ AND (play=no)[0.25] [Infinity]
+(umidity=high) AND (outlook=sunny) AND (wind=weak) AND (play=no)[0.25] [Infinity]
+(umidity=high) AND (outlook=sunny) AND (play=no) AND temperature in [24.24,30.300098[[0.25] [Infinity]
+(umidity=high) AND (outlook=sunny) AND (play=no) AND (wind=weak)[0.25] [Infinity]
+(umidity=high) AND temperature in [24.24,30.300098[ AND (outlook=sunny) AND (play=no)[0.25] [Infinity]
+(umidity=high) AND temperature in [24.24,30.300098[ AND (play=no) AND (outlook=sunny)[0.25] [Infinity]
+(umidity=high) AND (wind=weak) AND (outlook=sunny) AND (play=no)[0.25] [Infinity]
+(umidity=high) AND (wind=weak) AND (play=no) AND (outlook=sunny)[0.25] [Infinity]
+(umidity=high) AND (play=no) AND (outlook=sunny) AND temperature in [24.24,30.300098[[0.25] [Infinity]
+(umidity=high) AND (play=no) AND (outlook=sunny) AND (wind=weak)[0.25] [Infinity]
+(umidity=high) AND (play=no) AND temperature in [24.24,30.300098[ AND (outlook=sunny)[0.25] [Infinity]
+(umidity=high) AND (play=no) AND (wind=weak) AND (outlook=sunny)[0.25] [Infinity]
+(wind=weak) AND (outlook=sunny) AND (umidity=high) AND (play=no)[0.25] [Infinity]
+(wind=weak) AND (outlook=sunny) AND (play=no) AND (umidity=high)[0.25] [Infinity]
+(wind=weak) AND (umidity=high) AND (outlook=sunny) AND (play=no)[0.25] [Infinity]
+(wind=weak) AND (umidity=high) AND (play=no) AND (outlook=sunny)[0.25] [Infinity]
+(wind=weak) AND (play=no) AND (outlook=sunny) AND (umidity=high)[0.25] [Infinity]
+(wind=weak) AND (play=no) AND (umidity=high) AND (outlook=sunny)[0.25] [Infinity]
+(play=no) AND (outlook=sunny) AND temperature in [24.24,30.300098[ AND (umidity=high)[0.25] [Infinity]
+(play=no) AND (outlook=sunny) AND (umidity=high) AND temperature in [24.24,30.300098[[0.25] [Infinity]
+(play=no) AND (outlook=sunny) AND (umidity=high) AND (wind=weak)[0.25] [Infinity]
+(play=no) AND (outlook=sunny) AND (wind=weak) AND (umidity=high)[0.25] [Infinity]
+(play=no) AND temperature in [24.24,30.300098[ AND (outlook=sunny) AND (umidity=high)[0.25] [Infinity]
+(play=no) AND temperature in [24.24,30.300098[ AND (umidity=high) AND (outlook=sunny)[0.25] [Infinity]
+(play=no) AND (umidity=high) AND (outlook=sunny) AND temperature in [24.24,30.300098[[0.25] [Infinity]
+(play=no) AND (umidity=high) AND (outlook=sunny) AND (wind=weak)[0.25] [Infinity]
+(play=no) AND (umidity=high) AND temperature in [24.24,30.300098[ AND (outlook=sunny)[0.25] [Infinity]
+(play=no) AND (umidity=high) AND (wind=weak) AND (outlook=sunny)[0.25] [Infinity]
+(play=no) AND (wind=weak) AND (outlook=sunny) AND (umidity=high)[0.25] [Infinity]
+(play=no) AND (wind=weak) AND (umidity=high) AND (outlook=sunny)[0.25] [Infinity]
+(outlook=sunny) AND (umidity=high)[0.375] [Infinity]
+(outlook=sunny) AND (play=no)[0.375] [Infinity]
+temperature in [24.24,30.300098[ AND (umidity=high)[0.375] [Infinity]
+(umidity=high) AND (outlook=sunny)[0.375] [Infinity]
+(umidity=high) AND temperature in [24.24,30.300098[[0.375] [Infinity]
+(play=no) AND (outlook=sunny)[0.375] [Infinity]
+(outlook=sunny) AND (umidity=high) AND (play=no)[0.375] [Infinity]
+(outlook=sunny) AND (play=no) AND (umidity=high)[0.375] [Infinity]
+(umidity=high) AND (outlook=sunny) AND (play=no)[0.375] [Infinity]
+(umidity=high) AND (play=no) AND (outlook=sunny)[0.375] [Infinity]
+(play=no) AND (outlook=sunny) AND (umidity=high)[0.375] [Infinity]
+(play=no) AND (umidity=high) AND (outlook=sunny)[0.375] [Infinity]
+(umidity=high) AND (wind=weak)[0.5] [Infinity]
+(wind=weak) AND (umidity=high)[0.5] [Infinity]
+
+Caso Test 2:
+
+Opzione:Nuova scoperta
+
+Valore di minimo supporto:0.9
+
+Valore minimo di Grow Rate:6
+
+Tabella Target:playtennisTarget
+
+Tabella Background:playtennisBackground
+
+Risultati:
+
+Frequent patterns
+
+Emerging patterns
+data.EmptySetException
+
+Caso Test 3:
+
+Opzione:Risultati in archivio
+
+Valore di minimo supporto:0.5
+
+Valore minimo di Grow Rate:0.5
+
+Tabella Target:playtennisTarget
+
+Tabella Background:playtennisBackground
+
+Risultati:
+
+Frequent patterns
+java.io.FileNotFoundException: FP_playtennis_minSup0.5.dat (Impossibile trovare il file specificato)
+
+La computazione deve essere già stata effettuata in precedenza, altrimenti non viene trovata, come in questo caso.
