@@ -74,7 +74,6 @@ $$
     <li>Installare MySql sul proprio computer</li>
     <li>Eseguire lo script sql (mysqlScript.sql) presente nel percorso "../server/sql"</li>
     <li>Installare JRE 8</li>
-    <li>Installare Maven  <a href="https://maven.apache.org/download.cgi"> (Download di Maven)</a> </li>
     <li> <i>Nota: La porta 3306 è preimpostata nel programma per accedere al database </i></li>
 </ul>
 <h3> Requisiti client ed estensione </h3>
@@ -82,19 +81,15 @@ $$
 <ul>
     <li>Server in ascolto</li>
     <li>Installare JRE 8</li>
-    <li>Installare Maven  <a href="https://maven.apache.org/download.cgi"> (Download di Maven)</a></li>
 </ul>
-
 <h2> Guida utente </h2>
 
-<h3> Compilazione e avvio del server </h3>
+<h3> Avvio del server </h3>
 
-<ol>
-    <li> Eseguire nella cartella /server il comando da terminale <code> mvn clean compile assembly:single </code> </li>
-    <li>Il file jar eseguibile si trova nella cartella /target </li>
-    <li>Avviare il server eseguendo il comando da terminale <code>java -jar epServer-1.0-jar-with-dependencies.jar</code></li>
-    <li>Il server sarà automaticamente in ascolto sulla porta 8080</li>
-</ol>
+<ul>
+    <li> Nella cartella /jar sono presenti il file .jar e i due script per avviare il programma sia su sistemi GNU\Linux che su sistemi MS-Windows. Per il primo caso basta il comando da shell <code>bash EPserver.sh</code> mentre nel secondo caso basta cliccare sul file EPserver.bat </li>
+</ul>
+
 ![](C:\Users\Ferdo\Desktop\sg\WhatsApp Image 2021-10-23 at 19.27.10 (1).jpeg)
 
 ![](C:\Users\Ferdo\Desktop\sg\WhatsApp Image 2021-10-23 at 19.27.11 (1).jpeg)
@@ -102,28 +97,25 @@ $$
 
 <h3> Compilazione e avvio del client </h3>
 
-<ol>
-    <li>Eseguire nella cartella /client il comando da terminale <code>mvn package</code></li>
-    <li>Il file jar eseguibile si trova nella cartella /target </li>
-    <li>Avviare il client tramite il comando <code>java -jar epClient-1.0.jar</code> specificando l'host (localhost) e la porta (porta di defuallt del server: 8080) </li></ol>
+<ul>
+     <li> Nella cartella /jar sono presenti il file .jar e i due script per avviare il programma sia su sistemi GNU\Linux che su sistemi MS-Windows. Per il primo caso basta il comando da shell <code>bash EPclient.sh</code> mentre nel secondo caso basta cliccare sul file EPclient.bat </li></ul>
+
 ![](C:\Users\Ferdo\Desktop\sg\WhatsApp Image 2021-10-23 at 19.27.10.jpeg)
 
 ![](C:\Users\Ferdo\Desktop\sg\WhatsApp Image 2021-10-23 at 19.27.11 (2).jpeg)
 
-Appena un client si connette, il server accetta la richiesta:
+Appena il client si connette, il server accetta la richiesta:
 
 ![](C:\Users\Ferdo\Desktop\sg\WhatsApp Image 2021-10-23 at 19.27.11 (3).jpeg)
 
 
 <h3> Compilazione e avvio dell'estensione </h3>
 
-<ol>
-    <li>Eseguire nella cartella /estensione il comando da terminale <code>mvn package</code></li>
-    <li>Il file jar eseguibile si trova nella cartella /target </li>
-    <li>Avviare il programma tramite il comando <code>java -jar epGui-1.0.jar</code></li></ol>
-![](C:\Users\Ferdo\Desktop\sg\WhatsApp Image 2021-10-23 at 19.27.11.jpeg)
+<ul>
+     <li> Nella cartella /jar sono presenti il file .jar e i due script per avviare il programma sia su sistemi GNU\Linux che su sistemi MS-Windows. Per il primo caso basta il comando da shell <code>bash EPgui.sh</code> mentre nel secondo caso basta cliccare sul file EPgui.bat </li>
+</ul>
 
-dato che il file jar è un file eseguibile, basta fare doppio click.
+![](C:\Users\Ferdo\Desktop\sg\WhatsApp Image 2021-10-23 at 19.27.11.jpeg)
 
 <h3> Guida utilizzo client </h3>
 
