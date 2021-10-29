@@ -6,8 +6,7 @@
     <li>Simone Gramegna (717041) mail: s.gramegna5@studenti.uniba.it
     </li>
     <li> Federico Canistro (723320) mail: f.canistro@studenti.uniba.it</li></ul>
-
-<p> Il software realizzato utilizza l'algoritmo Apriori per scoprire pattern frequenti e pattern emergenti elaborando dati estratti da tabelle di database utilizzando il servizio MySQL </p>
+<p> Il software realizzato utilizza l'algoritmo Apriori per scoprire pattern frequenti e pattern emergenti elaborando dati estratti da tabelle di database utilizzando il servizio MySQL. </p>
 
 <p>
     I dati di input dell'algoritmo sono:
@@ -89,58 +88,50 @@ $$
 <ul>
     <li> Nella cartella /jar sono presenti il file .jar e i due script per avviare il programma sia su sistemi GNU\Linux che su sistemi MS-Windows. Per il primo caso basta il comando da shell <code>bash EPserver.sh</code> mentre nel secondo caso basta cliccare sul file EPserver.bat </li>
 </ul>
+![](C:\Users\Ferdo\Desktop\epminer_2021\screenshots\screen1.png)
 
-![](C:\Users\Ferdo\Desktop\sg\WhatsApp Image 2021-10-23 at 19.27.10 (1).jpeg)
-
-![](C:\Users\Ferdo\Desktop\sg\WhatsApp Image 2021-10-23 at 19.27.11 (1).jpeg)
-
-
-<h3> Compilazione e avvio del client </h3>
+<h3> Avvio del client </h3>
 
 <ul>
      <li> Nella cartella /jar sono presenti il file .jar e i due script per avviare il programma sia su sistemi GNU\Linux che su sistemi MS-Windows. Per il primo caso basta il comando da shell <code>bash EPclient.sh</code> mentre nel secondo caso basta cliccare sul file EPclient.bat </li></ul>
-
-![](C:\Users\Ferdo\Desktop\sg\WhatsApp Image 2021-10-23 at 19.27.10.jpeg)
-
-![](C:\Users\Ferdo\Desktop\sg\WhatsApp Image 2021-10-23 at 19.27.11 (2).jpeg)
+![](C:\Users\Ferdo\Desktop\epminer_2021\screenshots\screen3-client.png)
 
 Appena il client si connette, il server accetta la richiesta:
 
-![](C:\Users\Ferdo\Desktop\sg\WhatsApp Image 2021-10-23 at 19.27.11 (3).jpeg)
+![](C:\Users\Ferdo\Desktop\epminer_2021\screenshots\screen2.png)
 
-
-<h3> Compilazione e avvio dell'estensione </h3>
+<h3> Avvio dell'estensione </h3>
 
 <ul>
      <li> Nella cartella /jar sono presenti il file .jar e i due script per avviare il programma sia su sistemi GNU\Linux che su sistemi MS-Windows. Per il primo caso basta il comando da shell <code>bash EPgui.sh</code> mentre nel secondo caso basta cliccare sul file EPgui.bat </li>
 </ul>
 
-![](C:\Users\Ferdo\Desktop\sg\WhatsApp Image 2021-10-23 at 19.27.11.jpeg)
+![](C:\Users\Ferdo\Desktop\epminer_2021\screenshots\screen4interf.png)
 
 <h3> Guida utilizzo client </h3>
 
 <p> Appena avviato il client, il programma cheide se eseguire una nuova (1) scoperta oppure prendere delle computazioni già presenti in archivio (2)</p>
 
-![](C:\Users\Ferdo\Desktop\sg\WhatsApp Image 2021-10-23 at 19.27.11 (2).jpeg)
+![](C:\Users\Ferdo\Desktop\epminer_2021\screenshots\s1.png)
 
 <p> Digitando 1 e selezionando una nuova scoperta sulle tabelle, il programma chiede di inserire un valore di minimo supporto (maggiore di zero e minore o uguale a uno), per poi chiedere in input un valore minimo di grow rate (maggiore di zero) </p>
 
-![](C:\Users\Ferdo\Desktop\sg\WhatsApp Image 2021-10-23 at 19.27.11 (4).jpeg)
+![](C:\Users\Ferdo\Desktop\epminer_2021\screenshots\s2.png)
 
 <p>
     Dopodiché viene richiesto in input il nome della tabella target (playtennisTarget) ed il nome della tabella di background (playtennisBackground)</p>
 
-![](C:\Users\Ferdo\Desktop\sg\WhatsApp Image 2021-10-23 at 19.27.12 (3).jpeg)
+![](C:\Users\Ferdo\Desktop\epminer_2021\screenshots\s3.png)
 
 <p> In output avrò i prima i Pattern Emergenti e poi i Pattern Frequenti </p>
 
-![](C:\Users\Ferdo\Desktop\sg\WhatsApp Image 2021-10-23 at 19.27.12 (4).jpeg)
+![](C:\Users\Ferdo\Desktop\epminer_2021\screenshots\s4.png)
 
-![](C:\Users\Ferdo\Desktop\sg\WhatsApp Image 2021-10-23 at 19.27.12 (5).jpeg)
+![](C:\Users\Ferdo\Desktop\epminer_2021\screenshots\Schermata da 2021-10-23 18-57-08.png)
 
 <p> Selezionando l'opzione 2 (risultati in archivio), i passi del programma sono gli stessi precredenti ma stavolta i risultati dati in output sono caricati da file presenti nella memoria secondaria</p>
 
-![](C:\Users\Ferdo\Desktop\sg\WhatsApp Image 2021-10-23 at 19.27.12 (6).jpeg)
+![](C:\Users\Ferdo\Desktop\epminer_2021\screenshots\Schermata da 2021-10-23 19-17-57.png)
 
 <p> In entrambi i casi il programma chiede all'utente se vuole continuare per altre computazioni </p>
 
@@ -152,21 +143,21 @@ Appena il client si connette, il server accetta la richiesta:
 
 <p> La finestra principale presenta tre bottoni: uno per avviare una nuova scoperta, uno per prendere dei risultati in archivio e l'ultimo per uscire dal programma. Il client stavolta si connette in automatico alla porta di default del server </p>
 
-![](C:\Users\Ferdo\Desktop\sg\WhatsApp Image 2021-10-23 at 19.27.11 (5).jpeg)
+![](C:\Users\Ferdo\Desktop\epminer_2021\screenshots\Schermata da 2021-10-10 14-19-39.png)
 
 <p> Cliccando sia su <i> Nuova scoperta </i> che su <i> Risultati in archivio </i> la finestra mostra una nuova schermata in cui è possibile inserire i valori di minimo supporto e di grow rate. Se i valori sono errati e non soddisfano l'intervallo richiesto, una serie di alert compaiono a video inoltre i due input sono resettati. 
 Tramite due spinner è possibile selezionare le tabelle target e background già presenti
 </p>
 
-![](C:\Users\Ferdo\Desktop\sg\WhatsApp Image 2021-10-23 at 19.27.11 (6).jpeg)
+![](C:\Users\Ferdo\Desktop\epminer_2021\screenshots\Schermata da 2021-10-10 14-19-47.png)
 
 <p> Tramite il bottone in basso, i dati inseriti, se sono corretti, sono inviati al server, altrimenti compare un messaggio di errore</p>
 
-![](C:\Users\Ferdo\Desktop\sg\WhatsApp Image 2021-10-23 at 19.27.12 (2).jpeg)
+![](C:\Users\Ferdo\Desktop\epminer_2021\screenshots\Schermata da 2021-10-23 18-25-19.png)
 
 <p> Appena la computazione termina, si apre una finestra di dialogo che mostra i pattern frequenti, i pattern emeergenti inoltre i dati inseriti dall'utente e inviati al server </p>
 
-![](C:\Users\Ferdo\Desktop\sg\WhatsApp Image 2021-10-23 at 19.27.12 (1).jpeg)
+![](C:\Users\Ferdo\Desktop\epminer_2021\screenshots\Schermata da 2021-10-23 18-24-57.png)
 
 <p> Tramite il bottone in basso è possibile avviare una nuova computazione, ritornando alla finestra principale </p>
 
