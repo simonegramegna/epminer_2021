@@ -161,9 +161,9 @@ Tramite due spinner è possibile selezionare le tabelle target e background già
 
 <p> Tramite il bottone in basso è possibile avviare una nuova computazione, ritornando alla finestra principale </p>
 
-<h3> Esempi di test </h3>
+<h2> Esempi di test </h2>
 
-Caso Test 1:
+<h3> Caso di test 1 </h3>
 
 Opzione:Nuova scoperta
 
@@ -516,7 +516,7 @@ temperature in [24.24,30.300098[ AND (umidity=high)[0.375] [Infinity]
 (umidity=high) AND (wind=weak)[0.5] [Infinity]
 (wind=weak) AND (umidity=high)[0.5] [Infinity]
 
-Caso Test 2:
+<h3> Caso di test 2  </h3>
 
 Opzione:Nuova scoperta
 
@@ -535,7 +535,7 @@ Frequent patterns
 Emerging patterns
 data.EmptySetException
 
-Caso Test 3:
+<h3> Caso di test 3 </h3>
 
 Opzione:Risultati in archivio
 
